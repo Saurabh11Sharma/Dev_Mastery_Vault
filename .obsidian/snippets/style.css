@@ -1,0 +1,5 @@
+
+.theme-light .callout, .theme-dark .callout { box-shadow:0 4px rgb(var(--callout-color)); padding:6px; }
+.callout[data-callout="tip"]{--callout-color:100,200,255;}
+.callout[data-callout="warning"]{--callout-color:255,100,100;}
+table{border:1px solid var(--background-modifier-border);border-radius:3px;}

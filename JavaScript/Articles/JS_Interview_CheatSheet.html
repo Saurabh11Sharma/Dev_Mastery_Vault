@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        
+        
+            <title>JavaScript Interview Prep Cheatsheet – Ace Your Coding Interviews with These Concepts</title>
+        
+        <meta name="HandheldFriendly" content="True">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Roboto+Mono:wght@400;700&display=swap">
+        
+
+        
+        
+    <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.freecodecamp.org/news-assets/prism/1.29.0/themes/prism.min.css">
+<noscript>
+  <link rel="stylesheet" href="https://cdn.freecodecamp.org/news-assets/prism/1.29.0/themes/prism.min.css">
+</noscript>
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.freecodecamp.org/news-assets/prism/1.29.0/plugins/unescaped-markup/prism-unescaped-markup.min.css">
+<noscript>
+  <link rel="stylesheet" href="https://cdn.freecodecamp.org/news-assets/prism/1.29.0/plugins/unescaped-markup/prism-unescaped-markup.min.css">
+</noscript>
+
+<script defer="" src="https://cdn.freecodecamp.org/news-assets/prism/1.29.0/components/prism-core.min.js"></script>
+<script defer="" src="https://cdn.freecodecamp.org/news-assets/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+
+
+        
+        <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/news/assets/css/global-5a272ab5e0.css">
+        <link rel="stylesheet" type="text/css" href="/news/assets/css/screen-73acb3583e.css">
+        <link rel="stylesheet" type="text/css" href="/news/assets/css/search-bar-124f5f949c.css">
+
+        
+        <script defer="" src="https://cdn.freecodecamp.org/news-assets/algolia/algoliasearch-3-33-0/algoliasearch.min.js"></script>
+        <script defer="" src="https://cdn.freecodecamp.org/news-assets/algolia/autocomplete-0-36-0/autocomplete.min.js"></script>
+
+        
+        <script defer="" src="https://cdn.freecodecamp.org/news-assets/dayjs/1.10.4/dayjs.min.js"></script>
+        <script defer="" src="https://cdn.freecodecamp.org/news-assets/dayjs/1.10.4/localizedFormat.min.js"></script>
+        <script defer="" src="https://cdn.freecodecamp.org/news-assets/dayjs/1.10.4/relativeTime.min.js"></script>
+
+        
+        
+            <script defer="" src="https://cdn.freecodecamp.org/news-assets/dayjs/1.10.4/locale/en.min.js"></script>
+        
+
+        
+        <script>let client,index;document.addEventListener("DOMContentLoaded",()=>{client=algoliasearch("QMJYL5WYTI","89770b24481654192d7a5c402c6ad9a0"),index=client.initIndex("news")}),document.addEventListener("DOMContentLoaded",()=>{const e=window.screen.width,t=window.screen.height,n=e>=767&&t>=768?8:5,o=document.getElementById("search-form"),s=document.getElementById("search-input"),a=document.getElementById("dropdown-container");let i,d,c;s.addEventListener("input",e=>{i=e.target.value}),o.addEventListener("submit",e=>{e.preventDefault(),function(){if(d=document.getElementsByClassName("aa-cursor")[0],d&&i){const e=d.querySelector("a").href;window.location.assign(e)}else!d&&i&&c&&window.location.assign(`https://www.freecodecamp.org/news/search?query=${i}`)}()});const l=autocomplete("#search-input",{hint:!1,keyboardShortcuts:["s",191],openOnFocus:!0,appendTo:a,debug:!0},[{source:autocomplete.sources.hits(index,{hitsPerPage:n}),debounce:250,templates:{suggestion:e=>(c=!0,`\n            <a href="${e.url}">\n              <div class="algolia-result">\n                <span>${e._highlightResult.title.value}</span>\n              </div>\n            </a>\n          `),empty:()=>(c=!1,'\n            <div class="aa-suggestion footer-suggestion no-hits-footer">\n              <div class="algolia-result">\n                <span>\n                  No results found\n                </span>\n              </div>\n            </div>\n          '),footer:e=>{if(!e.isEmpty)return`\n              <div class="aa-suggestion footer-suggestion">\n                <a id="algolia-footer-selector" href="https://www.freecodecamp.org/news/search?query=${i}">\n                  <div class="algolia-result algolia-footer">\n                    See all results for ${i}\n                  </div>\n                </a>\n              </div>\n            `}}}]).on("autocomplete:selected",(e,t,n,o)=>{d=t?t.url:`https://www.freecodecamp.org/news/search?query=${i}`,"click"!==o.selectionMethod&&"tabKey"!==o.selectionMethod&&c&&window.location.assign(d)});document.addEventListener("click",e=>{e.target!==s&&l.autocomplete.close()})}),document.addEventListener("DOMContentLoaded",()=>{dayjs.extend(dayjs_plugin_localizedFormat),dayjs.extend(dayjs_plugin_relativeTime),dayjs.locale("en")});const isAuthenticated=document.cookie.split(";").some(e=>e.trim().startsWith("jwt_access_token=")),isDonor=document.cookie.split(";").some(e=>e.trim().startsWith("isDonor=true"));</script>
+
+        
+            <script src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossorigin="anonymous" async=""></script>
+        
+
+        
+        
+    
+        
+            <script>
+document.addEventListener('DOMContentLoaded', function() {
+    var sidebar = document.querySelector('.sidebar');
+    var isSideBarDisplayed = window.getComputedStyle(sidebar).display !== 'none';
+    function prepareAdSlot(elementId) {
+        // Get the element by ID
+        const targetElement = document.getElementById(elementId);
+
+        // Ensure the element exists before proceeding
+        if (!targetElement) {
+            console.error(`Element with ID ${elementId} not found`);
+            return;
+        }
+
+        const parentElement = targetElement.parentElement;
+        // Change the background color of the parent element
+
+        if (parentElement) {
+            console.log(elementId)
+
+            if (elementId === 'gam-ad-bottom' ) {
+                parentElement.style.backgroundColor = '#eeeef0';
+                if(getComputedStyle(parentElement).visibility === 'hidden') {
+                    parentElement.style.visibility = 'inherit'; 
+                }
+            }
+
+            // Get the sibling elements
+            const siblingElements = parentElement.children;
+
+            for (let i = 0; i < siblingElements.length; i++) {
+                const sibling = siblingElements[i];
+
+                // Skip the element itself
+                if (sibling === targetElement) continue;
+
+                // Log the sibling or perform any other action
+                console.log('Found sibling:', sibling);
+
+                // Check visibility
+                if(getComputedStyle(sibling).visibility === 'hidden') {
+                    sibling.style.visibility = 'inherit'; 
+                }
+
+                // Check if display is 'none', then change it to 'block'
+                if (getComputedStyle(sibling).display === 'none') {
+                    sibling.style.display = 'block'; 
+                }
+            }
+        } else {
+            console.warn('No parent element found');
+        }
+    }
+
+    
+    window.googletag = window.googletag || {cmd: []};
+    googletag.cmd.push(function() {
+
+        if(isSideBarDisplayed){
+            var sidebarHeight = sidebar.offsetHeight;
+            var adTextSideBarHeight = 0;
+            var sideBarAdContainert = 600 + 17;
+        
+            var styles = window.getComputedStyle(sidebar);
+            var avaiableSideAdSpace = sidebarHeight - adTextSideBarHeight - parseFloat(styles.paddingTop) - parseFloat(styles.paddingBottom);
+            var numSideElements = Math.floor(avaiableSideAdSpace / sideBarAdContainert);
+            for (var i = 0; i < numSideElements; i++) {
+                // container element
+                var containerElement = document.createElement('div');
+                containerElement.classList.add('ad-wrapper');
+
+                //text element
+                var textElement = document.createElement('div');
+                textElement.classList.add('ad-text');
+                textElement.innerText = localizedAdText;
+
+                // ad element
+                var adElement = document.createElement('div');
+                var sideAdElementId = 'side-gam-ad-' + i;
+                adElement.id = sideAdElementId;
+                adElement.classList.add('side-bar-ad-slot');
+
+                // finalize setup
+                containerElement.appendChild(textElement);
+                containerElement.appendChild(adElement);
+                sidebar.appendChild(containerElement);
+                googletag.defineSlot('/23075930536/post-side', [[292, 30], [240, 400], [300, 75], [216, 54], [250, 360], [300, 50], 'fluid', [300, 31], [120, 20], [300, 250], [120, 30], [180, 150], [200, 446], [168, 42], [200, 200], [160, 600], [120, 90], [125, 125], [240, 133], [120, 60], [1, 1], [120, 240], [220, 90], [216, 36], [250, 250], [168, 28], [234, 60], [120, 600], [300, 600], [88, 31], [300, 100]], sideAdElementId).addService(googletag.pubads());
+            }
+        }
+
+        // Define bottom ad
+        googletag.defineSlot('/23075930536/post-bottom', ['fluid'], 'gam-ad-bottom').addService(googletag.pubads());
+
+        // Enable lazy loading with default settings.
+        googletag.pubads().enableLazyLoad();
+
+        googletag.pubads().addEventListener("slotRequested", (event) => {
+            console.log(`Slot ${event.slot.getSlotElementId()} fetched`);
+        });
+
+        googletag.pubads().addEventListener("slotOnload", (event) => {
+            const elementId = event.slot.getSlotElementId();
+            prepareAdSlot(elementId);
+            console.log(`Slot ${event.slot.getSlotElementId()} rendered`);
+        });
+
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+
+
+        // Trigger lazy loading
+        googletag.display('gam-ad-bottom');
+
+    });
+});
+</script>
+
+        
+    
+
+
+        
+            <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5D6RKKP');</script>
+
+        
+        
+        
+        
+    
+        
+    
+        
+    
+        
+    
+
+
+        
+        
+        
+
+        
+        
+
+        <link rel="icon" href="https://cdn.freecodecamp.org/universal/favicons/favicon.ico" type="image/png">
+        
+        
+            <link rel="canonical" href="https://www.freecodecamp.org/news/javascript-interview-prep-cheatsheet/">
+        
+        <meta name="referrer" content="no-referrer-when-downgrade">
+
+        
+
+        
+    <meta name="description" content="By rajat gupta I&#39;ve carefully gone through over 50 resources, I&#39;ve been through 10 JavaScript interviews, and I&#39;ve landed a job at a unicorn startup. And throughout this entire process, I started to see a pattern in the most frequently asked JS inter...">
+
+    
+    <meta property="og:site_name" content="freeCodeCamp.org">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="JavaScript Interview Prep Cheatsheet – Ace Your Coding Interviews with These Concepts">
+    
+        <meta property="og:description" content="By rajat gupta I&#39;ve carefully gone through over 50 resources, I&#39;ve been through 10 JavaScript interviews, and I&#39;ve landed a job at a unicorn startup. And throughout this entire process, I started to see a pattern in the most frequently asked JS inter...">
+    
+    <meta property="og:url" content="https://www.freecodecamp.org/news/javascript-interview-prep-cheatsheet/">
+    <meta property="og:image" content="https://www.freecodecamp.org/news/content/images/2021/06/JS-Interview--2-.png">
+    <meta property="article:published_time" content="2021-07-07T15:43:17.000Z">
+    <meta property="article:modified_time" content="2021-07-07T15:43:17.000Z">
+    
+        <meta property="article:tag" content="coding interview">
+    
+        <meta property="article:tag" content="Interview tips">
+    
+        <meta property="article:tag" content="JavaScript">
+    
+    <meta property="article:publisher" content="https://www.facebook.com/freecodecamp">
+    
+
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="JavaScript Interview Prep Cheatsheet – Ace Your Coding Interviews with These Concepts">
+    
+        <meta name="twitter:description" content="By rajat gupta I&#39;ve carefully gone through over 50 resources, I&#39;ve been through 10 JavaScript interviews, and I&#39;ve landed a job at a unicorn startup. And throughout this entire process, I started to see a pattern in the most frequently asked JS inter...">
+    
+    <meta name="twitter:url" content="https://www.freecodecamp.org/news/javascript-interview-prep-cheatsheet/">
+    <meta name="twitter:image" content="https://www.freecodecamp.org/news/content/images/2021/06/JS-Interview--2-.png">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="freeCodeCamp">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="coding interview, Interview tips, JavaScript">
+    <meta name="twitter:site" content="@freecodecamp">
+    
+        <meta name="twitter:creator" content="@freecodecamp">
+    
+
+    <meta property="og:image:width" content="600">
+    <meta property="og:image:height" content="400">
+
+
+        
+    <script type="application/ld+json">{
+	"@context": "https://schema.org",
+	"@type": "Article",
+	"publisher": {
+		"@type": "Organization",
+		"name": "freeCodeCamp.org",
+		"url": "https://www.freecodecamp.org/news/",
+		"logo": {
+			"@type": "ImageObject",
+			"url": "https://cdn.freecodecamp.org/platform/universal/fcc_primary.svg",
+			"width": 2100,
+			"height": 240
+		}
+	},
+	"image": {
+		"@type": "ImageObject",
+		"url": "https://www.freecodecamp.org/news/content/images/2021/06/JS-Interview--2-.png",
+		"width": 600,
+		"height": 400
+	},
+	"url": "https://www.freecodecamp.org/news/javascript-interview-prep-cheatsheet/",
+	"mainEntityOfPage": {
+		"@type": "WebPage",
+		"@id": "https://www.freecodecamp.org/news/"
+	},
+	"datePublished": "2021-07-07T15:43:17.000Z",
+	"dateModified": "2021-07-07T15:43:17.000Z",
+	"keywords": "coding interview, Interview tips, JavaScript",
+	"description": "By rajat gupta\nI&#x27;ve carefully gone through over 50 resources, I&#x27;ve been through 10 JavaScript interviews, and I&#x27;ve landed a job at a unicorn startup.\nAnd throughout this entire process, I started to see a pattern in the most frequently asked JS inter...",
+	"headline": "JavaScript Interview Prep Cheatsheet – Ace Your Coding Interviews with These Concepts",
+	"author": {
+		"@type": "Person",
+		"name": "freeCodeCamp",
+		"url": "https://www.freecodecamp.org/news/author/freeCodeCamp/",
+		"sameAs": [
+			"https://www.freecodecamp.org",
+			"https://x.com/freecodecamp"
+		],
+		"image": {
+			"@type": "ImageObject",
+			"url": "https://cdn.hashnode.com/res/hashnode/image/upload/v1712072540742/C7c8AOPN6.png",
+			"width": 600,
+			"height": 600
+		}
+	}
+}</script>
+
+
+        <meta name="generator" content="Eleventy">
+        <link rel="alternate" type="application/rss+xml" title="freeCodeCamp.org" href="https://www.freecodecamp.org/news/rss/">
+
+        
+        
+
+        
+  <meta name="x-fcc-source" data-test-label="x-fcc-source" content="Hashnode">
+
+    </head>
+
+    
+        <body class="home-template">
+    
+
+    
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5D6RKKP" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    
+
+        <div class="site-wrapper">
+            <nav class="site-nav nav-padding">
+    <div class="site-nav-left">
+        
+<form id="search-form" data-test-label="search-bar">
+    <div role="search" class="searchbox__wrapper">
+        <label class="fcc_sr_only" for="search-input">
+            Search
+        </label>
+        <input type="search" placeholder="
+    Search our news articles, tutorials, and books
+" id="search-input">
+        <button type="submit" class="ais-SearchBox-submit">
+            <svg class="ais-SearchBox-submitIcon" xmlns="https://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 40 40">
+    <path d="M26.804 29.01c-2.832 2.34-6.465 3.746-10.426 3.746C7.333 32.756 0 25.424 0 16.378 0 7.333 7.333 0 16.378 0c9.046 0 16.378 7.333 16.378 16.378 0 3.96-1.406 7.594-3.746 10.426l10.534 10.534c.607.607.61 1.59-.004 2.202-.61.61-1.597.61-2.202.004L26.804 29.01zm-10.426.627c7.323 0 13.26-5.936 13.26-13.26 0-7.32-5.937-13.257-13.26-13.257C9.056 3.12 3.12 9.056 3.12 16.378c0 7.323 5.936 13.26 13.258 13.26z"></path>
+</svg>
+
+            <span class="fcc_sr_only">Submit your search query</span>
+        </button>
+        <div id="dropdown-container"></div>
+    </div>
+</form>
+
+    </div>
+    <div class="site-nav-middle">
+        <a class="site-nav-logo" href="https://www.freecodecamp.org/news/" data-test-label="site-nav-logo"><img src="https://cdn.freecodecamp.org/platform/universal/fcc_primary.svg" alt="freeCodeCamp.org"></a>
+    </div>
+    <div class="site-nav-right">
+        <div class="nav-group">
+            <a class="nav-forum" id="nav-forum" rel="noopener noreferrer" href="https://forum.freecodecamp.org/" target="_blank" data-test-label="forum-button">Forum</a>
+            <a class="toggle-button-nav" id="nav-donate" rel="noopener noreferrer" href="https://www.freecodecamp.org/donate/" target="_blank" data-test-label="donate-button">Donate</a>
+        </div>
+    </div>
+</nav>
+
+
+            
+            <a class="banner" id="banner" data-test-label="banner" rel="noopener noreferrer" target="_blank">
+    <p id="banner-text"></p>
+</a>
+
+
+    
+    <script>document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("banner"),t=document.getElementById("banner-text");if(isAuthenticated){t.innerHTML=isDonor?"Thank you for supporting freeCodeCamp through <span>your donations</span>.":"Support our charity and our mission. <span>Donate to freeCodeCamp.org</span>.",e.href=isDonor?"https://www.freecodecamp.org/news/how-to-donate-to-free-code-camp/":"https://www.freecodecamp.org/donate";const o=isDonor?"donor":"authenticated";e.setAttribute("text-variation",o)}else t.innerHTML="Learn to code — <span>free 3,000-hour curriculum</span>",e.href="https://www.freecodecamp.org/",e.setAttribute("text-variation","default")});</script>
+
+
+            <div id="error-message"></div>
+
+            
+    <main id="site-main" class="post-template site-main outer">
+        <div class="inner ad-layout">
+            <article class="post-full post">
+                <header class="post-full-header">
+                    <section class="post-full-meta">
+                        <time class="post-full-meta-date" data-test-label="post-full-meta-date" datetime="2021-07-07T15:43:17.000Z">
+                            July 7, 2021
+                        </time>
+                        
+                            <span class="date-divider">/</span>
+                            <a dir="ltr" href="/news/tag/coding-interview/">
+                                #coding interview
+                            </a>
+                        
+                    </section>
+                    <h1 class="post-full-title" data-test-label="post-full-title">JavaScript Interview Prep Cheatsheet – Ace Your Coding Interviews with These Concepts</h1>
+                </header>
+                
+                <figure class="post-full-image">
+                    
+    <picture>
+      <source media="(max-width: 700px)" sizes="1px" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 1w">
+      <source media="(min-width: 701px)" sizes="(max-width: 800px) 400px, (max-width: 1170px) 700px, 1400px" srcset="https://www.freecodecamp.org/news/content/images/size/w300/2021/06/JS-Interview--2-.png 300w, https://www.freecodecamp.org/news/content/images/size/w600/2021/06/JS-Interview--2-.png 600w, https://www.freecodecamp.org/news/content/images/size/w1000/2021/06/JS-Interview--2-.png 1000w, https://www.freecodecamp.org/news/content/images/size/w2000/2021/06/JS-Interview--2-.png 2000w">
+      <img onerror="this.style.display='none'" src="https://www.freecodecamp.org/news/content/images/size/w2000/2021/06/JS-Interview--2-.png" alt="JavaScript Interview Prep Cheatsheet – Ace Your Coding Interviews with These Concepts" ,="" width="600" height="400" data-test-label="feature-image">
+    </picture>
+  
+                </figure>
+                <section class="post-full-content">
+                    <div class="post-and-sidebar">
+                        <section class="post-content " data-test-label="post-content">
+                            
+<p>By rajat gupta</p>
+<p>I've carefully gone through over <strong>50</strong> resources, I've been through <strong>10</strong> JavaScript interviews, and I've landed a <strong>job</strong> at a unicorn startup.</p>
+<p>And throughout this entire process, I started to see a <em>pattern</em> in the most frequently asked JS interview questions. </p>
+<p>In this article, I have tried to list the concepts which will cover <strong>80%</strong> of any good JS interview.</p>
+<p>So, if you are prepping for your next JS interview this is the perfect cheatsheet for you to review and solidify your skills. Go through this and you'll be ready to rock. 💃</p>
+<h2 id="heading-prerequisites">📝Prerequisites</h2>
+<ul>
+<li>Basic knowledge of the web and programming</li>
+<li>Familiarity with HTML/CSS and JavaScript (especially ES6+ syntax)</li>
+</ul>
+<h2 id="heading-table-of-contents">Table Of Contents 📜</h2>
+<ul>
+<li><a class="post-section-overview" href="#heading-javascript-basics">JavaScript Basics</a> – JS Variables and Array Methods</li>
+<li><a class="post-section-overview" href="#heading-functional-programming-in-javascript">Functional Programming in JavaScript</a> – Scope, Closures, and Hoisting</li>
+<li><a class="post-section-overview" href="#heading-objects-in-javascript">Objects in JavaScript</a> – Prototypes and "this"</li>
+<li><a class="post-section-overview" href="#heading-asynchronous-javascript">Asynchronous JavaScript</a> – Event Loops, Timers, and Promises</li>
+<li><a class="post-section-overview" href="#heading-advanced-javascript-concepts-to-know">Advanced JavaScript Concepts to Know</a> - Async/defer, Polyfills, Debouncing, and Throttling </li>
+<li><a class="post-section-overview" href="#heading-storage-in-javascript">Storage in JavaScript</a></li>
+</ul>
+<p><strong>Caveat:</strong> The focus here will largely be to cover concepts relevant to the interview and not to create a comprehensive booklet for learning the language. Treat this more like a cheatsheet.</p>
+<p>If you want to dive in deeply and learn more JS concepts, check out <a target="_blank" href="https://www.freecodecamp.org/learn/">freeCodeCamp's curriculum</a>.</p>
+<p>With that out of the way - let's go!</p>
+<h2 id="heading-javascript-basics">JavaScript Basics 👶</h2>
+<p>Let's start off with some basic concepts every JS developer needs to know.</p>
+<h3 id="heading-variables-in-javascript">Variables in JavaScript 📥</h3>
+<p>Variables are the building blocks of every programming language. You use them to store values. A variable can be a number, string, and many other types. </p>
+<p>Now, JS is a <em>loosely-typed</em> language. You don't have to state the type of variable. You can just declare it, and JS will figure it out on its own. </p>
+<p>Now, in JavaScript we have <strong>3</strong> ways to declare variables: <code>var</code>, <code>let</code>, and <code>const</code>.</p>
+<p>Here are the key differences: </p>
+<p><img src="https://www.freecodecamp.org/news/content/images/2021/06/-wnr0JLxh.png" alt="-wnr0JLxh" width="600" height="400" loading="lazy"></p>
+<p>Let's try to understand them through examples.</p>
+<p>We will cover scope later on. For now, let's focus on the other differences.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> a = <span class="hljs-number">3</span>
+<span class="hljs-keyword">var</span> a = <span class="hljs-number">4</span>
+
+<span class="hljs-built_in">console</span>.log(a) <span class="hljs-comment">// 4 as var variables can be redeclared + updated</span>
+
+<span class="hljs-keyword">let</span> b = <span class="hljs-number">3</span>
+<span class="hljs-keyword">let</span> b = <span class="hljs-number">4</span>
+
+<span class="hljs-built_in">console</span>.log(b) <span class="hljs-comment">// Syntax Error as let variables cannot be redeclared</span>
+
+<span class="hljs-comment">// If we just do, it will work because it can be updated</span>
+b = <span class="hljs-number">4</span> 
+
+<span class="hljs-keyword">const</span> c = <span class="hljs-number">3</span>
+<span class="hljs-keyword">const</span> c = <span class="hljs-number">4</span>
+
+<span class="hljs-built_in">console</span>.log(c) <span class="hljs-comment">// Syntax Error as const variables cannot be redeclared or updated</span>
+
+<span class="hljs-keyword">const</span> d
+
+<span class="hljs-comment">// Will this throw an error? Go through the table and try to find the answer.</span>
+</code></pre>
+<p><strong>Note:</strong> In JavaScript, putting a semi-colon after the end of statement is optional. I will be skipping it here for the sake of readability.</p>
+<h3 id="heading-vs-in-javascript">== vs === in JavaScript</h3>
+<p>Let's compare some variables. There are two ways you can do that.</p>
+<p><code>==</code> only checks for the value</p>
+<p><code>===</code> checks for value + type</p>
+<pre><code class="lang-javascript">
+<span class="hljs-keyword">let</span> a = <span class="hljs-number">5</span> <span class="hljs-comment">// number</span>
+<span class="hljs-keyword">let</span> b = <span class="hljs-string">'5'</span> <span class="hljs-comment">// string</span>
+
+<span class="hljs-built_in">console</span>.log(a == b) <span class="hljs-comment">// true</span>
+
+<span class="hljs-built_in">console</span>.log(a === b) <span class="hljs-comment">// false</span>
+</code></pre>
+<h3 id="heading-arrays-in-javascript">Arrays in JavaScript</h3>
+<p>Now that we know a bit about variables, let's move on to arrays and array-methods. </p>
+<p>If we have declared a lot of variables, it makes sense to store them somewhere. Otherwise it will be difficult to keep track of all of them. Arrays are one way of storing a variable. </p>
+<pre><code class="lang-javascript">
+<span class="hljs-keyword">let</span> a = <span class="hljs-number">4</span>
+<span class="hljs-keyword">const</span> b = <span class="hljs-number">5</span>
+<span class="hljs-keyword">var</span> c = <span class="hljs-string">'hello'</span>
+
+<span class="hljs-keyword">const</span> array = [a, b, c]
+
+<span class="hljs-comment">// or you can just directly do</span>
+
+<span class="hljs-keyword">const</span> arr = [<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-string">'hello'</span>]
+</code></pre>
+<p>But only storing variables in an array is kind of boring. We can do more <em>stuff</em> with this array (like accessing these variables or changing the order in which they are stored or how they are stored). </p>
+<p>For that, JS has a lot of methods. Let's look at some of them now.</p>
+<h2 id="heading-javascript-array-methods">JavaScript Array Methods 🧰</h2>
+<p>The most frequently used array methods in JS are: <code>map</code>, <code>filter</code>, <code>find</code>, <code>reduce</code>, and <code>forEach</code>.</p>
+<p>Let's cover <code>map</code>, <code>filter</code>, and <code>forEach</code>. You can explore more in <a target="_blank" href="https://www.freecodecamp.org/news/complete-introduction-to-the-most-useful-javascript-array-methods/">this helpful article</a>.</p>
+<h3 id="heading-the-map-array-method">The <code>map</code> array method</h3>
+<p><code>map</code> creates a new copy of the original array. We use it when we want to do something with the elements of the original array but don't want to change it.</p>
+<p><code>map</code> iterates over the original array and takes a callback function (which we'll cover later) as an argument. In the callback function, we tell it what to do with the elements.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> a = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>]
+
+<span class="hljs-comment">// Create a new array which multiplies every element by 2</span>
+
+<span class="hljs-keyword">const</span> d = a.map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">item</span>)</span>{ <span class="hljs-keyword">return</span> item*<span class="hljs-number">2</span> })
+
+<span class="hljs-built_in">console</span>.log(d) <span class="hljs-comment">// [2,4,6,8,10]</span>
+</code></pre>
+<h3 id="heading-the-filter-array-method">The <code>filter</code> array method</h3>
+<p><code>filter</code> creates a new array with elements that meet the given condition(s).</p>
+<p>Let's look at an example. I have used <a target="_blank" href="https://www.freecodecamp.org/news/arrow-function-javascript-tutorial-how-to-declare-a-js-function-with-the-new-es6-syntax/">arrow functions</a> here. If you are a little uncomfortable with functions, you can cover the next section first and come back.</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// Return the words with more than 6 letters</span>
+<span class="hljs-keyword">const</span> words = [<span class="hljs-string">'react'</span>, <span class="hljs-string">'script'</span>, <span class="hljs-string">'interview'</span>, <span class="hljs-string">'style'</span>, <span class="hljs-string">'javascript'</span>]
+
+<span class="hljs-keyword">const</span> ans = words.filter(<span class="hljs-function">(<span class="hljs-params">word</span>) =&gt;</span> word.length &gt; <span class="hljs-number">6</span>)
+
+<span class="hljs-built_in">console</span>.log(ans) <span class="hljs-comment">// ['interview', 'javascript']</span>
+</code></pre>
+<p>Try to do the exercises yourself first to test your knowledge. If you come up with different or better solutions, let me know!</p>
+<p>Generally, a follow up to this: can you do it without the array method?</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> newArr = []
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; words.length; i++) {
+  <span class="hljs-keyword">if</span> (words[i].length &gt; <span class="hljs-number">6</span>) {
+    newArr.push(words[i])
+  }
+}
+<span class="hljs-built_in">console</span>.log(newArr)
+</code></pre>
+<h3 id="heading-the-foreach-array-method">The <code>forEach</code> array method</h3>
+<p><code>forEach</code> is very similar to <code>map</code> but has two key differences:</p>
+<p>First of all, <code>map</code> returns a new Array, but <code>forEach</code> doesn't.</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// Return a new array where even numbers are multiplied by 2 </span>
+<span class="hljs-keyword">let</span> arr = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>]
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">consoleEven</span>(<span class="hljs-params">arr</span>) </span>{
+  <span class="hljs-keyword">let</span> data = arr.map(<span class="hljs-function">(<span class="hljs-params">num</span>) =&gt;</span> (num % <span class="hljs-number">2</span> === <span class="hljs-number">0</span> ? num * <span class="hljs-number">2</span> : num * <span class="hljs-number">1</span>))
+
+  <span class="hljs-built_in">console</span>.log(data)  <span class="hljs-comment">// [1,  4, 3, 8, 5, 12, 7]</span>
+}
+
+
+<span class="hljs-comment">// ? is the ternary operator. If the condition is true - first statement is returned otherwise the second one.</span>
+
+
+consoleEven(arr)
+</code></pre>
+<pre><code class="lang-javascript">
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">consoleEven</span>(<span class="hljs-params">arr</span>) </span>{
+  <span class="hljs-keyword">let</span> data = arr.forEach(<span class="hljs-function">(<span class="hljs-params">num</span>) =&gt;</span> (num % <span class="hljs-number">2</span> === <span class="hljs-number">0</span> ? num * <span class="hljs-number">2</span> : num * <span class="hljs-number">1</span>))
+  <span class="hljs-built_in">console</span>.log(data) <span class="hljs-comment">// undefined</span>
+}
+
+consoleEven(arr)
+</code></pre>
+<p>And second, you can do method chaining in <code>map</code> but not in <code>forEach</code>.</p>
+<pre><code class="lang-javascript">
+<span class="hljs-comment">// Convert  the new array back to original</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">consoleEven</span>(<span class="hljs-params">arr</span>) </span>{
+  <span class="hljs-keyword">let</span> data = arr
+    .map(<span class="hljs-function">(<span class="hljs-params">num</span>) =&gt;</span> (num % <span class="hljs-number">2</span> === <span class="hljs-number">0</span> ? num * <span class="hljs-number">2</span> : num * <span class="hljs-number">1</span>))
+    .map(<span class="hljs-function">(<span class="hljs-params">item</span>) =&gt;</span> (item % <span class="hljs-number">2</span> === <span class="hljs-number">0</span> ? item / <span class="hljs-number">2</span> : item / <span class="hljs-number">1</span>))
+
+  <span class="hljs-built_in">console</span>.log(data)
+}
+
+consoleEven(arr)
+</code></pre>
+<p><strong>Note:</strong> <code>map</code> and <code>forEach</code> don't mutate (change) the original array.</p>
+<h2 id="heading-functional-programming-in-javascript">Functional Programming in JavaScript 🛠</h2>
+<p>We have already used functions above. Let's cover them in more detail now. </p>
+<p>Just like how we used variables to store values, we can use functions to store a piece of code which we can reuse.</p>
+<p>You can make function in two ways:</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">a</span>(<span class="hljs-params"></span>)</span>{
+ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'I am a normal function'</span>);
+ }
+
+<span class="hljs-keyword">const</span> b = <span class="hljs-function">() =&gt;</span> {
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'I am an arrow function'</span>)
+}
+
+<span class="hljs-comment">// They are essentially the same but with a few differences which we will cover as we go along this tutorial. </span>
+
+<span class="hljs-comment">// We can pass variables as arguments</span>
+
+<span class="hljs-keyword">const</span> c = <span class="hljs-function">(<span class="hljs-params">name</span>) =&gt;</span> {
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">`My name is <span class="hljs-subst">${name}</span>`</span>)
+}
+
+<span class="hljs-comment">// `` template literal are a new addition to the language. Very useful for string formatting. Values are accessed using ${} inside them.</span>
+
+
+<span class="hljs-comment">// We can even pass functions as arguments to a function. Will see more on this when we try to understand closures.</span>
+
+<span class="hljs-keyword">const</span> greet = <span class="hljs-function">() =&gt;</span>  {
+    <span class="hljs-keyword">const</span> prefix = <span class="hljs-string">'Mr'</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-function">(<span class="hljs-params">name</span>) =&gt;</span> {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${prefix}</span> <span class="hljs-subst">${name}</span>, welcome!`</span>)
+    }
+}
+
+<span class="hljs-built_in">console</span>.log(greet()(<span class="hljs-string">'Jack'</span>))
+</code></pre>
+<p>Now, let's cover some important concepts related to functions.</p>
+<h3 id="heading-function-scope-in-javascript">Function Scope in JavaScript 🕵️</h3>
+<p>Scope determines from where the variables are accessible.</p>
+<p>There are three types of scope:</p>
+<ul>
+<li>Global (declaration outside of any function)</li>
+<li>Function (declaration inside a function)</li>
+<li>Block (declaration inside a block)</li>
+</ul>
+<p>Remember from before that <code>var</code> is globally scoped whereas <code>let</code> and <code>const</code> are block scoped. Let's understand that now.</p>
+<pre><code class="lang-javascript">
+<span class="hljs-keyword">var</span> a = <span class="hljs-number">5</span> <span class="hljs-comment">// we can access this a anywhere</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">adder</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">let</span> b = <span class="hljs-number">7</span>
+    <span class="hljs-built_in">console</span>.log(a + b)
+ }
+
+<span class="hljs-built_in">console</span>.log(adder())
+
+<span class="hljs-built_in">console</span>.log(b) <span class="hljs-comment">// Error as b is not accessible outside the function</span>
+
+{
+<span class="hljs-keyword">const</span> c = <span class="hljs-number">10</span>
+<span class="hljs-built_in">console</span>.log(c) <span class="hljs-comment">// 10</span>
+}
+
+<span class="hljs-built_in">console</span>.log(c) <span class="hljs-comment">// Error as c is not accessible outside the block</span>
+</code></pre>
+<h3 id="heading-closures-in-javascript-important">Closures in JavaScript (❗important) 🔒</h3>
+<p>We have already used a closure without even realizing it. In the example below, <code>prefix</code> is a closed-over-variable.</p>
+<pre><code><span class="hljs-keyword">const</span> greet = <span class="hljs-function">() =&gt;</span>  {
+    <span class="hljs-keyword">const</span> prefix = <span class="hljs-string">'Mr'</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-function">(<span class="hljs-params">name</span>) =&gt;</span> {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${prefix}</span> <span class="hljs-subst">${name}</span>, welcome!`</span>)
+    }
+}
+
+<span class="hljs-built_in">console</span>.log(greet()(<span class="hljs-string">'Jack'</span>))
+</code></pre><p>This section will have a lot of fancy words, so bear with me. We will cover them one by one.</p>
+<p>MDN says:</p>
+<blockquote>
+<p>A function bundled together with its lexical environment forms a closure.</p>
+</blockquote>
+<p>Okay, what is a lexical environment?</p>
+<p>It is essentially the surrounding state – the <strong>local memory</strong> along with the lexical environment of its parent.</p>
+<p>Whaaat? 🤯 I know it's a bit of a doozy. Let's understand it with a simple example.</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">x</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> a = <span class="hljs-number">7</span>
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">y</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(a)
+  }
+  <span class="hljs-keyword">return</span> y
+}
+
+<span class="hljs-keyword">var</span> z = x()
+<span class="hljs-built_in">console</span>.log(z) <span class="hljs-comment">// [Function: y]</span>
+z()
+</code></pre>
+<p>When x is invoked, y is returned. Now, y is waiting to be executed. Kind of like a loaded gun waiting to be shot! 🔫</p>
+<p>So, when we finally invoke z, y is invoked. Now, y has to log <code>a</code> so it first tries to find 🔍 it in the <strong>local memory</strong> but it's not there. It goes to its parent function. It finds <code>a</code> there.</p>
+<p>Voila! There you have it - <a target="_blank" href="https://www.freecodecamp.org/news/closures-in-javascript/">this is closure</a>.</p>
+<p>Even when functions are returned (in the above case y) they still remember their lexical scope (where it came from)</p>
+<p>Totally unrelated quote for kicks 👻:</p>
+<blockquote>
+<p>They may forget what you said - but they will never forget how you made them feel - Carl W. Buehner</p>
+</blockquote>
+<p>I swear the rest of the article is legit 🤞 Keep reading.</p>
+<h3 id="heading-advantages-of-closures-in-javascript">Advantages of Closures in JavaScript 😎</h3>
+<ul>
+<li>Currying</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> add = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">y</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(x + y)
+  }
+}
+
+<span class="hljs-keyword">let</span> addByTwo = add(<span class="hljs-number">2</span>)
+addByTwo(<span class="hljs-number">3</span>)
+</code></pre>
+<ul>
+<li>Data Hiding/Encapsulation</li>
+</ul>
+<p>Suppose you want to create a counter application. Every time you call it, the count increases by 1. But you don't want to expose the variable outside the function. How to do it?</p>
+<p>You guessed it – closures!</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Counter</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> count = <span class="hljs-number">0</span>
+  <span class="hljs-built_in">this</span>.incrementCount = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    count++
+    <span class="hljs-built_in">console</span>.log(count)
+  }
+}
+
+<span class="hljs-built_in">console</span>.log(count) <span class="hljs-comment">// Error: count is not defined</span>
+<span class="hljs-keyword">var</span> adder = <span class="hljs-keyword">new</span> Counter()
+adder.incrementCount() <span class="hljs-comment">// 1</span>
+</code></pre>
+<p>Don't worry about <code>this</code> and <code>new</code>. We have a whole section devoted to them down below.</p>
+<h3 id="heading-disadvantages-of-closures-in-javascript">Disadvantages of Closures in JavaScript 😅</h3>
+<ul>
+<li>Overconsumption of memory or memory leaks can happen.</li>
+</ul>
+<p>For example, the closed-over-variable will not be garbage collected. This is because, even if the outer function has run, the returned inner function still has a reference to the closed-over-variable.</p>
+<p><strong>Note:</strong> Garbage collection basically removes unused variables from the memory automatically.</p>
+<h3 id="heading-hoisting-in-javascript">Hoisting in JavaScript 🚩</h3>
+<p>This is JavaScript's default behavior of moving declarations to the top of the program.</p>
+<ul>
+<li><code>var</code> declaration is hoisted up and initialized with <code>undefined</code>.</li>
+<li><code>let</code> and <code>const</code> declarations are hoisted up but not initialized.</li>
+<li><code>function</code> definitions are also hoisted up and stored as they are.</li>
+</ul>
+<p>Let's look at an example:</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">consoleNum</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(num)
+  <span class="hljs-keyword">var</span> num = <span class="hljs-number">10</span>
+}
+
+consoleNum() <span class="hljs-comment">// undefined</span>
+
+<span class="hljs-comment">// Why no error?</span>
+
+<span class="hljs-comment">// This is how runtime sees this</span>
+{
+  <span class="hljs-keyword">var</span> num
+  <span class="hljs-built_in">console</span>.log(num)
+  num = <span class="hljs-number">9</span>
+}
+
+<span class="hljs-comment">// If instead of var -&gt; let, it will give an error as let values are not initialized</span>
+</code></pre>
+<p>Phew! I am done with functions here, but if you want more <a target="_blank" href="https://youtu.be/e-5obm1G_FY">check out this amazing talk by Anjana Vakil</a> on functional programming.</p>
+<h2 id="heading-objects-in-javascript">Objects in JavaScript 🔮</h2>
+<p>Just like arrays, objects are a way of storing data. We do so with the help of key-value pairs.</p>
+<pre><code class="lang-javascript">
+    <span class="hljs-keyword">const</span> developer = {
+        <span class="hljs-attr">name</span>: <span class="hljs-string">"Raj"</span>,
+        <span class="hljs-attr">age</span>: <span class="hljs-number">22</span>
+        }
+</code></pre>
+<p><code>name</code> is the <code>key</code> and <code>Raj</code> is the <code>value</code>. Keys are generally the name of the properties of the object.</p>
+<p>We can store all sorts of data like functions inside an object. You can explore more here on the <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">MDN</a>.</p>
+<h3 id="heading-what-is-this-in-javascript">What is <code>this</code> in JavaScript?</h3>
+<p>Now, working with objects is different in JS than in other popular programming languages like C++. And to understand that properly, we need a good grasp of the <code>this</code> keyword.</p>
+<p>Let's try to understand it step-by-step.</p>
+<p>In a program, at times, we need a way to point at stuff. Like saying this function right here belongs to this object. <code>this</code> helps us get this context.</p>
+<p>You will understand what I am saying better when we look at some examples.</p>
+<p>For now, think of <code>this</code> as something which provides context. And remember this important thing: its value depends on how and where it is called.</p>
+<p>I know, I know. A lot of <code>this</code> 😬. Let's go over all this slowly.</p>
+<p>Start a new program and just log <code>this</code>.</p>
+<pre><code class="lang-javascript">
+<span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>)
+</code></pre>
+<p>It will point to the window object.</p>
+<p>Now, let's take an example with an object:</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myFunc</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>)     
+  }
+
+<span class="hljs-keyword">const</span> obj = {
+  <span class="hljs-attr">bool</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">myFunc</span>: myFunc,
+}
+
+obj.myFunc()
+</code></pre>
+<p>Now, <code>this</code> will point to the object. So what's happening here?</p>
+<p>In the first example, we had nothing left of the <code>.</code> so it defaulted to the <code>window</code> object. But in this example, we have the object <code>obj</code>.</p>
+<p>If you do:</p>
+<pre><code class="lang-javascript">
+myFunc() <span class="hljs-comment">// window</span>
+</code></pre>
+<p>We again get the <code>window</code> object. So, we can see that the value of <code>this</code> depends on how and where are we doing the calling.</p>
+<p>What we just did above is called <strong>Implicit Binding</strong>. The value of <code>this</code> got bound to the object.</p>
+<p>There is another way to use <code>this</code>. <strong>Explicit binding</strong> is when you force a function to use a certain object as its <code>this</code>.</p>
+<p>Let's understand why we need explicit binding through an example.</p>
+<pre><code class="lang-javascript">
+<span class="hljs-keyword">const</span> student_1 =  {
+    <span class="hljs-attr">name</span>: <span class="hljs-string">'Randall'</span>,
+    <span class="hljs-attr">displayName_1</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">displayName</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>.name)
+    }
+}
+<span class="hljs-keyword">const</span> student_2 =  {
+    <span class="hljs-attr">name</span>: <span class="hljs-string">'Raj'</span>,
+    <span class="hljs-attr">displayName_2</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">displayName</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>.name)
+    }
+}
+
+student_1.displayName_1()
+student_2.displayName_2()
+</code></pre>
+<p>We are using <code>this</code> properly, but can you see the problem with the above code?</p>
+<p>We are repeating code. And one of the principles of good programming is keep your code DRY! (Don't Repeat Yourself)</p>
+<p>So, let's get rid of <code>displayName_2</code> and simply do:</p>
+<pre><code class="lang-javascript">
+student_1.displayName_1.call(student_2) <span class="hljs-comment">// Raj</span>
+</code></pre>
+<p><code>call</code> forced <code>displayName_1</code> to use the second object as its <code>this</code>.</p>
+<p>There are a lot of other ways we can do this.</p>
+<p><img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1622489263380/UwpR9Rscv.png" alt="call-bind-apply.png" width="974" height="215" loading="lazy"></p>
+<p>Try to solve the given problem yourself.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> myData = {
+  <span class="hljs-attr">name</span>: <span class="hljs-string">'Rajat'</span>,
+  <span class="hljs-attr">city</span>: <span class="hljs-string">'Delhi'</span>,
+  <span class="hljs-attr">displayStay</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>.name, <span class="hljs-string">'stays in'</span>, <span class="hljs-built_in">this</span>.city)
+  },
+}
+myData.displayStay()
+
+<span class="hljs-comment">// create an object yourData and try to use displayStay</span>
+<span class="hljs-keyword">const</span> yourData = {
+ <span class="hljs-attr">name</span>: <span class="hljs-string">'name'</span>,
+ <span class="hljs-attr">city</span>: <span class="hljs-string">'city'</span>
+}
+
+
+<span class="hljs-comment">// answer</span>
+myData.displayStay.call(yourData)
+</code></pre>
+<p>Finally, remember that I said that there are differences between arrow and regular functions. </p>
+<p>The case of <code>this</code> is one of them.</p>
+<p>For an arrow function, the value depends on the lexical scope – that is to say, the outer function where the arrow function is declared.</p>
+<p>So, if we make the <code>displayName()</code> from above an arrow function, nothing will work.</p>
+<p>Arrow functions basically inherit the parent's context which in the above case is the <code>window</code>.</p>
+<h3 id="heading-prototypes-and-prototypal-inheritance-in-javascript">Prototypes and Prototypal Inheritance in JavaScript 👪</h3>
+<blockquote>
+<p>Whenever we create anything (like an object or function) in JavaScript, the JS Engine automatically attaches that thing with some properties and methods.</p>
+</blockquote>
+<p>All this comes via <code>prototypes</code>.</p>
+<p><code>__proto__</code> is the object where JS is putting it all.</p>
+<p>Let's see some examples. Fire up your consoles!</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> arr = [<span class="hljs-string">'Rajat'</span>, <span class="hljs-string">'Raj'</span>]
+<span class="hljs-built_in">console</span>.log(arr.__proto__.forEach)
+<span class="hljs-built_in">console</span>.log(arr.__proto__) <span class="hljs-comment">// same as Array.prototype</span>
+<span class="hljs-built_in">console</span>.log(arr.__proto__.__proto__) <span class="hljs-comment">// same as Object.prototype</span>
+<span class="hljs-built_in">console</span>.log(arr.__proto__.__proto__.__proto__) <span class="hljs-comment">// null</span>
+</code></pre>
+<p>All this is called a <code>prototype chain</code>.</p>
+<p>We can do the same with objects and functions as well.</p>
+<p>We will always find <code>Object.prototype</code> behind the scenes. That's why you may have heard that everything in JS is an object. 🤯</p>
+<h3 id="heading-what-is-prototypal-inheritance-in-javascript">What is Prototypal Inheritance in JavaScript?</h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> object = {
+  <span class="hljs-attr">name</span>: <span class="hljs-string">'Rajat'</span>,
+  <span class="hljs-attr">city</span>: <span class="hljs-string">'Delhi'</span>,
+  <span class="hljs-attr">getIntro</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-built_in">this</span>.name}</span>, <span class="hljs-subst">${<span class="hljs-built_in">this</span>.city}</span>`</span>)
+  },
+}
+
+<span class="hljs-keyword">let</span> object2 = {
+  <span class="hljs-attr">name</span>: <span class="hljs-string">'Aditya'</span>,
+}
+</code></pre>
+<p><strong>Note:</strong> Don't modify prototypes this way. It's just for understanding. <a target="_blank" href="https://javascript.plainenglish.io/how-prototypal-inheritance-works-in-javascript-and-how-to-convert-it-to-class-based-inheritance-632e31e6350d">Here's the right way to do it</a>.</p>
+<pre><code class="lang-javascript">object2.__proto__ = object
+</code></pre>
+<p>By doing this, <code>object2</code> gets access to the object's properties. So, now we can do:</p>
+<pre><code class="lang-javascript"><span class="hljs-built_in">console</span>.log(object2.city)
+</code></pre>
+<p>This is <strong>prototypal inheritance</strong>.</p>
+<h2 id="heading-asynchronous-javascript">Asynchronous JavaScript ⚡</h2>
+<p>So, JS is a <em>single-threaded</em> language. Things happen one at a time. Only after one thing is done can we move to the next thing. </p>
+<p>But this creates problems in the real world, especially, when we are working with browsers.</p>
+<p>For example, when we need to fetch data from the web - often times we don't know how long will it take to get it. And whether we will be able to get the data successfully. </p>
+<p>To help with this, asynchronous JS comes into play. </p>
+<p>And the most important concept to understand is the event loop.</p>
+<h3 id="heading-event-loops-in-javascript">Event Loops in JavaScript ➰</h3>
+<p>Instead of providing a half-baked explanation here, I highly recommend watching this video by Philip Roberts if you haven't already:</p>
+<p><a target="_blank" href="https://youtu.be/8aGhZQkoFbQ">Learn all about event loops in JS here</a>.</p>
+<h3 id="heading-timers-in-javascript-settimeout-setinterval-clearinterval">Timers in JavaScript – setTimeout, setInterval, clearInterval ⏱️</h3>
+<p>I hope you watched the video. It mentioned timers. Let's talk about them more now. These are very frequently asked about in interviews.</p>
+<p>The <code>setTimeout()</code> method calls a function or evaluates an expression after a specified number of milliseconds.</p>
+<p><code>setInterval()</code> does the same for specified intervals.</p>
+<pre><code class="lang-javascript">
+<span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Here - I am after 2 seconds'</span>)
+}, <span class="hljs-number">2000</span>);
+
+<span class="hljs-keyword">const</span> timer = <span class="hljs-built_in">setInterval</span>(<span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'I will keep on coming back until you clear me'</span>)
+}, <span class="hljs-number">2000</span>);
+</code></pre>
+<p>You use <code>clearInterval()</code> to stop the timer.</p>
+<pre><code><span class="hljs-built_in">clearInterval</span>(timer)
+</code></pre><p>Let's go over some questions that use these concepts.</p>
+<pre><code class="lang-javascript">  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Hello'</span>)
+  <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'lovely'</span>)
+  }, <span class="hljs-number">0</span>)
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'reader'</span>)
+
+  <span class="hljs-comment">// output</span>
+  Hello
+  reader
+  lovely
+</code></pre>
+<p>Here's a slightly trickier one:</p>
+<pre><code class="lang-javascript">  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">5</span>; i++) {
+    <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      <span class="hljs-built_in">console</span>.log(i)
+    }, i * <span class="hljs-number">1000</span>)
+  }
+
+<span class="hljs-comment">// output</span>
+<span class="hljs-number">6</span>
+<span class="hljs-number">6</span>
+<span class="hljs-number">6</span>
+<span class="hljs-number">6</span>
+<span class="hljs-number">6</span>
+</code></pre>
+<p>And here's a short explanation of what's going on there: when <code>setTimeout</code> comes again into the picture, the entire loop has run and the value of <code>i</code> has become 6,</p>
+<p>Now, let's say we want the outcome to be 1 2 3 4 5 – what do we do?</p>
+<p>Instead of <code>var</code> ➡️ use <code>let</code>.</p>
+<p>Why this will work?</p>
+<p><code>var</code> is globally scoped but <code>let</code> is locally scoped. So for <code>let</code> a new <code>i</code> is created for every iteration.</p>
+<h3 id="heading-promises-in-javascript-important">Promises in JavaScript (❗important) 🤝</h3>
+<p>Promises are at the heart of Asynchronous JS.</p>
+<blockquote>
+<p>The Promise object represents the eventual completion (or failure) of an asynchronous operation and its resulting value.</p>
+</blockquote>
+<p>A promise can be in one of these three states:</p>
+<ul>
+<li>Pending: initial state, neither fulfilled nor rejected</li>
+<li>Fulfilled: operation was completed successfully</li>
+<li>Rejected: operation failed</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> promise = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
+  <span class="hljs-keyword">let</span> value = <span class="hljs-literal">true</span>
+  <span class="hljs-keyword">if</span> (value) {
+    resolve(<span class="hljs-string">'hey value is true'</span>)
+  } <span class="hljs-keyword">else</span> {
+    reject(<span class="hljs-string">'there was an error, value is false'</span>)
+  }
+})
+
+promise
+  .then(<span class="hljs-function">(<span class="hljs-params">x</span>) =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(x)
+  })
+  .catch(<span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> <span class="hljs-built_in">console</span>.log(err))
+</code></pre>
+<p><strong>Note:</strong> <code>resolve</code> and <code>reject</code> are just conventional names. Call it pizza🍕 if you like.</p>
+<p>Instead of <code>then/catch</code>, we can also use <code>async/await</code>:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">asyncCall</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> promise
+  <span class="hljs-built_in">console</span>.log(result)
+}
+
+asyncCall()
+</code></pre>
+<p>One of the advantages of promises is that they are a much cleaner syntax. Before we had promises, we could easily get stuck in <a target="_blank" href="http://callbackhell.com/">callback hell</a> 🌋</p>
+<h2 id="heading-advanced-javascript-concepts-to-know">Advanced JavaScript Concepts to Know</h2>
+<h3 id="heading-polyfills-in-javascript">📚 Polyfills in JavaScript</h3>
+<blockquote>
+<p>A polyfill is a piece of code (usually JavaScript on the Web) used to provide modern functionality on older browsers that do not natively support it. <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Glossary/Polyfill">MDN</a></p>
+</blockquote>
+<ul>
+<li>Let's implement it for <code>map</code>:</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-comment">// this - array</span>
+<span class="hljs-comment">// this[i] - current value</span>
+<span class="hljs-built_in">Array</span>.prototype.myMap = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">cb</span>) </span>{
+  <span class="hljs-keyword">var</span> arr = []
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">this</span>.length; i++) {
+    arr.push(cb(<span class="hljs-built_in">this</span>[i], i, <span class="hljs-built_in">this</span>))
+  }
+  <span class="hljs-keyword">return</span> arr
+}
+
+<span class="hljs-keyword">const</span> arr = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]
+<span class="hljs-built_in">console</span>.log(arr.myMap(<span class="hljs-function">(<span class="hljs-params">a</span>) =&gt;</span> a * <span class="hljs-number">2</span>)) <span class="hljs-comment">// [2, 4, 6]</span>
+</code></pre>
+<p>Notice how we use <code>this</code>. Here, we have basically created a new array and are adding values to it.</p>
+<h3 id="heading-async-and-defer-in-javascript">Async and defer in JavaScript ✔️</h3>
+<p>These concepts are frequently asked about in interviews by big corporations like Amazon, Walmart, and Flipkart. 🏢</p>
+<p>To understand <code>async</code> and <code>defer</code>, we need to have an idea of how browsers render a webpage. First, they parse the HTML and CSS. Then DOM trees are created. From these, a render tree is created. Finally, from the render tree - a layout is created and the painting happens.</p>
+<p>For a more detailed look, check out <a target="_blank" href="https://youtu.be/SmE4OwHztCc">this video</a>.</p>
+<p>Async and defer are <code>boolean</code> attributes which can be loaded along with the script tags. They are useful for loading external scripts into your web page.</p>
+<p>Let's understand with the help of pictures.</p>
+<p><img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1621781371965/PciAdUTCL.png" alt="18-async-defer.png" width="982" height="535" loading="lazy">
+<img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1621781403795/VgIYFtP5T.png" alt="19-async-defer.png" width="939" height="476" loading="lazy">
+<img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1621781415787/mJEkxqe_i.png" alt="20-async.png" width="938" height="491" loading="lazy">
+<img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1621781428927/2nUaI8fjr.png" alt="21-defer.png" width="943" height="514" loading="lazy"></p>
+<p>If there are multiple scripts which are dependant on each other, use <code>defer</code>. Defer script are executed in the order which they are defined.</p>
+<p>If you want to load external script which is not dependant on the execution of any other scripts, use <code>async</code>. </p>
+<p><strong>Note:</strong> The async attribute does not guarantee the order of execution of scripts.</p>
+<h3 id="heading-debouncing-in-javascript">Debouncing in JavaScript ⛹️‍♂️</h3>
+<p>Debouncing is another favorite topic of interviewers.</p>
+<p>Let's understand it by creating a search bar.</p>
+<p><strong>Demo:</strong> https://codesandbox.io/s/debounce-input-field-o5gml</p>
+<p>Create a simple input field in <code>index.html</code> like this:</p>
+<pre><code class="lang-javascript">&lt;input type=<span class="hljs-string">'text'</span> id=<span class="hljs-string">'text'</span> /&gt;
+</code></pre>
+<p>Now, in <code>index.js</code>. Don't forget to add it to <code>index.html</code> first:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> getData = <span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(e.target.value)
+}
+<span class="hljs-keyword">const</span> inputField = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'text'</span>)
+
+<span class="hljs-keyword">const</span> debounce = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">fn, delay</span>) </span>{
+  <span class="hljs-keyword">let</span> timer
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">let</span> context = <span class="hljs-built_in">this</span>
+    <span class="hljs-built_in">clearTimeout</span>(timer)
+    timer = <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
+      fn.apply(context, <span class="hljs-built_in">arguments</span>)
+    }, delay)
+  }
+}
+
+inputField.addEventListener(<span class="hljs-string">'keyup'</span>, debounce(getData, <span class="hljs-number">300</span>))
+</code></pre>
+<p>First, we have selected the input and added an <code>event listener</code> to it. Then we created a debounce function which takes a callback function and delay.</p>
+<p>Now, inside the debounce function we create a timer using <code>setTimeout</code>. Now, this timer's job is to make sure that the next call for <code>getData</code> only happens after 300 ms. This is what debouncing is.</p>
+<p>Also, we use <code>clearTimeout</code> to remove it. Don't want too many of them hanging out there taking up memory space!</p>
+<p>Phew! Lots of theory. Let's do a fun challenge. You must have seen the countdown before a game starts (it goes like 10, 9, 8, .... with some delay in between). Try to write a program for it.</p>
+<p>Here's how you'd do it:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> count = <span class="hljs-number">10</span>
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++) {
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">timer</span>(<span class="hljs-params">i</span>) </span>{
+    <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
+      <span class="hljs-built_in">console</span>.log(count)
+      count--
+    }, i * <span class="hljs-number">500</span>)
+  }
+  timer(i)
+}
+</code></pre>
+<p>Were you able to solve it? Did you do it differently? Let me know your solution.</p>
+<h3 id="heading-throttling-in-javascript">Throttling in JavaScript 🛑</h3>
+<p>Let's look at an example again. Suppose that on every window resize event we call an expensive function. Now, we want it such that the expensive function will only be executed once in the given time interval. This is what throttling is.</p>
+<p>Create an <code>index.html</code> and an <code>index.js</code> with the following code:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> expensive = <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'expensive'</span>)
+}
+
+<span class="hljs-keyword">const</span> throttle = <span class="hljs-function">(<span class="hljs-params">fn, limit</span>) =&gt;</span> {
+  <span class="hljs-keyword">let</span> context = <span class="hljs-built_in">this</span>
+  <span class="hljs-keyword">let</span> flag = <span class="hljs-literal">true</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">if</span> (flag) {
+      fn.apply(context, <span class="hljs-built_in">arguments</span>)
+      flag = <span class="hljs-literal">false</span>
+    }
+    <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
+      flag = <span class="hljs-literal">true</span>
+    }, limit)
+  }
+}
+<span class="hljs-keyword">const</span> func = throttle(expensive, <span class="hljs-number">2000</span>)
+<span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">'resize'</span>, func)
+</code></pre>
+<p>Almost the same as debouncing. The key difference is the <code>flag</code> variable. Only, when it's true we are invoking the callback function. And it is set to <code>true</code> inside the <code>setTimeout</code>. So the value is <code>true</code> only after the desired time limit.</p>
+<h3 id="heading-so-whats-the-difference-between-debounce-and-throttling">So, what's the difference between debounce and throttling❓</h3>
+<p>Let's take the search bar 🔍 example from above. When we are debouncing the input field, we are saying to only fetch the data when the difference between two <code>keyup</code> events is at least 300 ms.</p>
+<p>In the case of throttling, we make a function call only after a certain period of time. </p>
+<p>Suppose that you are searching for an encyclopedia in the search bar. The first call is made on <code>e</code> and it took us 300 ms to reach <code>p</code>. The next call will be made then only. All the events in between will be ignored.</p>
+<p>So, to summarize, debouncing is when the difference between two <code>keyup</code> events is 300 ms. And throttling is when the difference between two function calls is 300 ms. Basically, the function is called after a certain interval of time.</p>
+<h2 id="heading-storage-in-javascript">Storage in JavaScript 💾</h2>
+<p>Finally, a small but important topic to wrap things up.</p>
+<p><strong>localStorage:</strong> Data persists even after closing your session</p>
+<p><strong>sessionStorage:</strong> You lose your data when your session is over, like when you close the browser on the tab.</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// save</span>
+<span class="hljs-built_in">localStorage</span>.setItem(<span class="hljs-string">'key'</span>, <span class="hljs-string">'value'</span>)
+<span class="hljs-comment">// get saved data</span>
+<span class="hljs-keyword">let</span> data = <span class="hljs-built_in">localStorage</span>.getItem(<span class="hljs-string">'key'</span>)
+<span class="hljs-comment">// remove saved data</span>
+<span class="hljs-built_in">localStorage</span>.removeItem(<span class="hljs-string">'key'</span>)
+<span class="hljs-comment">// Same for sessionStorage</span>
+</code></pre>
+<p>And we are done! 🏁 I hope you feel more confident about your next JS interview now. I wish you all the best.</p>
+<p>If you have any queries / suggestions / feedback, you can reach me on Twitter: <a target="_blank" href="https://twitter.com/rajatetc">https://twitter.com/rajatetc</a>.</p>
+<h2 id="heading-main-references">🗃️ Main References</h2>
+<ul>
+<li><a target="_blank" href="https://developer.mozilla.org/en-US/">MDN Docs</a></li>
+<li><a target="_blank" href="https://www.youtube.com/channel/UC3N9i_KvKZYP4F84FPIzgPQ">Akshay Saini</a></li>
+<li><a target="_blank" href="https://www.youtube.com/channel/UCMZFwxv5l-XtKi693qMJptA">Coding Addict</a></li>
+<li><a target="_blank" href="https://www.instagram.com/javascript_interviews/">Javascript_Interviews</a></li>
+</ul>
+
+
+                        </section>
+                        
+                            <div class="sidebar">
+                                
+                                    
+                                    <script>var localizedAdText = "ADVERTISEMENT";</script>
+                                
+                            </div>
+                        
+                    </div>
+                    <hr>
+                    
+
+                    
+                    
+                        
+    
+
+
+<p data-test-label="social-row-cta" class="social-row">
+    If you read this far, thank the author to show them you care. <button id="tweet-btn" class="cta-button" data-test-label="tweet-button">Say Thanks</button>
+</p>
+
+
+    
+    <script>document.addEventListener("DOMContentLoaded",()=>{const t=document.getElementById("tweet-btn"),e=window.location,n="JavaScript%20Interview%20Prep%20Cheatsheet%20%E2%80%93%20Ace%20Your%20Coding%20Interviews%20with%20These%20Concepts".replace(/&#39;/g,"%27"),o="",r="@freecodecamp",i=Boolean("");let s;if(i&&(o||r)){const t={originalPostAuthor:"",currentPostAuthor:"freeCodeCamp"};s=encodeURIComponent(`Thank you ${o||t.originalPostAuthor} for writing this helpful article, and ${r||t.currentPostAuthor} for translating it.`)}else!i&&r&&(s=encodeURIComponent(`Thank you ${r} for writing this helpful article.`));const c=`window.open(\n    '${s?`https://x.com/intent/post?text=${s}%0A%0A${n}%0A%0A${e}`:`https://x.com/intent/post?text=${n}%0A%0A${e}`}',\n    'share-twitter',\n    'width=550, height=235'\n  ); return false;`;t.setAttribute("onclick",c)});</script>
+
+
+                        
+
+<div class="learn-cta-row" data-test-label="learn-cta-row">
+    <p>
+        Learn to code for free. freeCodeCamp's open source curriculum has helped more than 40,000 people get jobs as developers. <a href="https://www.freecodecamp.org/learn/" class="cta-button" id="learn-to-code-cta" rel="noopener noreferrer" target="_blank">Get started</a>
+    </p>
+</div>
+
+                    
+                </section>
+                
+                    <div class="banner-ad-bottom">
+                        
+                            
+
+<div class="ad-text" data-test-label="ad-text">ADVERTISEMENT</div>
+<div style="display: block; height: auto" id="gam-ad-bottom">
+</div>
+
+                        
+                    </div>
+                
+            </article>
+        </div>
+    </main>
+
+
+            
+
+
+<footer class="site-footer">
+    <div class="footer-top">
+        <div class="footer-desc-col">
+            <p data-test-label="tax-exempt-status">freeCodeCamp is a donor-supported tax-exempt 501(c)(3) charity organization (United States Federal Tax Identification Number: 82-0779546)</p>
+            <p data-test-label="mission-statement">Our mission: to help people learn to code for free. We accomplish this by creating thousands of videos, articles, and interactive coding lessons - all freely available to the public.</p>
+            <p data-test-label="donation-initiatives">Donations to freeCodeCamp go toward our education initiatives, and help pay for servers, services, and staff.</p>
+            <p class="footer-donation" data-test-label="donate-text">
+                You can <a href="https://www.freecodecamp.org/donate/" class="inline" rel="noopener noreferrer" target="_blank">make a tax-deductible donation here</a>.
+            </p>
+        </div>
+        <div class="trending-guides" data-test-label="trending-guides">
+            <h2 id="trending-guides" class="col-header">Trending Books and Handbooks</h2>
+            <ul class="trending-guides-articles" aria-labelledby="trending-guides">
+                <li>
+                    <a href="https://www.freecodecamp.org/news/build-consume-and-document-a-rest-api/" rel="noopener noreferrer" target="_blank">REST APIs
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/how-to-write-clean-code/" rel="noopener noreferrer" target="_blank">Clean Code
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/learn-typescript-with-react-handbook/" rel="noopener noreferrer" target="_blank">TypeScript
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/learn-javascript-for-beginners/" rel="noopener noreferrer" target="_blank">JavaScript
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/how-to-build-an-ai-chatbot-with-redis-python-and-gpt/" rel="noopener noreferrer" target="_blank">AI Chatbots
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/command-line-for-beginners/" rel="noopener noreferrer" target="_blank">Command Line
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/building-consuming-and-documenting-a-graphql-api/" rel="noopener noreferrer" target="_blank">GraphQL APIs
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/complete-guide-to-css-transform-functions-and-properties/" rel="noopener noreferrer" target="_blank">CSS Transforms
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/how-to-build-scalable-access-control-for-your-web-app/" rel="noopener noreferrer" target="_blank">Access Control
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/rest-api-design-best-practices-build-a-rest-api/" rel="noopener noreferrer" target="_blank">REST API Design
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/the-php-handbook/" rel="noopener noreferrer" target="_blank">PHP
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/the-java-handbook/" rel="noopener noreferrer" target="_blank">Java
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/learn-linux-for-beginners-book-basic-to-advanced/" rel="noopener noreferrer" target="_blank">Linux
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/react-for-beginners-handbook/" rel="noopener noreferrer" target="_blank">React
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/learn-continuous-integration-delivery-and-deployment/" rel="noopener noreferrer" target="_blank">CI/CD
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/the-docker-handbook/" rel="noopener noreferrer" target="_blank">Docker
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/learn-golang-handbook/" rel="noopener noreferrer" target="_blank">Golang
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/the-python-handbook/" rel="noopener noreferrer" target="_blank">Python
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/get-started-with-nodejs/" rel="noopener noreferrer" target="_blank">Node.js
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/build-crud-operations-with-dotnet-core-handbook/" rel="noopener noreferrer" target="_blank">Todo APIs
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/how-to-use-classes-in-javascript-handbook/" rel="noopener noreferrer" target="_blank">JavaScript Classes
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/front-end-javascript-development-react-angular-vue-compared/" rel="noopener noreferrer" target="_blank">Front-End Libraries
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/the-express-handbook/" rel="noopener noreferrer" target="_blank">Express and Node.js
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/python-code-examples-sample-script-coding-tutorial-for-beginners/" rel="noopener noreferrer" target="_blank">Python Code Examples
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/clustering-in-python-a-machine-learning-handbook/" rel="noopener noreferrer" target="_blank">Clustering in Python
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/an-introduction-to-software-architecture-patterns/" rel="noopener noreferrer" target="_blank">Software Architecture
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/what-is-programming-tutorial-for-beginners/" rel="noopener noreferrer" target="_blank">Programming Fundamentals
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/learn-to-code-book/" rel="noopener noreferrer" target="_blank">Coding Career Preparation
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/become-a-full-stack-developer-and-get-a-job/" rel="noopener noreferrer" target="_blank">Full-Stack Developer Guide
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/learn-python-for-javascript-developers-handbook/" rel="noopener noreferrer" target="_blank">Python for JavaScript Devs
+                    </a>
+                </li>
+            </ul>
+            <div class="spacer" style="padding: 15px 0;"></div>
+            <div>
+                <h2 id="mobile-app" class="col-header">
+                    Mobile App
+                </h2>
+                <div class="min-h-[1px] px-[15px] md:w-2/3 md:ml-[16.6%]">
+                    <ul aria-labelledby="mobile-app" class="mobile-app-container">
+                        <li>
+                            <a href="https://apps.apple.com/us/app/freecodecamp/id6446908151?itsct=apps_box_link&itscg=30200" rel="noopener noreferrer" target="_blank">
+                                <img src="https://cdn.freecodecamp.org/platform/universal/apple-store-badge.svg" lang="en" alt="Download on the App Store">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://play.google.com/store/apps/details?id=org.freecodecamp" rel="noopener noreferrer" target="_blank">
+                                <img src="https://cdn.freecodecamp.org/platform/universal/google-play-badge.svg" lang="en" alt="Get it on Google Play">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <h2 class="col-header" data-test-label="our-nonprofit">Our Charity</h2>
+        <div class="our-nonprofit">
+             
+                <span data-test-label="powered-by">
+                    Publication powered by Hashnode
+                </span>
+            
+            <a href="https://www.freecodecamp.org/news/about/" rel="noopener noreferrer" target="_blank" data-test-label="about">
+                About
+            </a>
+            <a href="https://www.linkedin.com/school/free-code-camp/people/" rel="noopener noreferrer" target="_blank" data-test-label="alumni">
+                Alumni Network
+            </a>
+            <a href="https://github.com/freeCodeCamp/" rel="noopener noreferrer" target="_blank" data-test-label="open-source">
+                Open Source
+            </a>
+            <a href="https://www.freecodecamp.org/news/shop/" rel="noopener noreferrer" target="_blank" data-test-label="shop">
+                Shop
+            </a>
+            <a href="https://www.freecodecamp.org/news/support/" rel="noopener noreferrer" target="_blank" data-test-label="support">
+                Support
+            </a>
+            <a href="https://www.freecodecamp.org/news/sponsors/" rel="noopener noreferrer" target="_blank" data-test-label="sponsors">
+                Sponsors
+            </a>
+            <a href="https://www.freecodecamp.org/news/academic-honesty-policy/" rel="noopener noreferrer" target="_blank" data-test-label="honesty">
+                Academic Honesty
+            </a>
+            <a href="https://www.freecodecamp.org/news/code-of-conduct/" rel="noopener noreferrer" target="_blank" data-test-label="coc">
+                Code of Conduct
+            </a>
+            <a href="https://www.freecodecamp.org/news/privacy-policy/" rel="noopener noreferrer" target="_blank" data-test-label="privacy">
+                Privacy Policy
+            </a>
+            <a href="https://www.freecodecamp.org/news/terms-of-service/" rel="noopener noreferrer" target="_blank" data-test-label="tos">
+                Terms of Service
+            </a>
+            <a href="https://www.freecodecamp.org/news/copyright-policy/" rel="noopener noreferrer" target="_blank" data-test-label="copyright">
+                Copyright Policy
+            </a>
+        </div>
+    </div>
+</footer>
+
+        </div>
+
+        
+        
+        
+
+        
+        
+    </body>
+</html>

@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        
+        
+            <title>The Express +  Node.js Handbook – Learn the Express JavaScript Framework for Beginners</title>
+        
+        <meta name="HandheldFriendly" content="True">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Roboto+Mono:wght@400;700&display=swap">
+        
+
+        
+        
+    <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.freecodecamp.org/news-assets/prism/1.29.0/themes/prism.min.css">
+<noscript>
+  <link rel="stylesheet" href="https://cdn.freecodecamp.org/news-assets/prism/1.29.0/themes/prism.min.css">
+</noscript>
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.freecodecamp.org/news-assets/prism/1.29.0/plugins/unescaped-markup/prism-unescaped-markup.min.css">
+<noscript>
+  <link rel="stylesheet" href="https://cdn.freecodecamp.org/news-assets/prism/1.29.0/plugins/unescaped-markup/prism-unescaped-markup.min.css">
+</noscript>
+
+<script defer="" src="https://cdn.freecodecamp.org/news-assets/prism/1.29.0/components/prism-core.min.js"></script>
+<script defer="" src="https://cdn.freecodecamp.org/news-assets/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+
+
+        
+        <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/news/assets/css/global-5a272ab5e0.css">
+        <link rel="stylesheet" type="text/css" href="/news/assets/css/screen-73acb3583e.css">
+        <link rel="stylesheet" type="text/css" href="/news/assets/css/search-bar-124f5f949c.css">
+
+        
+        <script defer="" src="https://cdn.freecodecamp.org/news-assets/algolia/algoliasearch-3-33-0/algoliasearch.min.js"></script>
+        <script defer="" src="https://cdn.freecodecamp.org/news-assets/algolia/autocomplete-0-36-0/autocomplete.min.js"></script>
+
+        
+        <script defer="" src="https://cdn.freecodecamp.org/news-assets/dayjs/1.10.4/dayjs.min.js"></script>
+        <script defer="" src="https://cdn.freecodecamp.org/news-assets/dayjs/1.10.4/localizedFormat.min.js"></script>
+        <script defer="" src="https://cdn.freecodecamp.org/news-assets/dayjs/1.10.4/relativeTime.min.js"></script>
+
+        
+        
+            <script defer="" src="https://cdn.freecodecamp.org/news-assets/dayjs/1.10.4/locale/en.min.js"></script>
+        
+
+        
+        <script>let client,index;document.addEventListener("DOMContentLoaded",()=>{client=algoliasearch("QMJYL5WYTI","89770b24481654192d7a5c402c6ad9a0"),index=client.initIndex("news")}),document.addEventListener("DOMContentLoaded",()=>{const e=window.screen.width,t=window.screen.height,n=e>=767&&t>=768?8:5,o=document.getElementById("search-form"),s=document.getElementById("search-input"),a=document.getElementById("dropdown-container");let i,d,c;s.addEventListener("input",e=>{i=e.target.value}),o.addEventListener("submit",e=>{e.preventDefault(),function(){if(d=document.getElementsByClassName("aa-cursor")[0],d&&i){const e=d.querySelector("a").href;window.location.assign(e)}else!d&&i&&c&&window.location.assign(`https://www.freecodecamp.org/news/search?query=${i}`)}()});const l=autocomplete("#search-input",{hint:!1,keyboardShortcuts:["s",191],openOnFocus:!0,appendTo:a,debug:!0},[{source:autocomplete.sources.hits(index,{hitsPerPage:n}),debounce:250,templates:{suggestion:e=>(c=!0,`\n            <a href="${e.url}">\n              <div class="algolia-result">\n                <span>${e._highlightResult.title.value}</span>\n              </div>\n            </a>\n          `),empty:()=>(c=!1,'\n            <div class="aa-suggestion footer-suggestion no-hits-footer">\n              <div class="algolia-result">\n                <span>\n                  No results found\n                </span>\n              </div>\n            </div>\n          '),footer:e=>{if(!e.isEmpty)return`\n              <div class="aa-suggestion footer-suggestion">\n                <a id="algolia-footer-selector" href="https://www.freecodecamp.org/news/search?query=${i}">\n                  <div class="algolia-result algolia-footer">\n                    See all results for ${i}\n                  </div>\n                </a>\n              </div>\n            `}}}]).on("autocomplete:selected",(e,t,n,o)=>{d=t?t.url:`https://www.freecodecamp.org/news/search?query=${i}`,"click"!==o.selectionMethod&&"tabKey"!==o.selectionMethod&&c&&window.location.assign(d)});document.addEventListener("click",e=>{e.target!==s&&l.autocomplete.close()})}),document.addEventListener("DOMContentLoaded",()=>{dayjs.extend(dayjs_plugin_localizedFormat),dayjs.extend(dayjs_plugin_relativeTime),dayjs.locale("en")});const isAuthenticated=document.cookie.split(";").some(e=>e.trim().startsWith("jwt_access_token=")),isDonor=document.cookie.split(";").some(e=>e.trim().startsWith("isDonor=true"));</script>
+
+        
+            <script src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossorigin="anonymous" async=""></script>
+        
+
+        
+        
+    
+        
+            <script>
+document.addEventListener('DOMContentLoaded', function() {
+    var sidebar = document.querySelector('.sidebar');
+    var isSideBarDisplayed = window.getComputedStyle(sidebar).display !== 'none';
+    function prepareAdSlot(elementId) {
+        // Get the element by ID
+        const targetElement = document.getElementById(elementId);
+
+        // Ensure the element exists before proceeding
+        if (!targetElement) {
+            console.error(`Element with ID ${elementId} not found`);
+            return;
+        }
+
+        const parentElement = targetElement.parentElement;
+        // Change the background color of the parent element
+
+        if (parentElement) {
+            console.log(elementId)
+
+            if (elementId === 'gam-ad-bottom' ) {
+                parentElement.style.backgroundColor = '#eeeef0';
+                if(getComputedStyle(parentElement).visibility === 'hidden') {
+                    parentElement.style.visibility = 'inherit'; 
+                }
+            }
+
+            // Get the sibling elements
+            const siblingElements = parentElement.children;
+
+            for (let i = 0; i < siblingElements.length; i++) {
+                const sibling = siblingElements[i];
+
+                // Skip the element itself
+                if (sibling === targetElement) continue;
+
+                // Log the sibling or perform any other action
+                console.log('Found sibling:', sibling);
+
+                // Check visibility
+                if(getComputedStyle(sibling).visibility === 'hidden') {
+                    sibling.style.visibility = 'inherit'; 
+                }
+
+                // Check if display is 'none', then change it to 'block'
+                if (getComputedStyle(sibling).display === 'none') {
+                    sibling.style.display = 'block'; 
+                }
+            }
+        } else {
+            console.warn('No parent element found');
+        }
+    }
+
+    
+    window.googletag = window.googletag || {cmd: []};
+    googletag.cmd.push(function() {
+
+        if(isSideBarDisplayed){
+            var sidebarHeight = sidebar.offsetHeight;
+            var adTextSideBarHeight = 0;
+            var sideBarAdContainert = 600 + 17;
+        
+            var styles = window.getComputedStyle(sidebar);
+            var avaiableSideAdSpace = sidebarHeight - adTextSideBarHeight - parseFloat(styles.paddingTop) - parseFloat(styles.paddingBottom);
+            var numSideElements = Math.floor(avaiableSideAdSpace / sideBarAdContainert);
+            for (var i = 0; i < numSideElements; i++) {
+                // container element
+                var containerElement = document.createElement('div');
+                containerElement.classList.add('ad-wrapper');
+
+                //text element
+                var textElement = document.createElement('div');
+                textElement.classList.add('ad-text');
+                textElement.innerText = localizedAdText;
+
+                // ad element
+                var adElement = document.createElement('div');
+                var sideAdElementId = 'side-gam-ad-' + i;
+                adElement.id = sideAdElementId;
+                adElement.classList.add('side-bar-ad-slot');
+
+                // finalize setup
+                containerElement.appendChild(textElement);
+                containerElement.appendChild(adElement);
+                sidebar.appendChild(containerElement);
+                googletag.defineSlot('/23075930536/post-side', [[292, 30], [240, 400], [300, 75], [216, 54], [250, 360], [300, 50], 'fluid', [300, 31], [120, 20], [300, 250], [120, 30], [180, 150], [200, 446], [168, 42], [200, 200], [160, 600], [120, 90], [125, 125], [240, 133], [120, 60], [1, 1], [120, 240], [220, 90], [216, 36], [250, 250], [168, 28], [234, 60], [120, 600], [300, 600], [88, 31], [300, 100]], sideAdElementId).addService(googletag.pubads());
+            }
+        }
+
+        // Define bottom ad
+        googletag.defineSlot('/23075930536/post-bottom', ['fluid'], 'gam-ad-bottom').addService(googletag.pubads());
+
+        // Enable lazy loading with default settings.
+        googletag.pubads().enableLazyLoad();
+
+        googletag.pubads().addEventListener("slotRequested", (event) => {
+            console.log(`Slot ${event.slot.getSlotElementId()} fetched`);
+        });
+
+        googletag.pubads().addEventListener("slotOnload", (event) => {
+            const elementId = event.slot.getSlotElementId();
+            prepareAdSlot(elementId);
+            console.log(`Slot ${event.slot.getSlotElementId()} rendered`);
+        });
+
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+
+
+        // Trigger lazy loading
+        googletag.display('gam-ad-bottom');
+
+    });
+});
+</script>
+
+        
+    
+
+
+        
+            <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5D6RKKP');</script>
+
+        
+        
+        
+        
+    
+        
+    
+        
+    
+        
+    
+
+
+        
+        
+        
+
+        
+        
+
+        <link rel="icon" href="https://cdn.freecodecamp.org/universal/favicons/favicon.ico" type="image/png">
+        
+        
+            <link rel="canonical" href="https://www.freecodecamp.org/news/the-express-handbook/">
+        
+        <meta name="referrer" content="no-referrer-when-downgrade">
+
+        
+
+        
+    <meta name="description" content="What is Express? Express is a Web Framework built upon Node.js. Node.js is an amazing tool for building networking services and applications. Express builds on top of its features to provide easy to use functionality that satisfies the needs of the W...">
+
+    
+    <meta property="og:site_name" content="freeCodeCamp.org">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="The Express +  Node.js Handbook – Learn the Express JavaScript Framework for Beginners">
+    
+        <meta property="og:description" content="What is Express? Express is a Web Framework built upon Node.js. Node.js is an amazing tool for building networking services and applications. Express builds on top of its features to provide easy to use functionality that satisfies the needs of the W...">
+    
+    <meta property="og:url" content="https://www.freecodecamp.org/news/the-express-handbook/">
+    <meta property="og:image" content="https://www.freecodecamp.org/news/content/images/2022/11/pexels-paul-ijsendoorn-1181202.jpg">
+    <meta property="article:published_time" content="2022-11-18T18:52:29.000Z">
+    <meta property="article:modified_time" content="2024-10-04T07:25:34.234Z">
+    
+        <meta property="article:tag" content="Express">
+    
+        <meta property="article:tag" content="JavaScript">
+    
+        <meta property="article:tag" content="node">
+    
+    <meta property="article:publisher" content="https://www.facebook.com/freecodecamp">
+    
+
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Express +  Node.js Handbook – Learn the Express JavaScript Framework for Beginners">
+    
+        <meta name="twitter:description" content="What is Express? Express is a Web Framework built upon Node.js. Node.js is an amazing tool for building networking services and applications. Express builds on top of its features to provide easy to use functionality that satisfies the needs of the W...">
+    
+    <meta name="twitter:url" content="https://www.freecodecamp.org/news/the-express-handbook/">
+    <meta name="twitter:image" content="https://www.freecodecamp.org/news/content/images/2022/11/pexels-paul-ijsendoorn-1181202.jpg">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Flavio Copes">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Express, JavaScript, node">
+    <meta name="twitter:site" content="@freecodecamp">
+    
+        <meta name="twitter:creator" content="@flaviocopes">
+    
+
+    <meta property="og:image:width" content="600">
+    <meta property="og:image:height" content="400">
+
+
+        
+    <script type="application/ld+json">{
+	"@context": "https://schema.org",
+	"@type": "Article",
+	"publisher": {
+		"@type": "Organization",
+		"name": "freeCodeCamp.org",
+		"url": "https://www.freecodecamp.org/news/",
+		"logo": {
+			"@type": "ImageObject",
+			"url": "https://cdn.freecodecamp.org/platform/universal/fcc_primary.svg",
+			"width": 2100,
+			"height": 240
+		}
+	},
+	"image": {
+		"@type": "ImageObject",
+		"url": "https://www.freecodecamp.org/news/content/images/2022/11/pexels-paul-ijsendoorn-1181202.jpg",
+		"width": 600,
+		"height": 400
+	},
+	"url": "https://www.freecodecamp.org/news/the-express-handbook/",
+	"mainEntityOfPage": {
+		"@type": "WebPage",
+		"@id": "https://www.freecodecamp.org/news/"
+	},
+	"datePublished": "2022-11-18T18:52:29.000Z",
+	"dateModified": "2024-10-04T07:25:34.234Z",
+	"keywords": "Express, JavaScript, node",
+	"description": "What is Express?\nExpress is a Web Framework built upon Node.js.\nNode.js is an amazing tool for building networking services and applications.\nExpress builds on top of its features to provide easy to use functionality that satisfies the needs of the W...",
+	"headline": "The Express +  Node.js Handbook – Learn the Express JavaScript Framework for Beginners",
+	"author": {
+		"@type": "Person",
+		"name": "Flavio Copes",
+		"url": "https://www.freecodecamp.org/news/author/flaviocopes/",
+		"sameAs": [
+			"https://flaviocopes.com",
+			"https://x.com/flaviocopes"
+		],
+		"image": {
+			"@type": "ImageObject",
+			"url": "https://cdn.hashnode.com/res/hashnode/image/upload/v1648219076078/Y_hBeZli4.jpg",
+			"width": 621,
+			"height": 695
+		}
+	}
+}</script>
+
+
+        <meta name="generator" content="Eleventy">
+        <link rel="alternate" type="application/rss+xml" title="freeCodeCamp.org" href="https://www.freecodecamp.org/news/rss/">
+
+        
+        
+
+        
+  <meta name="x-fcc-source" data-test-label="x-fcc-source" content="Hashnode">
+
+    </head>
+
+    
+        <body class="home-template">
+    
+
+    
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5D6RKKP" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    
+
+        <div class="site-wrapper">
+            <nav class="site-nav nav-padding">
+    <div class="site-nav-left">
+        
+<form id="search-form" data-test-label="search-bar">
+    <div role="search" class="searchbox__wrapper">
+        <label class="fcc_sr_only" for="search-input">
+            Search
+        </label>
+        <input type="search" placeholder="
+    Search our news articles, tutorials, and books
+" id="search-input">
+        <button type="submit" class="ais-SearchBox-submit">
+            <svg class="ais-SearchBox-submitIcon" xmlns="https://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 40 40">
+    <path d="M26.804 29.01c-2.832 2.34-6.465 3.746-10.426 3.746C7.333 32.756 0 25.424 0 16.378 0 7.333 7.333 0 16.378 0c9.046 0 16.378 7.333 16.378 16.378 0 3.96-1.406 7.594-3.746 10.426l10.534 10.534c.607.607.61 1.59-.004 2.202-.61.61-1.597.61-2.202.004L26.804 29.01zm-10.426.627c7.323 0 13.26-5.936 13.26-13.26 0-7.32-5.937-13.257-13.26-13.257C9.056 3.12 3.12 9.056 3.12 16.378c0 7.323 5.936 13.26 13.258 13.26z"></path>
+</svg>
+
+            <span class="fcc_sr_only">Submit your search query</span>
+        </button>
+        <div id="dropdown-container"></div>
+    </div>
+</form>
+
+    </div>
+    <div class="site-nav-middle">
+        <a class="site-nav-logo" href="https://www.freecodecamp.org/news/" data-test-label="site-nav-logo"><img src="https://cdn.freecodecamp.org/platform/universal/fcc_primary.svg" alt="freeCodeCamp.org"></a>
+    </div>
+    <div class="site-nav-right">
+        <div class="nav-group">
+            <a class="nav-forum" id="nav-forum" rel="noopener noreferrer" href="https://forum.freecodecamp.org/" target="_blank" data-test-label="forum-button">Forum</a>
+            <a class="toggle-button-nav" id="nav-donate" rel="noopener noreferrer" href="https://www.freecodecamp.org/donate/" target="_blank" data-test-label="donate-button">Donate</a>
+        </div>
+    </div>
+</nav>
+
+
+            
+            <a class="banner" id="banner" data-test-label="banner" rel="noopener noreferrer" target="_blank">
+    <p id="banner-text"></p>
+</a>
+
+
+    
+    <script>document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("banner"),t=document.getElementById("banner-text");if(isAuthenticated){t.innerHTML=isDonor?"Thank you for supporting freeCodeCamp through <span>your donations</span>.":"Support our charity and our mission. <span>Donate to freeCodeCamp.org</span>.",e.href=isDonor?"https://www.freecodecamp.org/news/how-to-donate-to-free-code-camp/":"https://www.freecodecamp.org/donate";const o=isDonor?"donor":"authenticated";e.setAttribute("text-variation",o)}else t.innerHTML="Learn to code — <span>free 3,000-hour curriculum</span>",e.href="https://www.freecodecamp.org/",e.setAttribute("text-variation","default")});</script>
+
+
+            <div id="error-message"></div>
+
+            
+    <main id="site-main" class="post-template site-main outer">
+        <div class="inner ad-layout">
+            <article class="post-full post">
+                <header class="post-full-header">
+                    <section class="post-full-meta">
+                        <time class="post-full-meta-date" data-test-label="post-full-meta-date" datetime="2022-11-18T18:52:29.000Z">
+                            November 18, 2022
+                        </time>
+                        
+                            <span class="date-divider">/</span>
+                            <a dir="ltr" href="/news/tag/express/">
+                                #Express
+                            </a>
+                        
+                    </section>
+                    <h1 class="post-full-title" data-test-label="post-full-title">The Express +  Node.js Handbook – Learn the Express JavaScript Framework for Beginners</h1>
+                </header>
+                
+                    <div class="post-full-author-header" data-test-label="author-header-no-bio">
+                        
+                            
+    
+    
+    
+
+    <section class="author-card" data-test-label="author-card">
+        
+            
+    <img srcset="https://cdn.hashnode.com/res/hashnode/image/upload/v1648219076078/Y_hBeZli4.jpg 60w" sizes="60px" src="https://cdn.hashnode.com/res/hashnode/image/upload/v1648219076078/Y_hBeZli4.jpg" class="author-profile-image" alt="Flavio Copes" width="621" height="695" onerror="this.style.display='none'" data-test-label="profile-image">
+  
+        
+
+        <section class="author-card-content author-card-content-no-bio">
+            <span class="author-card-name">
+                <a href="/news/author/flaviocopes/" data-test-label="profile-link">
+                    
+                        Flavio Copes
+                    
+                </a>
+            </span>
+            
+        </section>
+    </section>
+
+                        
+                    </div>
+                
+                <figure class="post-full-image">
+                    
+    <picture>
+      <source media="(max-width: 700px)" sizes="1px" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 1w">
+      <source media="(min-width: 701px)" sizes="(max-width: 800px) 400px, (max-width: 1170px) 700px, 1400px" srcset="https://www.freecodecamp.org/news/content/images/size/w300/2022/11/pexels-paul-ijsendoorn-1181202.jpg 300w, https://www.freecodecamp.org/news/content/images/size/w600/2022/11/pexels-paul-ijsendoorn-1181202.jpg 600w, https://www.freecodecamp.org/news/content/images/size/w1000/2022/11/pexels-paul-ijsendoorn-1181202.jpg 1000w, https://www.freecodecamp.org/news/content/images/size/w2000/2022/11/pexels-paul-ijsendoorn-1181202.jpg 2000w">
+      <img onerror="this.style.display='none'" src="https://www.freecodecamp.org/news/content/images/size/w2000/2022/11/pexels-paul-ijsendoorn-1181202.jpg" alt="The Express +  Node.js Handbook – Learn the Express JavaScript Framework for Beginners" ,="" width="600" height="400" data-test-label="feature-image">
+    </picture>
+  
+                </figure>
+                <section class="post-full-content">
+                    <div class="post-and-sidebar">
+                        <section class="post-content " data-test-label="post-content">
+                            
+<h2 id="heading-what-is-express">What is Express?</h2>
+<p>Express is a Web Framework built upon Node.js.</p>
+<p>Node.js is an amazing tool for building networking services and applications.</p>
+<p>Express builds on top of its features to provide easy to use functionality that satisfies the needs of the Web Server use-case. It's Open Source, free, easy to extend, and very performant.</p>
+<p>There are also lots and lots of pre-built packages you can just drop in and use to do all kinds of things.</p>
+<p><a target="_blank" href="https://thevalleyofcode.com/download/express/">You can get a PDF and ePub version of this Express Handbook</a></p>
+<h2 id="heading-table-of-contents">Table of Contents</h2>
+<ul>
+<li><p><a class="post-section-overview" href="#heading-how-to-install-express">How to Install Express</a></p>
+</li>
+<li><p><a class="post-section-overview" href="#heading-the-first-hello-world-example">The first "Hello, World" example</a></p>
+</li>
+<li><p><a class="post-section-overview" href="#heading-request-parameters">Request Parameters</a></p>
+</li>
+<li><p><a class="post-section-overview" href="#heading-how-to-send-a-response-to-the-client">How to Send a Response to the Client</a></p>
+</li>
+<li><p><a class="post-section-overview" href="#heading-how-to-send-a-json-response">How to Send a JSON Response</a></p>
+</li>
+<li><p><a class="post-section-overview" href="#heading-how-to-manage-cookies">How to Manage Cookies</a></p>
+</li>
+<li><p><a class="post-section-overview" href="#heading-how-to-work-with-http-headers">How to Work with HTTP Headers</a></p>
+</li>
+<li><p><a class="post-section-overview" href="#heading-how-to-handle-redirects">How to Handle Redirects</a></p>
+</li>
+<li><p><a class="post-section-overview" href="#heading-routing-in-express">Routing in Express</a></p>
+</li>
+<li><p><a class="post-section-overview" href="#heading-templates-in-express">Templates in Express</a></p>
+</li>
+<li><p><a class="post-section-overview" href="#heading-express-middleware">Express Middleware</a></p>
+</li>
+<li><p><a class="post-section-overview" href="#heading-how-to-serve-static-assets-with-express">How to Serve Static Assets with Express</a></p>
+</li>
+<li><p><a class="post-section-overview" href="#heading-how-to-send-files-to-the-client">How to Send Files to the Client</a></p>
+</li>
+<li><p><a class="post-section-overview" href="#heading-sessions-in-express">Sessions in Express</a></p>
+</li>
+<li><p><a class="post-section-overview" href="#heading-how-to-validate-input-in-express">How to Validate Input in Express</a></p>
+</li>
+<li><p><a class="post-section-overview" href="#how-to-sanitize-input-in-express">How to Sanitize Input in Express</a></p>
+</li>
+<li><p><a class="post-section-overview" href="#heading-how-to-handle-forms-in-express">How to Handle Forms in Express</a></p>
+</li>
+<li><p><a class="post-section-overview" href="#heading-how-to-handle-file-uploads-in-forms-in-express">How to Handle File Uploads in Forms in Express</a></p>
+</li>
+</ul>
+<h2 id="heading-how-to-install-express">How to Install Express</h2>
+<p>You can install Express into any project with npm.</p>
+<p>If you're in an empty folder, first create a new Node.js project with this command:</p>
+<pre><code class="lang-javascript">npm init -y
+</code></pre>
+<p>then run this:</p>
+<pre><code class="lang-javascript">npm install express
+</code></pre>
+<p>to install Express into the project.</p>
+<h2 id="heading-the-first-hello-world-example">The First "Hello, World" Example</h2>
+<p>The first example we're going to create is a simple Express Web Server.</p>
+<p>Copy this code:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>)
+<span class="hljs-keyword">const</span> app = express()
+
+app.get(<span class="hljs-string">'/'</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> res.send(<span class="hljs-string">'Hello World!'</span>))
+app.listen(<span class="hljs-number">3000</span>, <span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Server ready'</span>))
+</code></pre>
+<p>Save this to an <code>index.js</code> file in your project root folder, and start the server using this command:</p>
+<pre><code class="lang-javascript">node index.js
+</code></pre>
+<p>You can open the browser to port 3000 on localhost and you should see the <code>Hello World!</code> message.</p>
+<p>Those 4 lines of code do a lot behind the scenes.</p>
+<p>First, we import the <code>express</code> package to the <code>express</code> value.</p>
+<p>We instantiate an application by calling the <code>express()</code> method.</p>
+<p>Once we have the application object, we tell it to listen for GET requests on the <code>/</code> path, using the <code>get()</code> method.</p>
+<p>There is a method for every HTTP <strong>verb</strong>: <code>get()</code>, <code>post()</code>, <code>put()</code>, <code>delete()</code>, and <code>patch()</code>:</p>
+<pre><code class="lang-js">app.get(<span class="hljs-string">'/'</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> { <span class="hljs-comment">/* */</span> })
+app.post(<span class="hljs-string">'/'</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> { <span class="hljs-comment">/* */</span> })
+app.put(<span class="hljs-string">'/'</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> { <span class="hljs-comment">/* */</span> })
+app.delete(<span class="hljs-string">'/'</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> { <span class="hljs-comment">/* */</span> })
+app.patch(<span class="hljs-string">'/'</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> { <span class="hljs-comment">/* */</span> })
+</code></pre>
+<p>Those methods accept a callback function – which is called when a request is started – and we need to handle it.</p>
+<p>We pass in an arrow function:</p>
+<pre><code class="lang-js">(req, res) =&gt; res.send(<span class="hljs-string">'Hello World!'</span>)
+</code></pre>
+<p>Express sends us two objects in this callback, which we called <code>req</code> and <code>res</code>. They represent the Request and the Response objects.</p>
+<p>Both are standards and you can read more on them <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Request">here</a> and <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Response">here</a>.</p>
+<p>Request is the HTTP request. It gives us all the request information, including the request parameters, the headers, the body of the request, and more.</p>
+<p>Response is the HTTP response object that we'll send to the client.</p>
+<p>What we do in this callback is send the 'Hello World!' string to the client, using the <code>Response.send()</code> method.</p>
+<p>This method sets that string as the body, and it closes the connection.</p>
+<p>The last line of the example actually starts the server, and tells it to listen on port <code>3000</code>. We pass in a callback that is called when the server is ready to accept new requests.</p>
+<h2 id="heading-request-parameters">Request Parameters</h2>
+<p>I mentioned how the Request object holds all the HTTP request information.</p>
+<p>These are the main properties you'll likely use:</p>
+<div class="hn-table">
+<table>
+<thead>
+<tr>
+<td>Property</td><td>Description</td></tr>
+</thead>
+<tbody>
+<tr>
+<td>.app</td><td>holds a reference to the Express app object</td></tr>
+<tr>
+<td>.baseUrl</td><td>the base path on which the app responds</td></tr>
+<tr>
+<td>.body</td><td>contains the data submitted in the request body (must be parsed and populated manually before you can access it)</td></tr>
+<tr>
+<td>.cookies</td><td>contains the cookies sent by the request (needs the <code>cookie-parser</code> middleware)</td></tr>
+<tr>
+<td>.hostname</td><td>the hostname as defined in the <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Host">Host HTTP header</a> value</td></tr>
+<tr>
+<td>.ip</td><td>the client IP</td></tr>
+<tr>
+<td>.method</td><td>the HTTP method used</td></tr>
+<tr>
+<td>.params</td><td>the route named parameters</td></tr>
+<tr>
+<td>.path</td><td>the URL path</td></tr>
+<tr>
+<td>.protocol</td><td>the request protocol</td></tr>
+<tr>
+<td>.query</td><td>an object containing all the query strings used in the request</td></tr>
+<tr>
+<td>.secure</td><td>true if the request is secure (uses HTTPS)</td></tr>
+<tr>
+<td>.signedCookies</td><td>contains the signed cookies sent by the request (needs the <code>cookie-parser</code> middleware)</td></tr>
+<tr>
+<td>.xhr</td><td>true if the request is an <a target="_blank" href="https://www.freecodecamp.org/news/xhr/">XMLHttpRequest</a></td></tr>
+</tbody>
+</table>
+</div><h2 id="heading-how-to-send-a-response-to-the-client">How to Send a Response to the Client</h2>
+<p>In the Hello World example, we used the <code>send()</code> method of the Response object to send a simple string as a response, and to close the connection:</p>
+<pre><code class="lang-js">(req, res) =&gt; res.send(<span class="hljs-string">'Hello World!'</span>)
+</code></pre>
+<p>If you pass in a string, it sets the <code>Content-Type</code> header to <code>text/html</code>.</p>
+<p>If you pass in an object or an array, it sets the <code>application/json</code> <code>Content-Type</code> header, and parses that parameter into <a target="_blank" href="https://www.freecodecamp.org/news/json/">JSON</a>.</p>
+<p>After this, <code>send()</code> closes the connection.</p>
+<p><code>send()</code> automatically sets the <code>Content-Length</code> HTTP response header, unlike <code>end()</code> which requires you to do that.</p>
+<h3 id="heading-how-to-use-end-to-send-an-empty-response">How to use end() to send an empty response</h3>
+<p>An alternative way to send the response, without any body, is by using the <code>Response.end()</code> method:</p>
+<pre><code class="lang-js">res.end()
+</code></pre>
+<h3 id="heading-how-to-set-the-http-response-status">How to set the HTTP response status</h3>
+<p>Use the <code>status()</code> method on the response object:</p>
+<pre><code class="lang-js">res.status(<span class="hljs-number">404</span>).end()
+</code></pre>
+<p>or</p>
+<pre><code class="lang-js">res.status(<span class="hljs-number">404</span>).send(<span class="hljs-string">'File not found'</span>)
+</code></pre>
+<p><code>sendStatus()</code> is a shortcut:</p>
+<pre><code class="lang-js">res.sendStatus(<span class="hljs-number">200</span>)
+<span class="hljs-comment">// === res.status(200).send('OK')</span>
+
+res.sendStatus(<span class="hljs-number">403</span>)
+<span class="hljs-comment">// === res.status(403).send('Forbidden')</span>
+
+res.sendStatus(<span class="hljs-number">404</span>)
+<span class="hljs-comment">// === res.status(404).send('Not Found')</span>
+
+res.sendStatus(<span class="hljs-number">500</span>)
+<span class="hljs-comment">// === res.status(500).send('Internal Server Error')</span>
+</code></pre>
+<h2 id="heading-how-to-send-a-json-response">How to Send a JSON Response</h2>
+<p>When you listen for connections on a route in Express, the callback function will be invoked on every network call with a Request object instance and a Response object instance.</p>
+<p>Example:</p>
+<pre><code class="lang-js">app.get(<span class="hljs-string">'/'</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> res.send(<span class="hljs-string">'Hello World!'</span>))
+</code></pre>
+<p>Here we used the <code>Response.send()</code> method, which accepts any string.</p>
+<p>You can send <a target="_blank" href="https://www.freecodecamp.org/news/json/">JSON</a> to the client by using <code>Response.json()</code>, a useful method.</p>
+<p>It accepts an object or array, and converts it to JSON before sending it:</p>
+<pre><code class="lang-js">res.json({ <span class="hljs-attr">username</span>: <span class="hljs-string">'Flavio'</span> })
+</code></pre>
+<h2 id="heading-how-to-manage-cookies">How to Manage Cookies</h2>
+<p>Use the <code>Response.cookie()</code> method to manipulate your cookies.</p>
+<p>Examples:</p>
+<pre><code class="lang-js">res.cookie(<span class="hljs-string">'username'</span>, <span class="hljs-string">'Flavio'</span>)
+</code></pre>
+<p>This method accepts a third parameter, which contains various options:</p>
+<pre><code class="lang-js">res.cookie(<span class="hljs-string">'username'</span>, <span class="hljs-string">'Flavio'</span>, { <span class="hljs-attr">domain</span>: <span class="hljs-string">'.flaviocopes.com'</span>, <span class="hljs-attr">path</span>: <span class="hljs-string">'/administrator'</span>, <span class="hljs-attr">secure</span>: <span class="hljs-literal">true</span> })
+
+res.cookie(<span class="hljs-string">'username'</span>, <span class="hljs-string">'Flavio'</span>, { <span class="hljs-attr">expires</span>: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-built_in">Date</span>.now() + <span class="hljs-number">900000</span>), <span class="hljs-attr">httpOnly</span>: <span class="hljs-literal">true</span> })
+</code></pre>
+<p>The most useful parameters you can set are:</p>
+<div class="hn-table">
+<table>
+<thead>
+<tr>
+<td>Value</td><td>Description</td></tr>
+</thead>
+<tbody>
+<tr>
+<td><code>domain</code></td><td>The <a target="_blank" href="https://www.freecodecamp.org/news/cookies/#set-a-cookie-domain">cookie domain name</a></td></tr>
+<tr>
+<td><code>expires</code></td><td>Set the <a target="_blank" href="https://www.freecodecamp.org/news/cookies/#set-a-cookie-expiration-date">cookie expiration date</a>. If missing, or 0, the cookie is a session cookie</td></tr>
+<tr>
+<td><code>httpOnly</code></td><td>Set the cookie to be accessible only by the web server. See <a target="_blank" href="https://www.freecodecamp.org/news/cookies/#httponly">HttpOnly</a></td></tr>
+<tr>
+<td><code>maxAge</code></td><td>Set the expiry time relative to the current time, expressed in milliseconds</td></tr>
+<tr>
+<td><code>path</code></td><td>The <a target="_blank" href="https://www.freecodecamp.org/news/cookies/#set-a-cookie-path">cookie path</a>. Defaults to '/'</td></tr>
+<tr>
+<td><code>secure</code></td><td>Marks the <a target="_blank" href="https://www.freecodecamp.org/news/cookies/#secure">cookie HTTPS only</a></td></tr>
+<tr>
+<td><code>signed</code></td><td>Set the cookie to be signed</td></tr>
+<tr>
+<td><code>sameSite</code></td><td>Value of <a target="_blank" href="https://www.freecodecamp.org/news/cookies/#samesite"><code>SameSite</code></a></td></tr>
+</tbody>
+</table>
+</div><p>A cookie can be cleared with:</p>
+<pre><code class="lang-js">res.clearCookie(<span class="hljs-string">'username'</span>)
+</code></pre>
+<h2 id="heading-how-to-work-with-http-headers">How to Work with HTTP Headers</h2>
+<h3 id="heading-how-to-access-http-headers-values-from-a-request">How to access HTTP headers values from a request</h3>
+<p>You can access all the HTTP headers using the <code>Request.headers</code> property:</p>
+<pre><code class="lang-js">app.get(<span class="hljs-string">'/'</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(req.headers)
+})
+</code></pre>
+<p>Use the <code>Request.header()</code> method to access one individual request header's value:</p>
+<pre><code class="lang-js">app.get(<span class="hljs-string">'/'</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+  req.header(<span class="hljs-string">'User-Agent'</span>)
+})
+</code></pre>
+<h3 id="heading-how-to-change-any-http-header-value-for-a-response">How to change any HTTP header value for a response</h3>
+<p>You can change any HTTP header value using <code>Response.set()</code>:</p>
+<pre><code class="lang-js">res.set(<span class="hljs-string">'Content-Type'</span>, <span class="hljs-string">'text/html'</span>)
+</code></pre>
+<p>There is a shortcut for the Content-Type header, however:</p>
+<pre><code class="lang-js">res.type(<span class="hljs-string">'.html'</span>)
+<span class="hljs-comment">// =&gt; 'text/html'</span>
+
+res.type(<span class="hljs-string">'html'</span>)
+<span class="hljs-comment">// =&gt; 'text/html'</span>
+
+res.type(<span class="hljs-string">'json'</span>)
+<span class="hljs-comment">// =&gt; 'application/json'</span>
+
+res.type(<span class="hljs-string">'application/json'</span>)
+<span class="hljs-comment">// =&gt; 'application/json'</span>
+
+res.type(<span class="hljs-string">'png'</span>)
+<span class="hljs-comment">// =&gt; image/png:</span>
+</code></pre>
+<h2 id="heading-how-to-handle-redirects">How to Handle Redirects</h2>
+<p>Redirects are common in Web Development. You can create a redirect using the <code>Response.redirect()</code> method:</p>
+<pre><code class="lang-js">res.redirect(<span class="hljs-string">'/go-there'</span>)
+</code></pre>
+<p>This creates a 302 redirect.</p>
+<p>A 301 redirect is made in this way:</p>
+<pre><code class="lang-js">res.redirect(<span class="hljs-number">301</span>, <span class="hljs-string">'/go-there'</span>)
+</code></pre>
+<p>You can specify an absolute path (<code>/go-there</code>), an absolute URL (<code>https://anothersite.com</code>), a relative path (<code>go-there</code>) or use the <code>..</code> to go back one level:</p>
+<pre><code class="lang-js">res.redirect(<span class="hljs-string">'../go-there'</span>)
+res.redirect(<span class="hljs-string">'..'</span>)
+</code></pre>
+<p>You can also redirect back to the Referrer HTTP header value (defaulting to <code>/</code> if not set) using</p>
+<pre><code class="lang-js">res.redirect(<span class="hljs-string">'back'</span>)
+</code></pre>
+<h2 id="heading-routing-in-express">Routing in Express</h2>
+<p>Routing is the process of determining what should happen when a URL is called, or also which parts of the application should handle a specific incoming request.</p>
+<p>In the Hello World example we used this code:</p>
+<pre><code class="lang-js">app.get(<span class="hljs-string">'/'</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> { <span class="hljs-comment">/* */</span> })
+</code></pre>
+<p>This creates a route that maps accessing the root domain URL <code>/</code> using the HTTP GET method to the response we want to provide.</p>
+<h3 id="heading-named-parameters">Named parameters</h3>
+<p>What if we want to listen for custom requests? Maybe we want to create a service that accepts a string and returns it as uppercase – and we don't want the parameter to be sent as a query string, but as part of the URL. In a case like that, we use named parameters:</p>
+<pre><code class="lang-js">app.get(<span class="hljs-string">'/uppercase/:theValue'</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> res.send(req.params.theValue.toUpperCase()))
+</code></pre>
+<p>If we send a request to <code>/uppercase/test</code>, we'll get <code>TEST</code> in the body of the response.</p>
+<p>You can use multiple named parameters in the same URL, and they will all be stored in <code>req.params</code>.</p>
+<h3 id="heading-how-to-use-a-regular-expression-to-match-a-path">How to use a regular expression to match a path</h3>
+<p>You can use <a target="_blank" href="https://flaviocopes.com/javascript-regular-expressions/">regular expressions</a> to match multiple paths with one statement:</p>
+<pre><code class="lang-js">app.get(<span class="hljs-regexp">/post/</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> { <span class="hljs-comment">/* */</span> })
+</code></pre>
+<p>will match <code>/post</code>, <code>/post/first</code>, <code>/thepost</code>, <code>/posting/something</code>, and so on.</p>
+<h2 id="heading-templates-in-express">Templates in Express</h2>
+<p>Express is capable of handling server-side template engines.</p>
+<p>Template engines allow us to add data to a view, and generate HTML dynamically.</p>
+<p>Express uses Jade as the default. Jade is the old version of Pug, specifically Pug 1.0.</p>
+<p>Note that the name was changed from Jade to Pug due to a trademark issue in 2016, when the project released version 2. You can still use Jade, aka Pug 1.0, but going forward, it's best to use Pug 2.0</p>
+<p>Although the last version of Jade is getting old, it's still the default in Express for backward compatibility reasons.</p>
+<p>In any new project, you should use Pug or another engine of your choice. The official site of Pug is <a target="_blank" href="https://pugjs.org/">https://pugjs.org/</a>.</p>
+<p>You can use many different template engines, including Pug, Handlebars, Mustache, EJS and more.</p>
+<p>To use Pug we must first install it:</p>
+<pre><code class="lang-bash">npm install pug
+</code></pre>
+<p>and when initializing the Express app, we need to set it:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>)
+<span class="hljs-keyword">const</span> app = express()
+app.set(<span class="hljs-string">'view engine'</span>, <span class="hljs-string">'pug'</span>)
+</code></pre>
+<p>We can now start writing our templates in <code>.pug</code> files.</p>
+<p>Create an about view:</p>
+<pre><code class="lang-js">app.get(<span class="hljs-string">'/about'</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+  res.render(<span class="hljs-string">'about'</span>)
+})
+</code></pre>
+<p>and the template in <code>views/about.pug</code>:</p>
+<pre><code class="lang-javascript">p Hello <span class="hljs-keyword">from</span> Flavio
+</code></pre>
+<p>This template will create a <code>p</code> tag with the content <code>Hello from Flavio</code>.</p>
+<p>You can interpolate a variable using this code:</p>
+<pre><code class="lang-js">app.get(<span class="hljs-string">'/about'</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+  res.render(<span class="hljs-string">'about'</span>, { <span class="hljs-attr">name</span>: <span class="hljs-string">'Flavio'</span> })
+})
+</code></pre>
+<pre><code class="lang-javascript">p Hello <span class="hljs-keyword">from</span> #{name}
+</code></pre>
+<p>Look at the <a target="_blank" href="https://flaviocopes.com/pug">Pug guide</a> for more information on how to use Pug.</p>
+<p>This online converter from HTML to Pug will be a great help: <a target="_blank" href="https://html-to-pug.com/">https://html-to-pug.com/</a>.</p>
+<h2 id="heading-express-middleware">Express Middleware</h2>
+<p>A middleware is a function that hooks into the routing process, performing an arbitrary operation at some point in the chain (depending on what we want it to do).</p>
+<p>It's commonly used to edit the request or response objects, or terminate the request before it reaches the route handler code.</p>
+<p>Middleware is added to the execution stack like so:</p>
+<pre><code class="lang-js">app.use(<span class="hljs-function">(<span class="hljs-params">req, res, next</span>) =&gt;</span> { <span class="hljs-comment">/* */</span> })
+</code></pre>
+<p>This is similar to defining a route, but in addition to the Request and Response objects instances, we also have a reference to the <em>next</em> middleware function, which we assign to the variable <code>next</code>.</p>
+<p>We always call <code>next()</code> at the end of our middleware function, in order to pass the execution to the next handler. That is unless we want to prematurely end the response and send it back to the client.</p>
+<p>You typically use pre-made middleware, in the form of <code>npm</code> packages. You can find a big list of the available ones <a target="_blank" href="https://expressjs.com/en/resources/middleware.html">here</a>.</p>
+<p>One example is <code>cookie-parser</code>, which is used to parse cookies into the <code>req.cookies</code> object. You can install it using <code>npm install cookie-parser</code> and you use it like this:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>)
+<span class="hljs-keyword">const</span> app = express()
+<span class="hljs-keyword">const</span> cookieParser = <span class="hljs-built_in">require</span>(<span class="hljs-string">'cookie-parser'</span>)
+
+app.get(<span class="hljs-string">'/'</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> res.send(<span class="hljs-string">'Hello World!'</span>))
+
+app.use(cookieParser())
+app.listen(<span class="hljs-number">3000</span>, <span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Server ready'</span>))
+</code></pre>
+<p>We can also set a middleware function to run for specific routes only (not for all), by using it as the second parameter of the route definition:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> myMiddleware = <span class="hljs-function">(<span class="hljs-params">req, res, next</span>) =&gt;</span> {
+  <span class="hljs-comment">/* ... */</span>
+  next()
+}
+
+app.get(<span class="hljs-string">'/'</span>, myMiddleware, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> res.send(<span class="hljs-string">'Hello World!'</span>))
+</code></pre>
+<p>If you need to store data that's generated in a middleware to pass it down to subsequent middleware functions, or to the request handler, you can use the <code>Request.locals</code> object. It will attach that data to the current request:</p>
+<pre><code class="lang-js">req.locals.name = <span class="hljs-string">'Flavio'</span>
+</code></pre>
+<h2 id="heading-how-to-serve-static-assets-with-express">How to Serve Static Assets with Express</h2>
+<p>It's common to have images, CSS, and more in a <code>public</code> subfolder, and expose them to the root level:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>)
+<span class="hljs-keyword">const</span> app = express()
+
+app.use(express.static(<span class="hljs-string">'public'</span>))
+
+<span class="hljs-comment">/* ... */</span>
+
+app.listen(<span class="hljs-number">3000</span>, <span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Server ready'</span>))
+</code></pre>
+<p>If you have an <code>index.html</code> file in <code>public/</code>, that will be served if you now hit the root domain URL (<code>http://localhost:3000</code>)</p>
+<h2 id="heading-how-to-send-files-to-the-client">How to Send Files to the Client</h2>
+<p>Express provides a handy method to transfer a file as an attachment: <code>Response.download()</code>.</p>
+<p>Once a user hits a route that sends a file using this method, browsers will prompt the user to download.</p>
+<p>The <code>Response.download()</code> method allows you to send a file attached to the request, and the browser, instead of showing it in the page, will save it to disk.</p>
+<pre><code class="lang-js">app.get(<span class="hljs-string">'/'</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> res.download(<span class="hljs-string">'./file.pdf'</span>))
+</code></pre>
+<p>In the context of an app:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>)
+<span class="hljs-keyword">const</span> app = express()
+
+app.get(<span class="hljs-string">'/'</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> res.download(<span class="hljs-string">'./file.pdf'</span>))
+app.listen(<span class="hljs-number">3000</span>, <span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Server ready'</span>))
+</code></pre>
+<p>You can set the file to be sent with a custom filename:</p>
+<pre><code class="lang-js">res.download(<span class="hljs-string">'./file.pdf'</span>, <span class="hljs-string">'user-facing-filename.pdf'</span>)
+</code></pre>
+<p>This method provides a callback function which you can use to execute code once the file has been sent:</p>
+<pre><code class="lang-js">res.download(<span class="hljs-string">'./file.pdf'</span>, <span class="hljs-string">'user-facing-filename.pdf'</span>, <span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> {
+  <span class="hljs-keyword">if</span> (err) {
+    <span class="hljs-comment">//handle error</span>
+    <span class="hljs-keyword">return</span>
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-comment">//do something</span>
+  }
+})
+</code></pre>
+<h2 id="heading-sessions-in-express">Sessions in Express</h2>
+<p>By default Express requests are sequential and no request can be linked to another. There is no way to know if this request comes from a client that already performed a request previously.</p>
+<p>Users cannot be identified unless using some kind of mechanism that makes it possible.</p>
+<p>That's what sessions are.</p>
+<p>When implemented, every user of your API or website will be assigned a unique session, and this allows you to store the user's state.</p>
+<p>We'll use the <code>express-session</code> module, which is maintained by the Express team.</p>
+<p>You can install it using this command:</p>
+<pre><code class="lang-bash">npm install express-session
+</code></pre>
+<p>and once you're done, you can instantiate it in your application with this one:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> session = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express-session'</span>)
+</code></pre>
+<p>This is a middleware, so you <em>install</em> it in Express using the following:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>)
+<span class="hljs-keyword">const</span> session = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express-session'</span>)
+
+<span class="hljs-keyword">const</span> app = express()
+app.use(session({
+  <span class="hljs-string">'secret'</span>: <span class="hljs-string">'343ji43j4n3jn4jk3n'</span>
+}))
+</code></pre>
+<p>After this is done, all the requests to the app routes are now using sessions.</p>
+<p><code>secret</code> is the only required parameter, but there are many more you can use. It should be a randomly unique string for your application.</p>
+<p>The session is attached to the request, so you can access it using <code>req.session</code> here:</p>
+<pre><code class="lang-js">app.get(<span class="hljs-string">'/'</span>, <span class="hljs-function">(<span class="hljs-params">req, res, next</span>) =&gt;</span> {
+  <span class="hljs-comment">// req.session</span>
+}
+</code></pre>
+<p>This object can be used to get data out of the session, and also to set data:</p>
+<pre><code class="lang-js">req.session.name = <span class="hljs-string">'Flavio'</span>
+<span class="hljs-built_in">console</span>.log(req.session.name) <span class="hljs-comment">// 'Flavio'</span>
+</code></pre>
+<p>This data is serialized as <a target="_blank" href="https://www.freecodecamp.org/news/json/">JSON</a> when stored, so you are safe to use nested objects.</p>
+<p>You can use sessions to communicate data to middleware that's executed later, or to retrieve it later on, on subsequent requests.</p>
+<p>Where is the session data stored? It depends on how you set up the <code>express-session</code> module.</p>
+<p>It can store session data in:</p>
+<ul>
+<li><p><strong>memory</strong>, not meant for production</p>
+</li>
+<li><p>a <strong>database</strong> like MySQL or Mongo</p>
+</li>
+<li><p>a <strong>memory cache</strong> like Redis or Memcached</p>
+</li>
+</ul>
+<p>There is a big list of 3rd packages that implement a wide variety of different compatible caching stores in <a target="_blank" href="https://github.com/expressjs/session">https://github.com/expressjs/session</a>.</p>
+<p>All solutions store the session id in a cookie, and keep the data server-side. The client will receive the session id in a cookie, and will send it along with every HTTP request.</p>
+<p>We'll reference that server-side to associate the session id with the data stored locally.</p>
+<p>Memory is the default, and it requires no special setup on your part. It's the simplest thing but it's meant only for development purposes.</p>
+<p>The best choice is a memory cache like Redis, for which you need to setup its own infrastructure.</p>
+<p>Another popular package to manage sessions in Express is <code>cookie-session</code>, which has a big difference: it stores data client-side in the cookie.</p>
+<p>I do not recommend doing that because storing data in cookies means that it's stored client-side, and sent back and forth in every single request made by the user. It's also limited in size, as it can only store 4 kilobytes of data.</p>
+<p>Cookies also need to be secured, but by default they are not, since secure Cookies are possible on HTTPS sites and you need to configure them if you have proxies.</p>
+<h2 id="heading-how-to-validate-input-in-express">How to Validate Input in Express</h2>
+<p>Let's see how to validate any data coming in as input in your Express endpoints.</p>
+<p>Say you have a POST endpoint that accepts the name, email, and age parameters:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>)
+<span class="hljs-keyword">const</span> app = express()
+
+app.use(express.json())
+
+app.post(<span class="hljs-string">'/form'</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+  <span class="hljs-keyword">const</span> name  = req.body.name
+  <span class="hljs-keyword">const</span> email = req.body.email
+  <span class="hljs-keyword">const</span> age   = req.body.age
+})
+</code></pre>
+<p>How do you perform server-side validation on those results to make sure that:</p>
+<ul>
+<li><p>name is a string of at least 3 characters?</p>
+</li>
+<li><p>email is a real email?</p>
+</li>
+<li><p>age is a number, between 0 and 110?</p>
+</li>
+</ul>
+<p>The best way to handle validation on any kind of input coming from outside in Express is by using the <a target="_blank" href="https://express-validator.github.io"><code>express-validator</code> package</a>:</p>
+<pre><code class="lang-bash">npm install express-validator
+</code></pre>
+<p>You require the <code>check</code> and <code>validationResult</code> objects from the package:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> { check, validationResult } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express-validator'</span>);
+</code></pre>
+<p>We pass an array of <code>check()</code> calls as the second argument of the <code>post()</code> call. Every <code>check()</code> call accepts the parameter name as argument. Then we call <code>validationResult()</code> to verify there were no validation errors. If there are any, we tell them to the client:</p>
+<pre><code class="lang-js">app.post(<span class="hljs-string">'/form'</span>, [
+  check(<span class="hljs-string">'name'</span>).isLength({ <span class="hljs-attr">min</span>: <span class="hljs-number">3</span> }),
+  check(<span class="hljs-string">'email'</span>).isEmail(),
+  check(<span class="hljs-string">'age'</span>).isNumeric()
+], <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+  <span class="hljs-keyword">const</span> errors = validationResult(req)
+  <span class="hljs-keyword">if</span> (!errors.isEmpty()) {
+    <span class="hljs-keyword">return</span> res.status(<span class="hljs-number">422</span>).json({ <span class="hljs-attr">errors</span>: errors.array() })
+  }
+
+  <span class="hljs-keyword">const</span> name  = req.body.name
+  <span class="hljs-keyword">const</span> email = req.body.email
+  <span class="hljs-keyword">const</span> age   = req.body.age
+})
+</code></pre>
+<p>Notice I used:</p>
+<ul>
+<li><p><code>isLength()</code></p>
+</li>
+<li><p><code>isEmail()</code></p>
+</li>
+<li><p><code>isNumeric()</code></p>
+</li>
+</ul>
+<p>There are many more of these methods, all coming from <a target="_blank" href="https://github.com/chriso/validator.js#validators">validator.js</a>, including:</p>
+<ul>
+<li><p><code>contains()</code>, checks if value contains the specified value</p>
+</li>
+<li><p><code>equals()</code>, checks if value equals the specified value</p>
+</li>
+<li><p><code>isAlpha()</code></p>
+</li>
+<li><p><code>isAlphanumeric()</code></p>
+</li>
+<li><p><code>isAscii()</code></p>
+</li>
+<li><p><code>isBase64()</code></p>
+</li>
+<li><p><code>isBoolean()</code></p>
+</li>
+<li><p><code>isCurrency()</code></p>
+</li>
+<li><p><code>isDecimal()</code></p>
+</li>
+<li><p><code>isEmpty()</code></p>
+</li>
+<li><p><code>isFQDN()</code>, checks if it's a fully qualified domain name</p>
+</li>
+<li><p><code>isFloat()</code></p>
+</li>
+<li><p><code>isHash()</code></p>
+</li>
+<li><p><code>isHexColor()</code></p>
+</li>
+<li><p><code>isIP()</code></p>
+</li>
+<li><p><code>isIn()</code>, checks if the value is in an array of allowed values</p>
+</li>
+<li><p><code>isInt()</code></p>
+</li>
+<li><p><code>isJSON()</code></p>
+</li>
+<li><p><code>isLatLong()</code></p>
+</li>
+<li><p><code>isLength()</code></p>
+</li>
+<li><p><code>isLowercase()</code></p>
+</li>
+<li><p><code>isMobilePhone()</code></p>
+</li>
+<li><p><code>isNumeric()</code></p>
+</li>
+<li><p><code>isPostalCode()</code></p>
+</li>
+<li><p><code>isURL()</code></p>
+</li>
+<li><p><code>isUppercase()</code></p>
+</li>
+<li><p><code>isWhitelisted()</code>, checks the input against a whitelist of allowed characters</p>
+</li>
+</ul>
+<p>You can validate the input against a regular expression using <code>matches()</code>.</p>
+<p>Dates can be checked using:</p>
+<ul>
+<li><p><code>isAfter()</code>, checks if the entered date is after the one you pass</p>
+</li>
+<li><p><code>isBefore()</code>, checks if the entered date is before the one you pass</p>
+</li>
+<li><p><code>isISO8601()</code></p>
+</li>
+<li><p><code>isRFC3339()</code></p>
+</li>
+</ul>
+<p>For exact details on how to use those validators, <a target="_blank" href="https://github.com/chriso/validator.js#validators">refer to the docs here</a>.</p>
+<p>All those checks can be combined by piping them:</p>
+<pre><code class="lang-js">check(<span class="hljs-string">'name'</span>)
+  .isAlpha()
+  .isLength({ <span class="hljs-attr">min</span>: <span class="hljs-number">10</span> })
+</code></pre>
+<p>If there is any error, the server automatically sends a response to communicate the error. For example if the email is not valid, this is what will be returned:</p>
+<pre><code class="lang-js">{
+  <span class="hljs-string">"errors"</span>: [{
+    <span class="hljs-string">"location"</span>: <span class="hljs-string">"body"</span>,
+    <span class="hljs-string">"msg"</span>: <span class="hljs-string">"Invalid value"</span>,
+    <span class="hljs-string">"param"</span>: <span class="hljs-string">"email"</span>
+  }]
+}
+</code></pre>
+<p>This default error can be overridden for each check you perform, using <code>withMessage()</code>:</p>
+<pre><code class="lang-js">check(<span class="hljs-string">'name'</span>)
+  .isAlpha()
+  .withMessage(<span class="hljs-string">'Must be only alphabetical chars'</span>)
+  .isLength({ <span class="hljs-attr">min</span>: <span class="hljs-number">10</span> })
+  .withMessage(<span class="hljs-string">'Must be at least 10 chars long'</span>)
+</code></pre>
+<p>What if you want to write your own special, custom validator? You can use the <code>custom</code> validator.</p>
+<p>In the callback function you can reject the validation either by throwing an exception, or by returning a rejected promise:</p>
+<pre><code class="lang-js">app.post(<span class="hljs-string">'/form'</span>, [
+  check(<span class="hljs-string">'name'</span>).isLength({ <span class="hljs-attr">min</span>: <span class="hljs-number">3</span> }),
+  check(<span class="hljs-string">'email'</span>).custom(<span class="hljs-function"><span class="hljs-params">email</span> =&gt;</span> {
+    <span class="hljs-keyword">if</span> (alreadyHaveEmail(email)) {
+      <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'Email already registered'</span>)
+    }
+  }),
+  check(<span class="hljs-string">'age'</span>).isNumeric()
+], <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+  <span class="hljs-keyword">const</span> name  = req.body.name
+  <span class="hljs-keyword">const</span> email = req.body.email
+  <span class="hljs-keyword">const</span> age   = req.body.age
+})
+</code></pre>
+<p>The custom validator:</p>
+<pre><code class="lang-js">check(<span class="hljs-string">'email'</span>).custom(<span class="hljs-function"><span class="hljs-params">email</span> =&gt;</span> {
+  <span class="hljs-keyword">if</span> (alreadyHaveEmail(email)) {
+    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'Email already registered'</span>)
+  }
+})
+</code></pre>
+<p>can be rewritten like this:</p>
+<pre><code class="lang-js">check(<span class="hljs-string">'email'</span>).custom(<span class="hljs-function"><span class="hljs-params">email</span> =&gt;</span> {
+  <span class="hljs-keyword">if</span> (alreadyHaveEmail(email)) {
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.reject(<span class="hljs-string">'Email already registered'</span>)
+  }
+})
+</code></pre>
+<h2 id="heading-how-to-sanitizing-input-in-express">How to Sanitizing Input in Express</h2>
+<p>You've seen how to validate input that comes from the outside world to your Express app.</p>
+<p>There's one thing you quickly learn when you run a public-facing server: never trust the input.</p>
+<p>Even if you sanitize and make sure that people can't enter weird things using client-side code, you'll still be subject to people using tools (even just the browser devtools) to POST directly to your endpoints.</p>
+<p>Or bots trying every possible combination of exploit known to humans.</p>
+<p>What you need to do is sanitize your input.</p>
+<p>The <a target="_blank" href="https://express-validator.github.io"><code>express-validator</code> package</a> you already use to validate input can also conveniently be used to perform sanitization.</p>
+<p>Say you have a POST endpoint that accepts the name, email, and age parameters:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>)
+<span class="hljs-keyword">const</span> app = express()
+
+app.use(express.json())
+
+app.post(<span class="hljs-string">'/form'</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+  <span class="hljs-keyword">const</span> name  = req.body.name
+  <span class="hljs-keyword">const</span> email = req.body.email
+  <span class="hljs-keyword">const</span> age   = req.body.age
+})
+</code></pre>
+<p>You might validate it using:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>)
+<span class="hljs-keyword">const</span> app = express()
+
+app.use(express.json())
+
+app.post(<span class="hljs-string">'/form'</span>, [
+  check(<span class="hljs-string">'name'</span>).isLength({ <span class="hljs-attr">min</span>: <span class="hljs-number">3</span> }),
+  check(<span class="hljs-string">'email'</span>).isEmail(),
+  check(<span class="hljs-string">'age'</span>).isNumeric()
+], <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+  <span class="hljs-keyword">const</span> name  = req.body.name
+  <span class="hljs-keyword">const</span> email = req.body.email
+  <span class="hljs-keyword">const</span> age   = req.body.age
+})
+</code></pre>
+<p>You can add sanitization by piping the sanitization methods after the validation ones:</p>
+<pre><code class="lang-js">app.post(<span class="hljs-string">'/form'</span>, [
+  check(<span class="hljs-string">'name'</span>).isLength({ <span class="hljs-attr">min</span>: <span class="hljs-number">3</span> }).trim().escape(),
+  check(<span class="hljs-string">'email'</span>).isEmail().normalizeEmail(),
+  check(<span class="hljs-string">'age'</span>).isNumeric().trim().escape()
+], <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+  <span class="hljs-comment">//...</span>
+})
+</code></pre>
+<p>Here I used the methods:</p>
+<ul>
+<li><p><code>trim()</code> trims characters (whitespace by default) at the beginning and at the end of a string</p>
+</li>
+<li><p><code>escape()</code> replaces <code>&lt;</code>, <code>&gt;</code>, <code>&amp;</code>, <code>'</code>, <code>"</code> and <code>/</code> with their corresponding HTML entities</p>
+</li>
+<li><p><code>normalizeEmail()</code> canonicalizes an email address. Accepts several options to lowercase email addresses or subaddresses (for example <code>flavio+newsletters@gmail.com</code>)</p>
+</li>
+</ul>
+<p>Other sanitization methods:</p>
+<ul>
+<li><p><code>blacklist()</code> removes characters that appear in the blacklist</p>
+</li>
+<li><p><code>whitelist()</code> removes characters that do not appear in the whitelist</p>
+</li>
+<li><p><code>unescape()</code> replaces HTML encoded entities with <code>&lt;</code>, <code>&gt;</code>, <code>&amp;</code>, <code>'</code>, <code>"</code> and <code>/</code></p>
+</li>
+<li><p><code>ltrim()</code> like trim(), but only trims characters at the start of the string</p>
+</li>
+<li><p><code>rtrim()</code> like trim(), but only trims characters at the end of the string</p>
+</li>
+<li><p><code>stripLow()</code> removes ASCII control characters, which are normally invisible</p>
+</li>
+</ul>
+<p>Force conversion to a format:</p>
+<ul>
+<li><p><code>toBoolean()</code> converts the input string to a boolean. Everything except for '0', 'false' and '' returns true. In strict mode only '1' and 'true' return true.</p>
+</li>
+<li><p><code>toDate()</code> converts the input string to a date, or null if the input is not a date</p>
+</li>
+<li><p><code>toFloat()</code> converts the input string to a float, or NaN if the input is not a float</p>
+</li>
+<li><p><code>toInt()</code> converts the input string to an integer, or NaN if the input is not an integer</p>
+</li>
+</ul>
+<p>Like with custom validators, you can create a custom sanitizer.</p>
+<p>In the callback function you just return the sanitized value:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> sanitizeValue = <span class="hljs-function"><span class="hljs-params">value</span> =&gt;</span> {
+  <span class="hljs-comment">//sanitize...</span>
+}
+
+app.post(<span class="hljs-string">'/form'</span>, [
+  check(<span class="hljs-string">'value'</span>).customSanitizer(<span class="hljs-function"><span class="hljs-params">value</span> =&gt;</span> {
+    <span class="hljs-keyword">return</span> sanitizeValue(value)
+  }),
+], <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+  <span class="hljs-keyword">const</span> value  = req.body.value
+})
+</code></pre>
+<h2 id="heading-how-to-handle-forms-in-express">How to Handle Forms in Express</h2>
+<p>This is an example of an HTML form:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"POST"</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"/submit-form"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"username"</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+</code></pre>
+<p>When the user presses the submit button, the browser will automatically make a <code>POST</code> request to the <code>/submit-form</code> URL on the same origin of the page. The browser sends the data contained, encoded as <code>application/x-www-form-urlencoded</code>. In this particular example, the form data contains the <code>username</code> input field value.</p>
+<p>Forms can also send data using the <code>GET</code> method, but the vast majority of the forms you'll build will use <code>POST</code>.</p>
+<p>The form data will be sent in the POST request body.</p>
+<p>To extract it, you will need to use the <code>express.urlencoded()</code> middleware:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>)
+<span class="hljs-keyword">const</span> app = express()
+
+app.use(express.urlencoded({
+  <span class="hljs-attr">extended</span>: <span class="hljs-literal">true</span>
+}))
+</code></pre>
+<p>Now, you need to create a <code>POST</code> endpoint on the <code>/submit-form</code> route, and any data will be available on <code>Request.body</code>:</p>
+<pre><code class="lang-js">app.post(<span class="hljs-string">'/submit-form'</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+  <span class="hljs-keyword">const</span> username = req.body.username
+  <span class="hljs-comment">//...</span>
+  res.end()
+})
+</code></pre>
+<p>Don't forget to validate the data before using it with <code>express-validator</code>.</p>
+<h2 id="heading-how-to-handle-file-uploads-in-forms-in-express">How to Handle File Uploads in Forms in Express</h2>
+<p>This is an example of an HTML form that allows a user to upload a file:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"POST"</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"/submit-form"</span> <span class="hljs-attr">enctype</span>=<span class="hljs-string">"multipart/form-data"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"file"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"document"</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+</code></pre>
+<p>Don't forget to add <code>enctype="multipart/form-data"</code> to the form, or files won't be uploaded.</p>
+<p>When the user press the submit button, the browser will automatically make a <code>POST</code> request to the <code>/submit-form</code> URL on the same origin of the page. The browser sends the data contained, not encoded as as a normal form <code>application/x-www-form-urlencoded</code>, but as <code>multipart/form-data</code>.</p>
+<p>On the server-side, handling multipart data can be tricky and error prone, so we are going to use a utility library called <strong>formidable</strong>. <a target="_blank" href="https://github.com/felixge/node-formidable">Here's the GitHub repo</a> – it has over 4000 stars and is well-maintained.</p>
+<p>You can install it using:</p>
+<pre><code class="lang-bash">npm install formidable
+</code></pre>
+<p>Then include it in your Node.js file:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>)
+<span class="hljs-keyword">const</span> app = express()
+<span class="hljs-keyword">const</span> formidable = <span class="hljs-built_in">require</span>(<span class="hljs-string">'formidable'</span>)
+</code></pre>
+<p>Now, in the <code>POST</code> endpoint on the <code>/submit-form</code> route, we instantiate a new Formidable form using <code>formidable.IncomingForm()</code>:</p>
+<pre><code class="lang-js">app.post(<span class="hljs-string">'/submit-form'</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+  <span class="hljs-keyword">new</span> formidable.IncomingForm()
+})
+</code></pre>
+<p>After doing so, we need to be able to parse the form. We can do so synchronously by providing a callback, which means all files are processed. Once formidable is done, it makes them available:</p>
+<pre><code class="lang-js">app.post(<span class="hljs-string">'/submit-form'</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+  <span class="hljs-keyword">new</span> formidable.IncomingForm().parse(req, <span class="hljs-function">(<span class="hljs-params">err, fields, files</span>) =&gt;</span> {
+    <span class="hljs-keyword">if</span> (err) {
+      <span class="hljs-built_in">console</span>.error(<span class="hljs-string">'Error'</span>, err)
+      <span class="hljs-keyword">throw</span> err
+    }
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Fields'</span>, fields)
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Files'</span>, files)
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> file <span class="hljs-keyword">of</span> <span class="hljs-built_in">Object</span>.entries(files)) {
+      <span class="hljs-built_in">console</span>.log(file)
+    }
+  })
+})
+</code></pre>
+<p>Or, you can use events instead of a callback. For example, you can be notified when each file is parsed, or other events such as completion of file processing, receiving a non-file field, or if an error occurred:</p>
+<pre><code class="lang-js">app.post(<span class="hljs-string">'/submit-form'</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+  <span class="hljs-keyword">new</span> formidable.IncomingForm().parse(req)
+    .on(<span class="hljs-string">'field'</span>, <span class="hljs-function">(<span class="hljs-params">name, field</span>) =&gt;</span> {
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Field'</span>, name, field)
+    })
+    .on(<span class="hljs-string">'file'</span>, <span class="hljs-function">(<span class="hljs-params">name, file</span>) =&gt;</span> {
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Uploaded file'</span>, name, file)
+    })
+    .on(<span class="hljs-string">'aborted'</span>, <span class="hljs-function">() =&gt;</span> {
+      <span class="hljs-built_in">console</span>.error(<span class="hljs-string">'Request aborted by the user'</span>)
+    })
+    .on(<span class="hljs-string">'error'</span>, <span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> {
+      <span class="hljs-built_in">console</span>.error(<span class="hljs-string">'Error'</span>, err)
+      <span class="hljs-keyword">throw</span> err
+    })
+    .on(<span class="hljs-string">'end'</span>, <span class="hljs-function">() =&gt;</span> {
+      res.end()
+    })
+})
+</code></pre>
+<p>Whichever way you choose, you'll get one or more Formidable.File objects, which give you information about the file uploaded. These are some of the methods you can call:</p>
+<ul>
+<li><p><code>file.size</code>, the file size in bytes</p>
+</li>
+<li><p><code>file.path</code>, the path the file is written to</p>
+</li>
+<li><p><code>file.name</code>, the name of the file</p>
+</li>
+<li><p><code>file.type</code>, the MIME type of the file</p>
+</li>
+</ul>
+<p>The path defaults to the temporary folder and can be modified if you listen for the <code>fileBegin</code> event:</p>
+<pre><code class="lang-js">app.post(<span class="hljs-string">'/submit-form'</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+  <span class="hljs-keyword">new</span> formidable.IncomingForm().parse(req)
+    .on(<span class="hljs-string">'fileBegin'</span>, <span class="hljs-function">(<span class="hljs-params">name, file</span>) =&gt;</span> {
+        file.path = __dirname + <span class="hljs-string">'/uploads/'</span> + file.name
+    })
+    .on(<span class="hljs-string">'file'</span>, <span class="hljs-function">(<span class="hljs-params">name, file</span>) =&gt;</span> {
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Uploaded file'</span>, name, file)
+    })
+    <span class="hljs-comment">//...</span>
+})
+</code></pre>
+<h2 id="heading-thank-you-for-reading">Thank you for reading!</h2>
+<p>That's it for this handbook. And don't forget that <a target="_blank" href="https://thevalleyofcode.com/download/express/">you can get a PDF and ePub version of this Express Handbook</a> if you'd like.</p>
+
+
+                        </section>
+                        
+                            <div class="sidebar">
+                                
+                                    
+                                    <script>var localizedAdText = "ADVERTISEMENT";</script>
+                                
+                            </div>
+                        
+                    </div>
+                    <hr>
+                    
+                        <div class="post-full-author-header" data-test-label="author-header-with-bio">
+                            
+                                
+    
+    
+    
+
+    <section class="author-card" data-test-label="author-card">
+        
+            
+    <img srcset="https://cdn.hashnode.com/res/hashnode/image/upload/v1648219076078/Y_hBeZli4.jpg 60w" sizes="60px" src="https://cdn.hashnode.com/res/hashnode/image/upload/v1648219076078/Y_hBeZli4.jpg" class="author-profile-image" alt="Flavio Copes" width="621" height="695" onerror="this.style.display='none'" loading="lazy" data-test-label="profile-image">
+  
+        
+
+        <section class="author-card-content ">
+            <span class="author-card-name">
+                <a href="/news/author/flaviocopes/" data-test-label="profile-link">
+                    
+                        Flavio Copes
+                    
+                </a>
+            </span>
+            
+                
+                    <p data-test-label="default-bio">
+                        Read <a href="/news/author/flaviocopes/">more posts</a>.
+                    </p>
+                
+            
+        </section>
+    </section>
+
+                            
+                        </div>
+                        <hr>
+                    
+
+                    
+                    
+                        
+    
+
+
+<p data-test-label="social-row-cta" class="social-row">
+    If you read this far, thank the author to show them you care. <button id="tweet-btn" class="cta-button" data-test-label="tweet-button">Say Thanks</button>
+</p>
+
+
+    
+    <script>document.addEventListener("DOMContentLoaded",()=>{const t=document.getElementById("tweet-btn"),e=window.location,o="The%20Express%20%2B%20%20Node.js%20Handbook%20%E2%80%93%20Learn%20the%20Express%20JavaScript%20Framework%20for%20Beginners".replace(/&#39;/g,"%27"),n="",r="@flaviocopes",i=Boolean("");let s;if(i&&(n||r)){const t={originalPostAuthor:"",currentPostAuthor:"Flavio Copes"};s=encodeURIComponent(`Thank you ${n||t.originalPostAuthor} for writing this helpful article, and ${r||t.currentPostAuthor} for translating it.`)}else!i&&r&&(s=encodeURIComponent(`Thank you ${r} for writing this helpful article.`));const a=`window.open(\n    '${s?`https://x.com/intent/post?text=${s}%0A%0A${o}%0A%0A${e}`:`https://x.com/intent/post?text=${o}%0A%0A${e}`}',\n    'share-twitter',\n    'width=550, height=235'\n  ); return false;`;t.setAttribute("onclick",a)});</script>
+
+
+                        
+
+<div class="learn-cta-row" data-test-label="learn-cta-row">
+    <p>
+        Learn to code for free. freeCodeCamp's open source curriculum has helped more than 40,000 people get jobs as developers. <a href="https://www.freecodecamp.org/learn/" class="cta-button" id="learn-to-code-cta" rel="noopener noreferrer" target="_blank">Get started</a>
+    </p>
+</div>
+
+                    
+                </section>
+                
+                    <div class="banner-ad-bottom">
+                        
+                            
+
+<div class="ad-text" data-test-label="ad-text">ADVERTISEMENT</div>
+<div style="display: block; height: auto" id="gam-ad-bottom">
+</div>
+
+                        
+                    </div>
+                
+            </article>
+        </div>
+    </main>
+
+
+            
+
+
+<footer class="site-footer">
+    <div class="footer-top">
+        <div class="footer-desc-col">
+            <p data-test-label="tax-exempt-status">freeCodeCamp is a donor-supported tax-exempt 501(c)(3) charity organization (United States Federal Tax Identification Number: 82-0779546)</p>
+            <p data-test-label="mission-statement">Our mission: to help people learn to code for free. We accomplish this by creating thousands of videos, articles, and interactive coding lessons - all freely available to the public.</p>
+            <p data-test-label="donation-initiatives">Donations to freeCodeCamp go toward our education initiatives, and help pay for servers, services, and staff.</p>
+            <p class="footer-donation" data-test-label="donate-text">
+                You can <a href="https://www.freecodecamp.org/donate/" class="inline" rel="noopener noreferrer" target="_blank">make a tax-deductible donation here</a>.
+            </p>
+        </div>
+        <div class="trending-guides" data-test-label="trending-guides">
+            <h2 id="trending-guides" class="col-header">Trending Books and Handbooks</h2>
+            <ul class="trending-guides-articles" aria-labelledby="trending-guides">
+                <li>
+                    <a href="https://www.freecodecamp.org/news/build-consume-and-document-a-rest-api/" rel="noopener noreferrer" target="_blank">REST APIs
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/how-to-write-clean-code/" rel="noopener noreferrer" target="_blank">Clean Code
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/learn-typescript-with-react-handbook/" rel="noopener noreferrer" target="_blank">TypeScript
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/learn-javascript-for-beginners/" rel="noopener noreferrer" target="_blank">JavaScript
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/how-to-build-an-ai-chatbot-with-redis-python-and-gpt/" rel="noopener noreferrer" target="_blank">AI Chatbots
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/command-line-for-beginners/" rel="noopener noreferrer" target="_blank">Command Line
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/building-consuming-and-documenting-a-graphql-api/" rel="noopener noreferrer" target="_blank">GraphQL APIs
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/complete-guide-to-css-transform-functions-and-properties/" rel="noopener noreferrer" target="_blank">CSS Transforms
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/how-to-build-scalable-access-control-for-your-web-app/" rel="noopener noreferrer" target="_blank">Access Control
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/rest-api-design-best-practices-build-a-rest-api/" rel="noopener noreferrer" target="_blank">REST API Design
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/the-php-handbook/" rel="noopener noreferrer" target="_blank">PHP
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/the-java-handbook/" rel="noopener noreferrer" target="_blank">Java
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/learn-linux-for-beginners-book-basic-to-advanced/" rel="noopener noreferrer" target="_blank">Linux
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/react-for-beginners-handbook/" rel="noopener noreferrer" target="_blank">React
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/learn-continuous-integration-delivery-and-deployment/" rel="noopener noreferrer" target="_blank">CI/CD
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/the-docker-handbook/" rel="noopener noreferrer" target="_blank">Docker
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/learn-golang-handbook/" rel="noopener noreferrer" target="_blank">Golang
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/the-python-handbook/" rel="noopener noreferrer" target="_blank">Python
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/get-started-with-nodejs/" rel="noopener noreferrer" target="_blank">Node.js
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/build-crud-operations-with-dotnet-core-handbook/" rel="noopener noreferrer" target="_blank">Todo APIs
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/how-to-use-classes-in-javascript-handbook/" rel="noopener noreferrer" target="_blank">JavaScript Classes
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/front-end-javascript-development-react-angular-vue-compared/" rel="noopener noreferrer" target="_blank">Front-End Libraries
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/the-express-handbook/" rel="noopener noreferrer" target="_blank">Express and Node.js
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/python-code-examples-sample-script-coding-tutorial-for-beginners/" rel="noopener noreferrer" target="_blank">Python Code Examples
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/clustering-in-python-a-machine-learning-handbook/" rel="noopener noreferrer" target="_blank">Clustering in Python
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/an-introduction-to-software-architecture-patterns/" rel="noopener noreferrer" target="_blank">Software Architecture
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/what-is-programming-tutorial-for-beginners/" rel="noopener noreferrer" target="_blank">Programming Fundamentals
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/learn-to-code-book/" rel="noopener noreferrer" target="_blank">Coding Career Preparation
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/become-a-full-stack-developer-and-get-a-job/" rel="noopener noreferrer" target="_blank">Full-Stack Developer Guide
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/learn-python-for-javascript-developers-handbook/" rel="noopener noreferrer" target="_blank">Python for JavaScript Devs
+                    </a>
+                </li>
+            </ul>
+            <div class="spacer" style="padding: 15px 0;"></div>
+            <div>
+                <h2 id="mobile-app" class="col-header">
+                    Mobile App
+                </h2>
+                <div class="min-h-[1px] px-[15px] md:w-2/3 md:ml-[16.6%]">
+                    <ul aria-labelledby="mobile-app" class="mobile-app-container">
+                        <li>
+                            <a href="https://apps.apple.com/us/app/freecodecamp/id6446908151?itsct=apps_box_link&itscg=30200" rel="noopener noreferrer" target="_blank">
+                                <img src="https://cdn.freecodecamp.org/platform/universal/apple-store-badge.svg" lang="en" alt="Download on the App Store">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://play.google.com/store/apps/details?id=org.freecodecamp" rel="noopener noreferrer" target="_blank">
+                                <img src="https://cdn.freecodecamp.org/platform/universal/google-play-badge.svg" lang="en" alt="Get it on Google Play">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <h2 class="col-header" data-test-label="our-nonprofit">Our Charity</h2>
+        <div class="our-nonprofit">
+             
+                <span data-test-label="powered-by">
+                    Publication powered by Hashnode
+                </span>
+            
+            <a href="https://www.freecodecamp.org/news/about/" rel="noopener noreferrer" target="_blank" data-test-label="about">
+                About
+            </a>
+            <a href="https://www.linkedin.com/school/free-code-camp/people/" rel="noopener noreferrer" target="_blank" data-test-label="alumni">
+                Alumni Network
+            </a>
+            <a href="https://github.com/freeCodeCamp/" rel="noopener noreferrer" target="_blank" data-test-label="open-source">
+                Open Source
+            </a>
+            <a href="https://www.freecodecamp.org/news/shop/" rel="noopener noreferrer" target="_blank" data-test-label="shop">
+                Shop
+            </a>
+            <a href="https://www.freecodecamp.org/news/support/" rel="noopener noreferrer" target="_blank" data-test-label="support">
+                Support
+            </a>
+            <a href="https://www.freecodecamp.org/news/sponsors/" rel="noopener noreferrer" target="_blank" data-test-label="sponsors">
+                Sponsors
+            </a>
+            <a href="https://www.freecodecamp.org/news/academic-honesty-policy/" rel="noopener noreferrer" target="_blank" data-test-label="honesty">
+                Academic Honesty
+            </a>
+            <a href="https://www.freecodecamp.org/news/code-of-conduct/" rel="noopener noreferrer" target="_blank" data-test-label="coc">
+                Code of Conduct
+            </a>
+            <a href="https://www.freecodecamp.org/news/privacy-policy/" rel="noopener noreferrer" target="_blank" data-test-label="privacy">
+                Privacy Policy
+            </a>
+            <a href="https://www.freecodecamp.org/news/terms-of-service/" rel="noopener noreferrer" target="_blank" data-test-label="tos">
+                Terms of Service
+            </a>
+            <a href="https://www.freecodecamp.org/news/copyright-policy/" rel="noopener noreferrer" target="_blank" data-test-label="copyright">
+                Copyright Policy
+            </a>
+        </div>
+    </div>
+</footer>
+
+        </div>
+
+        
+        
+        
+
+        
+        
+    </body>
+</html>

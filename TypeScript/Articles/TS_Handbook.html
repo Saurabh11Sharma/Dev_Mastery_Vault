@@ -1,0 +1,2122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        
+        
+            <title>Learn TypeScript – A Handbook for Developers</title>
+        
+        <meta name="HandheldFriendly" content="True">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Roboto+Mono:wght@400;700&display=swap">
+        
+
+        
+        
+    <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.freecodecamp.org/news-assets/prism/1.29.0/themes/prism.min.css">
+<noscript>
+  <link rel="stylesheet" href="https://cdn.freecodecamp.org/news-assets/prism/1.29.0/themes/prism.min.css">
+</noscript>
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.freecodecamp.org/news-assets/prism/1.29.0/plugins/unescaped-markup/prism-unescaped-markup.min.css">
+<noscript>
+  <link rel="stylesheet" href="https://cdn.freecodecamp.org/news-assets/prism/1.29.0/plugins/unescaped-markup/prism-unescaped-markup.min.css">
+</noscript>
+
+<script defer="" src="https://cdn.freecodecamp.org/news-assets/prism/1.29.0/components/prism-core.min.js"></script>
+<script defer="" src="https://cdn.freecodecamp.org/news-assets/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+
+
+        
+        <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/news/assets/css/global-5a272ab5e0.css">
+        <link rel="stylesheet" type="text/css" href="/news/assets/css/screen-73acb3583e.css">
+        <link rel="stylesheet" type="text/css" href="/news/assets/css/search-bar-124f5f949c.css">
+
+        
+        <script defer="" src="https://cdn.freecodecamp.org/news-assets/algolia/algoliasearch-3-33-0/algoliasearch.min.js"></script>
+        <script defer="" src="https://cdn.freecodecamp.org/news-assets/algolia/autocomplete-0-36-0/autocomplete.min.js"></script>
+
+        
+        <script defer="" src="https://cdn.freecodecamp.org/news-assets/dayjs/1.10.4/dayjs.min.js"></script>
+        <script defer="" src="https://cdn.freecodecamp.org/news-assets/dayjs/1.10.4/localizedFormat.min.js"></script>
+        <script defer="" src="https://cdn.freecodecamp.org/news-assets/dayjs/1.10.4/relativeTime.min.js"></script>
+
+        
+        
+            <script defer="" src="https://cdn.freecodecamp.org/news-assets/dayjs/1.10.4/locale/en.min.js"></script>
+        
+
+        
+        <script>let client,index;document.addEventListener("DOMContentLoaded",()=>{client=algoliasearch("QMJYL5WYTI","89770b24481654192d7a5c402c6ad9a0"),index=client.initIndex("news")}),document.addEventListener("DOMContentLoaded",()=>{const e=window.screen.width,t=window.screen.height,n=e>=767&&t>=768?8:5,o=document.getElementById("search-form"),s=document.getElementById("search-input"),a=document.getElementById("dropdown-container");let i,d,c;s.addEventListener("input",e=>{i=e.target.value}),o.addEventListener("submit",e=>{e.preventDefault(),function(){if(d=document.getElementsByClassName("aa-cursor")[0],d&&i){const e=d.querySelector("a").href;window.location.assign(e)}else!d&&i&&c&&window.location.assign(`https://www.freecodecamp.org/news/search?query=${i}`)}()});const l=autocomplete("#search-input",{hint:!1,keyboardShortcuts:["s",191],openOnFocus:!0,appendTo:a,debug:!0},[{source:autocomplete.sources.hits(index,{hitsPerPage:n}),debounce:250,templates:{suggestion:e=>(c=!0,`\n            <a href="${e.url}">\n              <div class="algolia-result">\n                <span>${e._highlightResult.title.value}</span>\n              </div>\n            </a>\n          `),empty:()=>(c=!1,'\n            <div class="aa-suggestion footer-suggestion no-hits-footer">\n              <div class="algolia-result">\n                <span>\n                  No results found\n                </span>\n              </div>\n            </div>\n          '),footer:e=>{if(!e.isEmpty)return`\n              <div class="aa-suggestion footer-suggestion">\n                <a id="algolia-footer-selector" href="https://www.freecodecamp.org/news/search?query=${i}">\n                  <div class="algolia-result algolia-footer">\n                    See all results for ${i}\n                  </div>\n                </a>\n              </div>\n            `}}}]).on("autocomplete:selected",(e,t,n,o)=>{d=t?t.url:`https://www.freecodecamp.org/news/search?query=${i}`,"click"!==o.selectionMethod&&"tabKey"!==o.selectionMethod&&c&&window.location.assign(d)});document.addEventListener("click",e=>{e.target!==s&&l.autocomplete.close()})}),document.addEventListener("DOMContentLoaded",()=>{dayjs.extend(dayjs_plugin_localizedFormat),dayjs.extend(dayjs_plugin_relativeTime),dayjs.locale("en")});const isAuthenticated=document.cookie.split(";").some(e=>e.trim().startsWith("jwt_access_token=")),isDonor=document.cookie.split(";").some(e=>e.trim().startsWith("isDonor=true"));</script>
+
+        
+            <script src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossorigin="anonymous" async=""></script>
+        
+
+        
+        
+    
+        
+            <script>
+document.addEventListener('DOMContentLoaded', function() {
+    var sidebar = document.querySelector('.sidebar');
+    var isSideBarDisplayed = window.getComputedStyle(sidebar).display !== 'none';
+    function prepareAdSlot(elementId) {
+        // Get the element by ID
+        const targetElement = document.getElementById(elementId);
+
+        // Ensure the element exists before proceeding
+        if (!targetElement) {
+            console.error(`Element with ID ${elementId} not found`);
+            return;
+        }
+
+        const parentElement = targetElement.parentElement;
+        // Change the background color of the parent element
+
+        if (parentElement) {
+            console.log(elementId)
+
+            if (elementId === 'gam-ad-bottom' ) {
+                parentElement.style.backgroundColor = '#eeeef0';
+                if(getComputedStyle(parentElement).visibility === 'hidden') {
+                    parentElement.style.visibility = 'inherit'; 
+                }
+            }
+
+            // Get the sibling elements
+            const siblingElements = parentElement.children;
+
+            for (let i = 0; i < siblingElements.length; i++) {
+                const sibling = siblingElements[i];
+
+                // Skip the element itself
+                if (sibling === targetElement) continue;
+
+                // Log the sibling or perform any other action
+                console.log('Found sibling:', sibling);
+
+                // Check visibility
+                if(getComputedStyle(sibling).visibility === 'hidden') {
+                    sibling.style.visibility = 'inherit'; 
+                }
+
+                // Check if display is 'none', then change it to 'block'
+                if (getComputedStyle(sibling).display === 'none') {
+                    sibling.style.display = 'block'; 
+                }
+            }
+        } else {
+            console.warn('No parent element found');
+        }
+    }
+
+    
+    window.googletag = window.googletag || {cmd: []};
+    googletag.cmd.push(function() {
+
+        if(isSideBarDisplayed){
+            var sidebarHeight = sidebar.offsetHeight;
+            var adTextSideBarHeight = 0;
+            var sideBarAdContainert = 600 + 17;
+        
+            var styles = window.getComputedStyle(sidebar);
+            var avaiableSideAdSpace = sidebarHeight - adTextSideBarHeight - parseFloat(styles.paddingTop) - parseFloat(styles.paddingBottom);
+            var numSideElements = Math.floor(avaiableSideAdSpace / sideBarAdContainert);
+            for (var i = 0; i < numSideElements; i++) {
+                // container element
+                var containerElement = document.createElement('div');
+                containerElement.classList.add('ad-wrapper');
+
+                //text element
+                var textElement = document.createElement('div');
+                textElement.classList.add('ad-text');
+                textElement.innerText = localizedAdText;
+
+                // ad element
+                var adElement = document.createElement('div');
+                var sideAdElementId = 'side-gam-ad-' + i;
+                adElement.id = sideAdElementId;
+                adElement.classList.add('side-bar-ad-slot');
+
+                // finalize setup
+                containerElement.appendChild(textElement);
+                containerElement.appendChild(adElement);
+                sidebar.appendChild(containerElement);
+                googletag.defineSlot('/23075930536/post-side', [[292, 30], [240, 400], [300, 75], [216, 54], [250, 360], [300, 50], 'fluid', [300, 31], [120, 20], [300, 250], [120, 30], [180, 150], [200, 446], [168, 42], [200, 200], [160, 600], [120, 90], [125, 125], [240, 133], [120, 60], [1, 1], [120, 240], [220, 90], [216, 36], [250, 250], [168, 28], [234, 60], [120, 600], [300, 600], [88, 31], [300, 100]], sideAdElementId).addService(googletag.pubads());
+            }
+        }
+
+        // Define bottom ad
+        googletag.defineSlot('/23075930536/post-bottom', ['fluid'], 'gam-ad-bottom').addService(googletag.pubads());
+
+        // Enable lazy loading with default settings.
+        googletag.pubads().enableLazyLoad();
+
+        googletag.pubads().addEventListener("slotRequested", (event) => {
+            console.log(`Slot ${event.slot.getSlotElementId()} fetched`);
+        });
+
+        googletag.pubads().addEventListener("slotOnload", (event) => {
+            const elementId = event.slot.getSlotElementId();
+            prepareAdSlot(elementId);
+            console.log(`Slot ${event.slot.getSlotElementId()} rendered`);
+        });
+
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+
+
+        // Trigger lazy loading
+        googletag.display('gam-ad-bottom');
+
+    });
+});
+</script>
+
+        
+    
+
+
+        
+            <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5D6RKKP');</script>
+
+        
+        
+        
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+
+        
+        
+        
+
+        
+        
+
+        <link rel="icon" href="https://cdn.freecodecamp.org/universal/favicons/favicon.ico" type="image/png">
+        
+        
+            <link rel="canonical" href="https://www.freecodecamp.org/news/learn-typescript-with-react-handbook/">
+        
+        <meta name="referrer" content="no-referrer-when-downgrade">
+
+        
+
+        
+    <meta name="description" content="This handbook will teach you the basics of TypeScript, including what it is, why it is useful, and the key features it offers. TypeScript was created by Anders Hejlsberg, a prominent software engineer at Microsoft who’s also known for his work on C# ...">
+
+    
+    <meta property="og:site_name" content="freeCodeCamp.org">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Learn TypeScript – A Handbook for Developers">
+    
+        <meta property="og:description" content="This handbook will teach you the basics of TypeScript, including what it is, why it is useful, and the key features it offers. TypeScript was created by Anders Hejlsberg, a prominent software engineer at Microsoft who’s also known for his work on C# ...">
+    
+    <meta property="og:url" content="https://www.freecodecamp.org/news/learn-typescript-with-react-handbook/">
+    <meta property="og:image" content="https://cdn.hashnode.com/res/hashnode/image/upload/v1738941922431/cfb485ae-1c59-415a-ad56-393a9803d4d8.png">
+    <meta property="article:published_time" content="2025-02-07T15:26:48.805Z">
+    <meta property="article:modified_time" content="2025-02-07T15:26:48.805Z">
+    
+        <meta property="article:tag" content="TypeScript">
+    
+        <meta property="article:tag" content="JavaScript">
+    
+        <meta property="article:tag" content="Programming Blogs">
+    
+        <meta property="article:tag" content="Technical writing ">
+    
+        <meta property="article:tag" content="software development">
+    
+        <meta property="article:tag" content="handbook">
+    
+    <meta property="article:publisher" content="https://www.facebook.com/freecodecamp">
+    
+
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Learn TypeScript – A Handbook for Developers">
+    
+        <meta name="twitter:description" content="This handbook will teach you the basics of TypeScript, including what it is, why it is useful, and the key features it offers. TypeScript was created by Anders Hejlsberg, a prominent software engineer at Microsoft who’s also known for his work on C# ...">
+    
+    <meta name="twitter:url" content="https://www.freecodecamp.org/news/learn-typescript-with-react-handbook/">
+    <meta name="twitter:image" content="https://cdn.hashnode.com/res/hashnode/image/upload/v1738941922431/cfb485ae-1c59-415a-ad56-393a9803d4d8.png">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="oghenekparobo Stephen">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="TypeScript, JavaScript, Programming Blogs, Technical writing , software development, handbook">
+    <meta name="twitter:site" content="@freecodecamp">
+    
+        <meta name="twitter:creator" content="@stephenjyd">
+    
+
+    <meta property="og:image:width" content="1920">
+    <meta property="og:image:height" content="1080">
+
+
+        
+    <script type="application/ld+json">{
+	"@context": "https://schema.org",
+	"@type": "Article",
+	"publisher": {
+		"@type": "Organization",
+		"name": "freeCodeCamp.org",
+		"url": "https://www.freecodecamp.org/news/",
+		"logo": {
+			"@type": "ImageObject",
+			"url": "https://cdn.freecodecamp.org/platform/universal/fcc_primary.svg",
+			"width": 2100,
+			"height": 240
+		}
+	},
+	"image": {
+		"@type": "ImageObject",
+		"url": "https://cdn.hashnode.com/res/hashnode/image/upload/v1738941922431/cfb485ae-1c59-415a-ad56-393a9803d4d8.png",
+		"width": 1920,
+		"height": 1080
+	},
+	"url": "https://www.freecodecamp.org/news/learn-typescript-with-react-handbook/",
+	"mainEntityOfPage": {
+		"@type": "WebPage",
+		"@id": "https://www.freecodecamp.org/news/"
+	},
+	"datePublished": "2025-02-07T15:26:48.805Z",
+	"dateModified": "2025-02-07T15:26:48.805Z",
+	"keywords": "TypeScript, JavaScript, Programming Blogs, Technical writing , software development, handbook",
+	"description": "This handbook will teach you the basics of TypeScript, including what it is, why it is useful, and the key features it offers.\nTypeScript was created by Anders Hejlsberg, a prominent software engineer at Microsoft who’s also known for his work on C# ...",
+	"headline": "Learn TypeScript – A Handbook for Developers",
+	"author": {
+		"@type": "Person",
+		"name": "oghenekparobo Stephen",
+		"url": "https://www.freecodecamp.org/news/author/Xtephen/",
+		"sameAs": [
+			"https://x.com/stephenjyd"
+		],
+		"image": {
+			"@type": "ImageObject",
+			"url": "https://cdn.hashnode.com/res/hashnode/image/upload/v1727463386839/6ab61fcc-7aa2-43eb-929f-70ef79536447.jpeg?w=500&h=500&fit=crop&crop=entropy&auto=compress,format&format=webp",
+			"width": 1828,
+			"height": 2560
+		}
+	}
+}</script>
+
+
+        <meta name="generator" content="Eleventy">
+        <link rel="alternate" type="application/rss+xml" title="freeCodeCamp.org" href="https://www.freecodecamp.org/news/rss/">
+
+        
+        
+
+        
+  <meta name="x-fcc-source" data-test-label="x-fcc-source" content="Hashnode">
+
+    </head>
+
+    
+        <body class="home-template">
+    
+
+    
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5D6RKKP" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    
+
+        <div class="site-wrapper">
+            <nav class="site-nav nav-padding">
+    <div class="site-nav-left">
+        
+<form id="search-form" data-test-label="search-bar">
+    <div role="search" class="searchbox__wrapper">
+        <label class="fcc_sr_only" for="search-input">
+            Search
+        </label>
+        <input type="search" placeholder="
+    Search our news articles, tutorials, and books
+" id="search-input">
+        <button type="submit" class="ais-SearchBox-submit">
+            <svg class="ais-SearchBox-submitIcon" xmlns="https://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 40 40">
+    <path d="M26.804 29.01c-2.832 2.34-6.465 3.746-10.426 3.746C7.333 32.756 0 25.424 0 16.378 0 7.333 7.333 0 16.378 0c9.046 0 16.378 7.333 16.378 16.378 0 3.96-1.406 7.594-3.746 10.426l10.534 10.534c.607.607.61 1.59-.004 2.202-.61.61-1.597.61-2.202.004L26.804 29.01zm-10.426.627c7.323 0 13.26-5.936 13.26-13.26 0-7.32-5.937-13.257-13.26-13.257C9.056 3.12 3.12 9.056 3.12 16.378c0 7.323 5.936 13.26 13.258 13.26z"></path>
+</svg>
+
+            <span class="fcc_sr_only">Submit your search query</span>
+        </button>
+        <div id="dropdown-container"></div>
+    </div>
+</form>
+
+    </div>
+    <div class="site-nav-middle">
+        <a class="site-nav-logo" href="https://www.freecodecamp.org/news/" data-test-label="site-nav-logo"><img src="https://cdn.freecodecamp.org/platform/universal/fcc_primary.svg" alt="freeCodeCamp.org"></a>
+    </div>
+    <div class="site-nav-right">
+        <div class="nav-group">
+            <a class="nav-forum" id="nav-forum" rel="noopener noreferrer" href="https://forum.freecodecamp.org/" target="_blank" data-test-label="forum-button">Forum</a>
+            <a class="toggle-button-nav" id="nav-donate" rel="noopener noreferrer" href="https://www.freecodecamp.org/donate/" target="_blank" data-test-label="donate-button">Donate</a>
+        </div>
+    </div>
+</nav>
+
+
+            
+            <a class="banner" id="banner" data-test-label="banner" rel="noopener noreferrer" target="_blank">
+    <p id="banner-text"></p>
+</a>
+
+
+    
+    <script>document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("banner"),t=document.getElementById("banner-text");if(isAuthenticated){t.innerHTML=isDonor?"Thank you for supporting freeCodeCamp through <span>your donations</span>.":"Support our charity and our mission. <span>Donate to freeCodeCamp.org</span>.",e.href=isDonor?"https://www.freecodecamp.org/news/how-to-donate-to-free-code-camp/":"https://www.freecodecamp.org/donate";const o=isDonor?"donor":"authenticated";e.setAttribute("text-variation",o)}else t.innerHTML="Learn to code — <span>free 3,000-hour curriculum</span>",e.href="https://www.freecodecamp.org/",e.setAttribute("text-variation","default")});</script>
+
+
+            <div id="error-message"></div>
+
+            
+    <main id="site-main" class="post-template site-main outer">
+        <div class="inner ad-layout">
+            <article class="post-full post">
+                <header class="post-full-header">
+                    <section class="post-full-meta">
+                        <time class="post-full-meta-date" data-test-label="post-full-meta-date" datetime="2025-02-07T15:26:48.805Z">
+                            February 7, 2025
+                        </time>
+                        
+                            <span class="date-divider">/</span>
+                            <a dir="ltr" href="/news/tag/typescript/">
+                                #TypeScript
+                            </a>
+                        
+                    </section>
+                    <h1 class="post-full-title" data-test-label="post-full-title">Learn TypeScript – A Handbook for Developers</h1>
+                </header>
+                
+                    <div class="post-full-author-header" data-test-label="author-header-no-bio">
+                        
+                            
+    
+    
+    
+
+    <section class="author-card" data-test-label="author-card">
+        
+            
+    <img srcset="https://cdn.hashnode.com/res/hashnode/image/upload/v1727463386839/6ab61fcc-7aa2-43eb-929f-70ef79536447.jpeg?w=500&h=500&fit=crop&crop=entropy&auto=compress,format&format=webp 60w" sizes="60px" src="https://cdn.hashnode.com/res/hashnode/image/upload/v1727463386839/6ab61fcc-7aa2-43eb-929f-70ef79536447.jpeg?w=500&h=500&fit=crop&crop=entropy&auto=compress,format&format=webp" class="author-profile-image" alt="oghenekparobo Stephen" width="1828" height="2560" onerror="this.style.display='none'" data-test-label="profile-image">
+  
+        
+
+        <section class="author-card-content author-card-content-no-bio">
+            <span class="author-card-name">
+                <a href="/news/author/Xtephen/" data-test-label="profile-link">
+                    
+                        oghenekparobo Stephen
+                    
+                </a>
+            </span>
+            
+        </section>
+    </section>
+
+                        
+                    </div>
+                
+                <figure class="post-full-image">
+                    
+    <picture>
+      <source media="(max-width: 700px)" sizes="1px" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 1w">
+      <source media="(min-width: 701px)" sizes="(max-width: 800px) 400px, (max-width: 1170px) 700px, 1400px" srcset="https://cdn.hashnode.com/res/hashnode/image/upload/v1738941922431/cfb485ae-1c59-415a-ad56-393a9803d4d8.png">
+      <img onerror="this.style.display='none'" src="https://cdn.hashnode.com/res/hashnode/image/upload/v1738941922431/cfb485ae-1c59-415a-ad56-393a9803d4d8.png" alt="Learn TypeScript – A Handbook for Developers" ,="" width="1920" height="1080" data-test-label="feature-image">
+    </picture>
+  
+                </figure>
+                <section class="post-full-content">
+                    <div class="post-and-sidebar">
+                        <section class="post-content " data-test-label="post-content">
+                            
+<p>This handbook will teach you the basics of TypeScript, including what it is, why it is useful, and the key features it offers.</p>
+<p>TypeScript was created by Anders Hejlsberg, a prominent software engineer at Microsoft who’s also known for his work on C# and Delphi. TypeScript was designed to enhance JavaScript by adding static types, making it easier to build and maintain large-scale applications.</p>
+<p>We’ll start by using Vite to integrate TypeScript with a React project. Then you’ll learn about key concepts like type annotations, type inference, and how to handle objects and arrays.</p>
+<p>After that, we’ll explore advanced topics such as union and any types, readonly properties, functions with specific parameter and return types, generics for flexible and reusable code, and the distinctive roles of type aliases and interfaces.</p>
+<p>I’ll provide detailed examples and explanations throughout the handbook to give you a comprehensive understanding of how TypeScript's features can improve JavaScript development.</p>
+<h3 id="heading-prerequisites">Prerequisites</h3>
+<p>I assume you are already familiar with the fundamentals of JavaScript and React. So in this handbook, I won’t be going into in-depth explanations of certain concepts, such as the file structure when scaffolding projects.</p>
+<h2 id="heading-table-of-contents">Table of Contents</h2>
+<ol>
+<li><p><a target="_blank" href="heading-what-is-typescript">What is TypeScript?</a></p>
+</li>
+<li><p><a class="post-section-overview" href="#heading-setting-up-the-project">Setting Up the Project</a></p>
+</li>
+<li><p><a target="_blank" href="heading-type-annotations-and-type-inference">Type Annotations and Type Inference</a></p>
+<ul>
+<li><p><a target="_blank" href="heading-commonly-used-type-annotations">Commonly Used Type Annotations</a></p>
+</li>
+<li><p><a target="_blank" href="heading-type-inference">Type Inference</a></p>
+</li>
+</ul>
+</li>
+<li><p><a class="post-section-overview" href="#heading-the-union-and-any-types">The Union and Any Types</a></p>
+<ul>
+<li><p><a target="_blank" href="heading-be-careful-when-using-any-in-typescript">Be Careful When Using any in TypeScript</a></p>
+</li>
+<li><p><a class="post-section-overview" href="#heading-unknown-as-a-safer-alternative-to-any-in-typescript">Using unknown as a Safer Alternative to any in TypeScript</a></p>
+</li>
+</ul>
+</li>
+<li><p><a class="post-section-overview" href="#heading-objects-in-typescript">Objects in TypeScript</a></p>
+<ul>
+<li><p><a target="_blank" href="heading-the-problem-of-mutability">The Problem of Mutability</a></p>
+</li>
+<li><p><a target="_blank" href="heading-readonly-on-object-properties">Readonly on Object Properties</a></p>
+</li>
+<li><p><a target="_blank" href="heading-readonly-arrays">Readonly Arrays</a></p>
+</li>
+</ul>
+</li>
+<li><p><a target="_blank" href="heading-function-params-and-function-returns">Function Params And Function Returns</a></p>
+<ul>
+<li><p><a target="_blank" href="heading-the-risks-of-using-any">The Risks of Using any</a></p>
+</li>
+<li><p><a target="_blank" href="heading-use-explicit-types-for-parameters-and-return-values">Use Explicit Types for Parameters and Return Values</a></p>
+</li>
+<li><p><a target="_blank" href="heading-using-unknown-as-a-safer-alternative-to-any-in-typescript">Using unknown as a Safer Alternative to any in TypeScript</a></p>
+</li>
+<li><p><a target="_blank" href="heading-handling-optional-default-in-typescript">Handling Optional, Default in TypeScript</a></p>
+</li>
+</ul>
+</li>
+<li><p><a target="_blank" href="heading-rest-parameters">Rest Parameters</a></p>
+</li>
+<li><p><a target="_blank" href="heading-objects-as-parameters-in-typescript">Objects as Parameters in TypeScript</a></p>
+</li>
+<li><p><a class="post-section-overview" href="#heading-type-aliases-in-typescript">Type Aliases in TypeScript</a></p>
+<ul>
+<li><a target="_blank" href="heading-what-is-an-intersection-type-in-typescript">What is an Intersection Type in TypeScript?</a></li>
+</ul>
+</li>
+<li><p><a target="_blank" href="heading-interfaces-in-typescript">Interfaces in TypeScript</a></p>
+</li>
+<li><p><a target="_blank" href="heading-tuples-and-enums">Tuples and Enums</a></p>
+</li>
+<li><p><a target="_blank" href="heading-type-assertion-type-unknown-and-type-never-in-typescript">Type Assertion, Type Unknown, and Type Never in TypeScript</a></p>
+</li>
+<li><p><a class="post-section-overview" href="#heading-generics-in-typescript">Generics in TypeScript</a></p>
+</li>
+<li><p><a target="_blank" href="heading-conclusion">Conclusion</a></p>
+</li>
+</ol>
+<h2 id="heading-what-is-typescript">What is TypeScript?</h2>
+<p>Before diving into what TypeScript is, it's important to understand why it was created. JavaScript is a <strong>loosely typed language</strong>, meaning variables are defined and their types are determined at runtime. This flexibility can lead to unexpected behavior, especially in larger projects.</p>
+<p>For example, you might accidentally assign a value of the wrong type to a variable, resulting in errors that you only discover when the code is executed.</p>
+<p>Here’s an example of JavaScript that demonstrates this issue:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> userName = <span class="hljs-string">"Alice"</span>;
+userName = <span class="hljs-number">42</span>; <span class="hljs-comment">// No error during assignment, but this might break the code later.</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">greetUser</span>(<span class="hljs-params">name</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Hello, "</span> + name.toUpperCase()); <span class="hljs-comment">// Error at runtime if `name` is not a string.</span>
+}
+
+greetUser(userName); <span class="hljs-comment">// Throws an error because `userName` is a number, not a string.</span>
+</code></pre>
+<p>This error can be challenging to debug, as it only surfaces at runtime, making large projects harder to maintain and more prone to bugs.</p>
+<p>This is where TypeScript comes into the picture. TypeScript is a programming language that builds on JavaScript by adding <strong>static typing</strong>. Static typing means you can explicitly specify the types of variables, function arguments, return values, and more. Unlike <strong>dynamic typing</strong>, where types are determined at runtime, static typing allows TypeScript to catch type-related errors early during development, improving code quality and reducing bugs.</p>
+<p>For example, here’s the same code written in TypeScript:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> userName: string = <span class="hljs-string">"Alice"</span>;
+<span class="hljs-comment">// userName = 42; // Error: Type 'number' is not assignable to type 'string'.</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">greetUser</span>(<span class="hljs-params">name: string</span>): <span class="hljs-title">void</span> </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Hello, "</span> + name.toUpperCase());
+}
+
+greetUser(userName); <span class="hljs-comment">// Works perfectly since `userName` is correctly typed.</span>
+</code></pre>
+<h2 id="heading-setting-up-the-project">Setting Up the Project</h2>
+<p>We will be using <a target="_blank" href="https://vite.dev/guide/">Vite</a> to set up our TypeScript project. Vite is a modern build tool designed to offer a faster and leaner development experience for web projects.</p>
+<p>To get started, run the following command to create a new Vite project with TypeScript support:</p>
+<pre><code class="lang-javascript">npm create vite@latest
+</code></pre>
+<p>Then enter a name for your project (you may choose any name you prefer). Follow the instructions carefully in the subsequent steps</p>
+<p><img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1736769678848/93e22821-6044-4b06-b5ba-86cd3f01ca98.png" alt="creating a project with npm create vite@latest" class="image--center mx-auto" width="446" height="133" loading="lazy"></p>
+<p>Select your project template by choosing ‘React’ from the available options. We will be using React with TypeScript for this project's development.</p>
+<p><img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1736769912180/e94dc70c-32e2-4f9f-89cc-d70d35e3a86e.png" alt="project template when you run, create vite@latest" class="image--center mx-auto" width="632" height="311" loading="lazy"></p>
+<p>When prompted for a variant selection, choose 'TypeScript' from the available options.</p>
+<p><img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1736770059262/d605726e-8d4f-4e73-8fb7-3854ce0b4e72.png" alt="variant selection of typescript, in create vite@latest template" class="image--center mx-auto" width="470" height="225" loading="lazy"></p>
+<p>After completing these steps, you will be prompted to navigate to your project directory and run <code>npm install</code>. You can use any code editor of your choice. For this example, I will be using VS Code.</p>
+<p><img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1736771043869/e3f81f8b-19b7-4fb6-a439-2f24e3f55df5.png" alt="e3f81f8b-19b7-4fb6-a439-2f24e3f55df5" class="image--center mx-auto" width="577" height="416" loading="lazy"></p>
+<p><img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1736771426441/4c524149-4557-40bf-b50a-79400c6c3c91.png" alt="overview of your project in vscode and running npm install to install project dependencies" class="image--center mx-auto" width="1366" height="725" loading="lazy"></p>
+<p>After running <code>npm install</code>, run <code>npm run dev</code> to start the project on the local server. Once that’s up and running, we are ready to dive into learning TypeScript concepts.</p>
+<p><img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1736772238962/36f9523c-d316-43e3-ae05-e1ebfa9398f1.png" alt="our landing page after running npm run dev in our project" class="image--center mx-auto" width="1364" height="699" loading="lazy"></p>
+<p>But first, let's create our first TypeScript file, <code>test.ts</code> (you can choose to use <code>.ts</code> or <code>.tsx</code>). Create the <code>test.ts</code> file inside the <code>src</code> folder of your project, and add the following code to log a test message:</p>
+<p><code>test.ts</code></p>
+<pre><code class="lang-javascript"><span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Testing our first TypeScript file'</span>);
+</code></pre>
+<p>To view this in the console, import the <code>test.ts</code> file into the <code>main.tsx</code> file located in the <code>src</code> folder.</p>
+<p><img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1736773745661/8492e586-7bc0-44a8-ac54-fb576119cdea.png" alt="highlighting the main.tsx and test.tsx file" class="image--center mx-auto" width="1366" height="768" loading="lazy"></p>
+<p><code>main.tsx</code></p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { StrictMode } <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>;
+<span class="hljs-keyword">import</span> { createRoot } <span class="hljs-keyword">from</span> <span class="hljs-string">"react-dom/client"</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-string">"./index.css"</span>;
+<span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">"./App.tsx"</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-string">"./test.ts"</span>;
+
+createRoot(<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"root"</span>)!).render(
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">StrictMode</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">App</span> /&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">StrictMode</span>&gt;</span></span>
+);
+</code></pre>
+<p>To view the log in the console, make sure to import the <code>test.ts</code> file into the <code>main.tsx</code> file located in the <code>src</code> folder. After that, check the console of your project running on the local server, and you should see the logged message displayed there.</p>
+<p><strong>Voilà!</strong></p>
+<p><img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1736774231199/9a270631-0639-40e0-84de-513143b4478d.png" alt="our result in console.log" class="image--center mx-auto" width="1364" height="649" loading="lazy"></p>
+<p>Now let’s get down to the real business of learning TypeScript.</p>
+<h2 id="heading-type-annotations-and-type-inference">Type Annotations and Type Inference</h2>
+<h3 id="heading-what-are-type-annotations">What are Type Annotations?</h3>
+<p>Type annotations in TypeScript enable you to explicitly specify the type of a variable. This ensures that the variable is assigned only values of the specified type, enhancing type safety and making your code easier to maintain.</p>
+<p>To define a type annotation in TypeScript, you simply append a colon <code>:</code> followed by the desired type after the variable name. This allows you to specify the type that a variable will hold, adding a layer of clarity and precision to your code. For instance, let’s specify a variable of type <code>string</code> in our <code>test.ts</code> file, ensuring that only a string value is assigned:</p>
+<p><code>test.ts</code></p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> name: string = <span class="hljs-string">'Stephen'</span>;
+</code></pre>
+<p>In this example, we have declared a variable <code>name</code> and specified that its type must be <code>string</code>. TypeScript will now ensure that only a string value can be assigned to <code>name</code>.</p>
+<p><strong>📄 Note:</strong> All code snippets are in a file called <code>test.ts</code> for demonstration purposes. You can rename the file or copy the snippets into your TypeScript project as needed. I don’t follow consistent file naming in this article.</p>
+<h3 id="heading-commonly-used-type-annotations">Commonly Used Type Annotations</h3>
+<p>Here are some of the most commonly used type annotations in TypeScript:</p>
+<ul>
+<li><p><code>string</code>: Represents text values.</p>
+</li>
+<li><p><code>number</code>: Represents numeric values (both integers and floating-point numbers).</p>
+</li>
+<li><p><code>boolean</code>: Represents a value that is either <code>true</code> or <code>false</code>.</p>
+</li>
+<li><p><code>any</code>: A fallback type that allows any value to be assigned to a variable, disabling type checking.</p>
+</li>
+<li><p><code>void</code>: Typically used for functions that do not return a value.</p>
+</li>
+<li><p><code>null</code> and <code>undefined</code>: Used to represent the absence of a value.</p>
+</li>
+</ul>
+<p>Once you define a variable with a type annotation, TypeScript ensures that it can only hold values of that specified type. You can also access the methods associated with that type. For example, if you declare a string variable, TypeScript provides access to all string methods, such as <code>.toUpperCase()</code>.</p>
+<p><code>test.ts</code></p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> name: string = <span class="hljs-string">'Stephen'</span>;  <span class="hljs-comment">// Type is explicitly set as string</span>
+name = <span class="hljs-string">'John'</span>;  <span class="hljs-comment">// This is fine, as it's still a string</span>
+
+<span class="hljs-comment">// Accessing string method</span>
+<span class="hljs-built_in">console</span>.log(name.toUpperCase());  <span class="hljs-comment">// Output: JOHN</span>
+</code></pre>
+<p>Here, the variable <code>name</code> is re-assigned to a new string value, <code>'John'</code>. Since the type is still <code>string</code>, you can use string methods like <code>.toUpperCase()</code> without any issues.</p>
+<p>You can also define arrays with type annotations. This ensures that the array only contains elements of a specific type. For example, if you define an array of numbers, TypeScript will allow you to use array methods that are specific to numbers.</p>
+<p><code>test.ts</code></p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> numbers: number[] = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];  <span class="hljs-comment">// Type is explicitly set as an array of numbers</span>
+numbers.push(<span class="hljs-number">4</span>);  <span class="hljs-comment">// This is fine, as 4 is a number</span>
+
+<span class="hljs-comment">// Accessing array method</span>
+<span class="hljs-built_in">console</span>.log(numbers.length);  <span class="hljs-comment">// Output: 4</span>
+</code></pre>
+<p>In this case, <code>numbers</code> is an array of numbers. You can safely use array methods like <code>.push()</code> and <code>.length</code>, which are valid for number arrays.</p>
+<p>If you try to reassign a variable to a value of an incompatible type, TypeScript will catch the error immediately during development, before the code is even run.</p>
+<p>For instance:</p>
+<p><code>test.ts</code></p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> name: string = <span class="hljs-string">'Stephen'</span>;
+name = <span class="hljs-number">2</span>;  <span class="hljs-comment">// Error: Type '2' is not assignable to type 'string'</span>
+</code></pre>
+<p>Here, you're trying to assign a number (<code>2</code>) to a variable that was previously declared as a string. TypeScript throws an error immediately, indicating that a number cannot be assigned to a string variable.</p>
+<p>Similarly, for an array:</p>
+<p><code>test.ts</code></p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> numbers: number[] = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+numbers = <span class="hljs-string">'Hello'</span>;  <span class="hljs-comment">// Error: Type 'string' is not assignable to type 'number[]'</span>
+</code></pre>
+<p>Here, you're trying to assign a string (<code>'Hello'</code>) to a variable that was previously declared as an array of numbers. TypeScript catches this error and highlights the mismatch.</p>
+<p>Experiment with different types to see how TypeScript enforces type safety. For example, try using boolean, number, or other types in your arrays and variables.</p>
+<p>Now that you've seen how type annotations work with strings and arrays, it's time to experiment with other types. TypeScript allows you to define arrays and variables with various types, ensuring type safety across your code. Try creating arrays with other data types such as <code>boolean</code>, <code>number</code>.</p>
+<h4 id="heading-example-boolean-array">Example: Boolean Array</h4>
+<p><code>test.ts</code></p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">let</span> booleanArray: <span class="hljs-built_in">Array</span>&lt;<span class="hljs-built_in">boolean</span>&gt; = [<span class="hljs-literal">true</span>, <span class="hljs-literal">false</span>, <span class="hljs-literal">true</span>];
+
+<span class="hljs-comment">// Accessing array method</span>
+<span class="hljs-built_in">console</span>.log(booleanArray.length);  <span class="hljs-comment">// Output: 3</span>
+</code></pre>
+<p>In this example, the array <code>booleanArray</code> is explicitly declared to hold only <code>boolean</code> values. Try adding <code>string</code> or <code>number</code> elements to see how TypeScript catches type errors.</p>
+<h4 id="heading-example-number-array">Example: Number Array</h4>
+<p><code>test.ts</code></p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> numberArray: <span class="hljs-built_in">Array</span>&lt;number&gt; = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+
+<span class="hljs-comment">// Accessing array method</span>
+<span class="hljs-built_in">console</span>.log(numberArray[<span class="hljs-number">0</span>] * <span class="hljs-number">2</span>);  <span class="hljs-comment">// Output: 2</span>
+</code></pre>
+<p>Feel free to play around with these examples and observe how TypeScript provides strong type safety and catches errors in real time. The more you explore, the better you'll understand how to leverage TypeScript's type system to write cleaner and more reliable code.</p>
+<h3 id="heading-what-is-type-inference">What is Type Inference?</h3>
+<p>Type inference in TypeScript is a powerful feature that allows the TypeScript compiler to automatically determine the type of a variable based on the value assigned to it. TypeScript is designed to be smart enough to infer types in many cases, reducing the need for explicit type annotations. This enhances code conciseness while maintaining the benefits of type safety.</p>
+<p>With type inference, TypeScript can predict the type of a variable by analyzing the value assigned to it, ensuring that you don’t need to specify the type manually, yet still receive all the advantages of type checking.</p>
+<h5 id="heading-example-1-inferred-string-type"><strong>Example 1</strong>: Inferred String Type</h5>
+<p><code>test.ts</code></p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">let</span> message = <span class="hljs-string">"Hello, TypeScript!"</span>;  <span class="hljs-comment">// TypeScript infers 'message' as a string</span>
+<span class="hljs-built_in">console</span>.log(message.toUpperCase());  <span class="hljs-comment">// Output: HELLO, TYPESCRIPT!</span>
+</code></pre>
+<p>In this example, TypeScript automatically infers the type of <code>message</code> as a <code>string</code> because the assigned value is a string.</p>
+<h5 id="heading-example-2-inferred-number-type"><strong>Example 2</strong>: Inferred Number Type</h5>
+<p><code>test.ts</code></p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">let</span> count = <span class="hljs-number">42</span>;  <span class="hljs-comment">// TypeScript infers 'count' as a number</span>
+<span class="hljs-built_in">console</span>.log(count + <span class="hljs-number">8</span>);  <span class="hljs-comment">// Output: 50</span>
+</code></pre>
+<p>Here, TypeScript infers the type of <code>count</code> as a <code>number</code> based on the value <code>42</code>, and you can perform arithmetic operations on it without type errors.</p>
+<h5 id="heading-example-3-inferred-array-type"><strong>Example 3:</strong> Inferred Array Type</h5>
+<p><code>test.ts</code></p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];  <span class="hljs-comment">// TypeScript infers 'numbers' as an array of numbers (number[])</span>
+<span class="hljs-built_in">console</span>.log(numbers.length);  <span class="hljs-comment">// Output: 3</span>
+</code></pre>
+<p>In this case, TypeScript infers that <code>numbers</code> is an array of type <code>number[]</code> because the array contains numbers.</p>
+<h4 id="heading-incorrect-examples"><strong>Incorrect Examples:</strong></h4>
+<h5 id="heading-example-4-mismatched-type-assignment"><strong>Example 4</strong>: Mismatched Type Assignment</h5>
+<p><code>test.ts</code></p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">let</span> count = <span class="hljs-number">42</span>;  <span class="hljs-comment">// TypeScript infers 'count' as a number</span>
+count = <span class="hljs-string">"Not a number"</span>;  <span class="hljs-comment">// Error: Type 'string' is not assignable to type 'number'</span>
+</code></pre>
+<p>Even though TypeScript inferred that <code>count</code> is a number, attempting to assign a <code>string</code> to it results in an error. TypeScript catches this as a type mismatch because <code>count</code> was initially inferred as a <code>number</code>.</p>
+<h5 id="heading-example-5-inferred-array-type-with-mixed-types"><strong>Example 5:</strong> Inferred Array Type with Mixed Types</h5>
+<p><code>test.ts</code></p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">let</span> mixedArray = [<span class="hljs-number">1</span>, <span class="hljs-string">"apple"</span>, <span class="hljs-literal">true</span>];  <span class="hljs-comment">// TypeScript infers 'mixedArray' as (string | number | boolean)[]</span>
+<span class="hljs-built_in">console</span>.log(mixedArray[<span class="hljs-number">0</span>].toFixed(<span class="hljs-number">2</span>));  <span class="hljs-comment">// Error: Property 'toFixed' does not exist on type 'string | boolean'.</span>
+</code></pre>
+<p>In this example, TypeScript infers <code>mixedArray</code> as an array containing multiple types (<code>string | number | boolean</code>). While this is allowed, accessing methods like <code>.toFixed()</code> on elements may result in errors because not all array elements support that method (for example, <code>boolean</code> and <code>string</code> do not have <code>.toFixed()</code>).</p>
+<h5 id="heading-example-6-inferred-type-with-incorrect-operation"><strong>Example 6</strong>: Inferred Type with Incorrect Operation</h5>
+<p><code>test.ts</code></p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">let</span> price = <span class="hljs-number">99.99</span>;  <span class="hljs-comment">// TypeScript infers 'price' as a number</span>
+price = <span class="hljs-string">"Free"</span>;  <span class="hljs-comment">// Error: Type 'string' is not assignable to type 'number'</span>
+</code></pre>
+<p>Here, TypeScript infers that <code>price</code> is a <code>number</code>, but trying to reassign it to a <code>string</code> leads to a type error, ensuring that the variable maintains its inferred type.</p>
+<h2 id="heading-the-union-and-any-types">The Union and Any Types</h2>
+<p>In earlier examples, we used mixed types. Now, let’s properly define these concepts and expand on them with various examples:</p>
+<h3 id="heading-what-are-union-types"><strong>What are Union Types?</strong></h3>
+<p>Union types allow variables or parameters to hold multiple specific types, offering flexibility while maintaining type safety. You define a union type using the pipe (<code>|</code>) symbol.</p>
+<p><strong>Simple Union Type:</strong></p>
+<p><code>test.ts</code></p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">let</span> value: <span class="hljs-built_in">string</span> | <span class="hljs-built_in">number</span>;
+
+value = <span class="hljs-string">"Hello"</span>;  <span class="hljs-comment">// ✅ Correct</span>
+<span class="hljs-built_in">console</span>.log(value.toUpperCase());  <span class="hljs-comment">// Output: HELLO</span>
+
+value = <span class="hljs-number">42</span>;  <span class="hljs-comment">// ✅ Correct</span>
+<span class="hljs-built_in">console</span>.log(value + <span class="hljs-number">8</span>);  <span class="hljs-comment">// Output: 50</span>
+
+value = <span class="hljs-literal">true</span>;  <span class="hljs-comment">// ❌ Error: Type 'boolean' is not assignable to type 'string | number'.</span>
+</code></pre>
+<p>In this example, <code>value</code> can either be a string or a number. Any other type of assignment results in a type error.</p>
+<p><strong>Union Type in Function Parameters:</strong>  </p>
+<p><code>test.ts</code></p>
+<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">printId</span>(<span class="hljs-params">id: <span class="hljs-built_in">string</span> | <span class="hljs-built_in">number</span></span>): <span class="hljs-title">void</span> </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Your ID is: <span class="hljs-subst">${id}</span>`</span>);
+}
+
+printId(<span class="hljs-number">12345</span>);      <span class="hljs-comment">// ✅ Correct</span>
+printId(<span class="hljs-string">"abc123"</span>);   <span class="hljs-comment">// ✅ Correct</span>
+printId(<span class="hljs-literal">true</span>);       <span class="hljs-comment">// ❌ Error: Type 'boolean' is not assignable to type 'string | number'.</span>
+</code></pre>
+<p>Here, the <code>id</code> <strong>the</strong> parameter can only accept a <code>string</code> or <code>number</code>, ensuring type safety while providing flexibility.</p>
+<p><strong>Custom Union Type:</strong></p>
+<p>You can create custom types using the <code>type</code> keyword for better readability and reusability.  </p>
+<p><code>test.ts</code></p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">type</span> ID = <span class="hljs-built_in">string</span> | <span class="hljs-built_in">number</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getUser</span>(<span class="hljs-params">id: ID</span>): <span class="hljs-title">void</span> </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Fetching user with ID: <span class="hljs-subst">${id}</span>`</span>);
+}
+
+getUser(<span class="hljs-number">12345</span>);      <span class="hljs-comment">// ✅ Correct</span>
+getUser(<span class="hljs-string">"abc123"</span>);   <span class="hljs-comment">// ✅ Correct</span>
+getUser(<span class="hljs-literal">true</span>);       <span class="hljs-comment">// ❌ Error: Type 'boolean' is not assignable to type 'string | number'.</span>
+</code></pre>
+<h3 id="heading-what-is-the-any-type"><strong>What is the</strong> <code>any</code> Type?</h3>
+<p>The <code>any</code> type is the most flexible type in TypeScript. It allows a variable to hold any type of value, disabling type-checking for that variable.</p>
+<p>The <code>any</code> type sacrifices type safety for maximum flexibility. This is useful in scenarios where you are unsure about the type or you’re working with dynamic data.</p>
+<h5 id="heading-example-1-array-of-any-type"><strong>Example 1</strong>: Array of any Type</h5>
+<p><code>test.ts</code></p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">let</span> mixedArray: <span class="hljs-built_in">any</span>[] = [<span class="hljs-number">1</span>, <span class="hljs-string">"apple"</span>, <span class="hljs-literal">true</span>];
+
+<span class="hljs-built_in">console</span>.log(mixedArray[<span class="hljs-number">0</span>]);  <span class="hljs-comment">// Output: 1</span>
+<span class="hljs-built_in">console</span>.log(mixedArray[<span class="hljs-number">1</span>].toUpperCase());  <span class="hljs-comment">// Output: APPLE</span>
+<span class="hljs-built_in">console</span>.log(mixedArray[<span class="hljs-number">2</span>]);  <span class="hljs-comment">// Output: true</span>
+</code></pre>
+<p>Here, the <code>mixedArray</code> can hold elements of any type without triggering type errors.</p>
+<h4 id="heading-when-to-use-union-vs-any"><strong>When to Use Union vs.</strong> <code>any</code></h4>
+<ul>
+<li><p><strong>Union Types</strong>: Use union types when the possible values are known or constrained to a few specific types. It provides type safety and avoids runtime errors.</p>
+</li>
+<li><p><code>any</code> <strong>Type</strong>: Use <code>any</code> as a last resort when the type is unknown or dynamic.</p>
+</li>
+</ul>
+<p>Just remember that overusing <code>any</code> can negate the benefits of TypeScript’s type system. By carefully choosing between union types and <code>any</code>, you can write TypeScript code that is both flexible and type-safe.</p>
+<h3 id="heading-be-careful-when-using-any-in-typescript"><strong>Be Careful When Using</strong> <code>any</code> in TypeScript</h3>
+<p>The <code>any</code> type in TypeScript is a powerful yet risky feature. While this flexibility can sometimes be useful, it often leads to unintended behaviors or errors that TypeScript cannot catch at compile time.</p>
+<p>Let’s explore an example to understand the potential pitfalls.</p>
+<p>Here’s a function that demonstrates the risks:</p>
+<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">combineValues</span>(<span class="hljs-params">value: <span class="hljs-built_in">any</span></span>) </span>{
+  <span class="hljs-keyword">let</span> anotherValue: <span class="hljs-built_in">number</span> = <span class="hljs-number">10</span>;
+
+  <span class="hljs-keyword">return</span> value + anotherValue;
+}
+
+<span class="hljs-keyword">const</span> result = combineValues(<span class="hljs-number">5</span>); <span class="hljs-comment">// No error here.</span>
+<span class="hljs-keyword">const</span> anotherResult = result;
+
+<span class="hljs-comment">// Attempting to call a method on `anotherResult`</span>
+anotherResult.someUndefinedMethod(); <span class="hljs-comment">// No compile-time error!</span>
+</code></pre>
+<p>What happened here?</p>
+<p>First, we didn’t have any type checking with <code>any</code>. The parameter <code>value</code> is of type <code>any</code>, meaning it can hold any value: a string, number, object, and so on. TypeScript skips enforcing type checks on <code>value</code>.</p>
+<p>Second, the return value assumes <code>any</code>. Since <code>value</code> is <code>any</code>, the return type of <code>combineValues</code> is also inferred as <code>any</code>.</p>
+<p>Third, there’s no error when calling an undefined method. After the function is called, <code>anotherResult</code> is also treated as <code>any</code>. TypeScript allows calling any method (even non-existent ones) on a variable of type <code>any</code> without throwing errors. In this case, <code>someUndefinedMethod</code> doesn’t exist, but TypeScript won’t warn you.</p>
+<h4 id="heading-the-risks-of-using-any"><strong>The Risks of Using</strong> <code>any</code></h4>
+<ol>
+<li><p><strong>Loss of type safety</strong>: You lose the benefits of TypeScript’s type system, like compile-time error checking. Potential runtime errors can go unnoticed during development.</p>
+</li>
+<li><p><strong>Accidental behavior</strong>: The function could accept unexpected inputs (e.g., strings, arrays, or objects), leading to incorrect results or crashes.</p>
+</li>
+<li><p><strong>Debugging complexity</strong>: Since the type is not enforced, debugging issues caused by incorrect types becomes more challenging.</p>
+</li>
+</ol>
+<h3 id="heading-how-to-fix-this"><strong>How to Fix This</strong></h3>
+<h4 id="heading-use-explicit-types-for-parameters-and-return-values"><strong>Use Explicit Types for Parameters and Return Values</strong></h4>
+<p>Here’s an improved version with proper type annotations:</p>
+<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">combineValues</span>(<span class="hljs-params">value: <span class="hljs-built_in">number</span></span>): <span class="hljs-title">number</span> </span>{
+  <span class="hljs-keyword">let</span> anotherValue: <span class="hljs-built_in">number</span> = <span class="hljs-number">10</span>;
+
+  <span class="hljs-keyword">return</span> value + anotherValue;
+}
+
+<span class="hljs-keyword">const</span> result = combineValues(<span class="hljs-number">5</span>);
+<span class="hljs-comment">// result.someUndefinedMethod(); // Error: Property 'someUndefinedMethod' does not exist on type 'number'.</span>
+</code></pre>
+<ol>
+<li><p><strong>Parameter type</strong>: The function now explicitly expects a <code>number</code> for the <code>value</code> parameter.</p>
+</li>
+<li><p><strong>Return type</strong>: The return type is declared as <code>number</code>, ensuring that only numbers are returned.</p>
+</li>
+</ol>
+<p>This ensures that TypeScript will throw errors if you try to pass invalid types or call methods that don’t exist on the return value.</p>
+<h4 id="heading-key-takeaways"><strong>Key Takeaways</strong></h4>
+<ul>
+<li><p>The <code>any</code> type disables TypeScript’s type checking, making your code vulnerable to runtime errors.</p>
+</li>
+<li><p>Avoid using <code>any</code> whenever possible. Instead, use explicit types or stricter alternatives like <code>unknown</code> (if the type cannot be determined upfront).</p>
+</li>
+<li><p>Explicit types enhance code clarity, maintainability, and reliability by leveraging TypeScript’s compile-time checks.</p>
+</li>
+</ul>
+<p>If you’re tempted to use <code>any</code> because the type isn’t clear, consider refactoring your code or using <code>unknown</code> combined with type guards for better safety.</p>
+<h3 id="heading-using-unknown-as-a-safer-alternative-to-any-in-typescript"><strong>Using</strong> <code>unknown</code> as a Safer Alternative to <code>any</code> in TypeScript</h3>
+<p>The <code>unknown</code> type in TypeScript is a stricter and safer alternative to <code>any</code>. While both <code>any</code> and <code>unknown</code> can hold values of any type, <code>unknown</code> requires you to perform type checks before using the value. This ensures greater type safety while still offering flexibility.</p>
+<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">processValue</span>(<span class="hljs-params">input: unknown</span>): <span class="hljs-title">string</span> </span>{
+  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> input === <span class="hljs-string">'string'</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">`The value is a string: <span class="hljs-subst">${input}</span>`</span>;
+  } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> input === <span class="hljs-string">'number'</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">`The value is a number: <span class="hljs-subst">${input}</span>`</span>;
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'The value is of an unknown type'</span>;
+  }
+}
+
+<span class="hljs-built_in">console</span>.log(processValue(<span class="hljs-string">'Hello, TypeScript!'</span>)); <span class="hljs-comment">// The value is a string: Hello, TypeScript!</span>
+<span class="hljs-built_in">console</span>.log(processValue(<span class="hljs-number">42</span>)); <span class="hljs-comment">// The value is a number: 42</span>
+<span class="hljs-built_in">console</span>.log(processValue(<span class="hljs-literal">true</span>)); <span class="hljs-comment">// The value is of an unknown type</span>
+</code></pre>
+<p>Using <code>unknown</code> instead of any has a few benefits:</p>
+<ol>
+<li><p><strong>Type-safe handling</strong>: Unlike <code>any</code>, <code>unknown</code> forces you to check the type of the value before using it. This prevents runtime errors caused by invalid operations on unexpected types.</p>
+</li>
+<li><p><strong>Explicit type narrowing</strong>: TypeScript requires you to narrow <code>unknown</code> to a specific type (e.g., <code>string</code>, <code>number</code>) using type guards (<code>typeof</code>, <code>instanceof</code>, etc.) before you can access its properties or methods.</p>
+</li>
+<li><p><strong>Enhanced code clarity</strong>: By using <code>unknown</code>, you signal to other developers that the type is deliberately uncertain and must be checked before use.</p>
+</li>
+</ol>
+<h3 id="heading-key-differences-any-vs-unknown"><strong>Key Differences:</strong> <code>any</code> vs. <code>unknown</code></h3>
+<div class="hn-table">
+<table>
+<thead>
+<tr>
+<td><strong>Feature</strong></td><td><code>any</code></td><td><code>unknown</code></td></tr>
+</thead>
+<tbody>
+<tr>
+<td>Type checking</td><td>No type checking</td><td>Requires type checks before usage</td></tr>
+<tr>
+<td>Flexibility</td><td>Can be used directly</td><td>Must narrow the type first</td></tr>
+<tr>
+<td>Common use case</td><td>Quick fixes (discouraged)</td><td>Safely handling uncertain types</td></tr>
+</tbody>
+</table>
+</div><p>So to summarize, use <code>unknown</code> over <code>any</code> whenever you deal with values of uncertain types. It helps maintain type safety and reduces the risk of errors. And try to avoid <code>any</code> unless necessary, as it bypasses TypeScript’s safety features.</p>
+<h2 id="heading-objects-in-typescript">Objects in TypeScript</h2>
+<p>In TypeScript, objects are collections of properties where each property has a name (key) and a value. TypeScript allows us to define types for these properties, ensuring that objects conform to a specific structure.</p>
+<p><code>test.ts</code></p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">let</span> car = { car: <span class="hljs-string">'Toyota'</span>, brand: <span class="hljs-number">2024</span> };
+<span class="hljs-built_in">console</span>.log(car);
+</code></pre>
+<p>This works fine because TypeScript infers the types for <code>car</code> and <code>brand</code> automatically based on the values provided.</p>
+<h3 id="heading-explicit-object-types"><strong>Explicit Object Types</strong></h3>
+<p>When we want to define the shape of an object explicitly, we can use inline type annotations. This makes it clear what type each property should have. For example:</p>
+<p><code>test.ts</code></p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">let</span> carOne: { car: <span class="hljs-built_in">string</span>; brand: <span class="hljs-built_in">number</span> } = { car: <span class="hljs-string">'Evil Spirit'</span>, brand: <span class="hljs-number">2025</span> };
+<span class="hljs-built_in">console</span>.log(carOne);
+</code></pre>
+<p>This ensures that <code>carOne</code> always has a <code>car</code> property of type <code>string</code> and a <code>brand</code> property of type <code>number</code>.</p>
+<p>Let’s say we want to add a <code>color</code> property to <code>carOne</code>:</p>
+<p><code>test.ts</code></p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">let</span> carOne: { car: <span class="hljs-built_in">string</span>; brand: <span class="hljs-built_in">number</span> } = { car: <span class="hljs-string">'Evil Spirit'</span>, brand: <span class="hljs-number">2025</span>, color: <span class="hljs-string">'Black'</span> };
+</code></pre>
+<p>The code above will show a redline because <code>color</code> is not part of the defined type <code>{ car: string; brand: number }</code>. The error will look something like this:</p>
+<p><img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1736933755272/8a3d48dd-3ae0-4769-9e13-fa1f6ca37331.png" alt="8a3d48dd-3ae0-4769-9e13-fa1f6ca37331" class="image--center mx-auto" width="757" height="40" loading="lazy"></p>
+<blockquote>
+<p>Type '{ car: string; brand: number; color: string; }' is not assignable to type '{ car: string; brand: number; }'. Object literal may only specify known properties, and 'color' does not exist in type '{ car: string; brand: number; }'.</p>
+</blockquote>
+<p>Similarly, if you try to change the type of <code>brand</code> to a <code>string</code>:</p>
+<p><code>test.ts</code></p>
+<pre><code class="lang-typescript">carOne.brand = <span class="hljs-string">"2026"</span>;
+</code></pre>
+<p>You’ll get another error:</p>
+<blockquote>
+<p>Type 'string' is not assignable to type 'number'.</p>
+</blockquote>
+<p>Having to write the full object type each time can get repetitive, especially for objects with many properties or when the same structure is used in multiple places. But don’t worry – I’ll soon introduce <strong>type aliases</strong>, which make defining and reusing object types much simpler. You’ll see how to use type aliases to simplify object types and make your code cleaner. After that, we’ll explore how to apply these concepts in React.</p>
+<p>For now, focus on understanding the basics and how TypeScript enforces structure. It’s like peeking under the hood to see how TypeScript works behind the scenes.</p>
+<h3 id="heading-objects-and-arrays"><strong>Objects and Arrays</strong></h3>
+<p>In TypeScript, we often deal with arrays of objects, where each object has a specific structure. TypeScript helps ensure that every object in the array conforms to the expected type.</p>
+<p>Imagine you are managing a grocery store, and you want to keep track of your vegetables. Here’s how you might start:</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">let</span> tomato = { name: <span class="hljs-string">'Tomato'</span>, price: <span class="hljs-number">2</span> };
+<span class="hljs-keyword">let</span> potato = { name: <span class="hljs-string">'Potato'</span>, price: <span class="hljs-number">1</span> };
+<span class="hljs-keyword">let</span> carrot = { name: <span class="hljs-string">'Carrot'</span> };
+
+<span class="hljs-keyword">let</span> vegetables: { name: <span class="hljs-built_in">string</span>; price: <span class="hljs-built_in">number</span> }[] = [tomato, potato, carrot];
+</code></pre>
+<p>When TypeScript checks this code, it throws an error because <code>carrot</code> doesn’t have a <code>price</code> property. The expected type for each item in the <code>vegetables</code> array is <code>{ name: string; price: number }</code>. Since <code>carrot</code> is missing the <code>price</code>, TypeScript flags it as an error.</p>
+<blockquote>
+<p>Type '{ name: string; }' is not assignable to type '{ name: string; price: number; }'. Property 'price' is missing in type '{ name: string; }' but required in type '{ name: string; price: number; }'.</p>
+</blockquote>
+<p>If the <code>price</code> is not always known or applicable (for example, maybe the carrot's price is still being negotiated), you can make the <code>price</code> property optional. You can do this by adding a <code>?</code> after the property name:</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">let</span> vegetables: { name: <span class="hljs-built_in">string</span>; price?: <span class="hljs-built_in">number</span> }[] = [tomato, potato, carrot];
+</code></pre>
+<p>Now, TypeScript knows that the <code>price</code> property is optional. This means objects in the <code>vegetables</code> array can either include <code>price</code> or omit it without causing errors.</p>
+<p>When a property is optional, TypeScript allows it to be either:</p>
+<ol>
+<li><p>Present with the specified type.</p>
+</li>
+<li><p>Absent altogether.</p>
+</li>
+</ol>
+<p>This flexibility eliminates the error for objects like <code>carrot</code>, which lack the <code>price</code> property.</p>
+<h3 id="heading-the-readonly-modifier"><strong>The</strong> <code>readonly</code> Modifier</h3>
+<p>In TypeScript, the <code>readonly</code> modifier is a great way to ensure that certain properties or entire objects remain immutable. This is particularly useful when you want to prevent accidental changes to your data.</p>
+<p>Let’s continue with our vegetable store example and see how <code>readonly</code> works.</p>
+<h4 id="heading-the-problem-of-mutability"><strong>The Problem of Mutability</strong></h4>
+<p>Imagine we have this setup:</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">let</span> tomato = { name: <span class="hljs-string">'Tomato'</span>, price: <span class="hljs-number">2</span> };
+<span class="hljs-keyword">let</span> potato = { name: <span class="hljs-string">'Potato'</span>, price: <span class="hljs-number">1</span> };
+<span class="hljs-keyword">let</span> carrot = { name: <span class="hljs-string">'Carrot'</span> };
+
+<span class="hljs-keyword">let</span> vegetables: { name: <span class="hljs-built_in">string</span>; price?: <span class="hljs-built_in">number</span> }[] = [tomato, potato, carrot];
+</code></pre>
+<p>If someone accidentally tries to change the <code>name</code> of the <code>tomato</code> object or remove the <code>carrot</code> object from the <code>vegetables</code> array, TypeScript won’t complain:</p>
+<pre><code class="lang-typescript">vegetables[<span class="hljs-number">0</span>].name = <span class="hljs-string">'Cucumber'</span>; <span class="hljs-comment">// No error, but this could be unintended!</span>
+vegetables.pop(); <span class="hljs-comment">// Removes the last vegetable, no warning.</span>
+</code></pre>
+<p>We can use <code>readonly</code> to make these objects and arrays immutable, ensuring their original state cannot be altered.</p>
+<h3 id="heading-readonly-on-object-properties"><strong>Readonly on Object Properties</strong></h3>
+<p>To make the properties of each vegetable immutable, you can do the following:</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">let</span> vegetables: { <span class="hljs-keyword">readonly</span> name: <span class="hljs-built_in">string</span>; <span class="hljs-keyword">readonly</span> price?: <span class="hljs-built_in">number</span> }[] = [
+  { name: <span class="hljs-string">'Tomato'</span>, price: <span class="hljs-number">2</span> },
+  { name: <span class="hljs-string">'Potato'</span>, price: <span class="hljs-number">1</span> },
+  { name: <span class="hljs-string">'Carrot'</span> },
+];
+</code></pre>
+<p>Now, if you try to change the <code>name</code> or <code>price</code> of any vegetable, TypeScript throws an error:</p>
+<pre><code class="lang-typescript">typescriptCopy codevegetables[<span class="hljs-number">0</span>].name = <span class="hljs-string">'Cucumber'</span>; <span class="hljs-comment">// Error: Cannot assign to 'name' because it is a read-only</span>
+</code></pre>
+<h3 id="heading-readonly-arrays"><strong>Readonly Arrays</strong></h3>
+<p>You can also make the entire <code>vegetables</code> array immutable by declaring it as <code>readonly</code>:</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">let</span> vegetables: <span class="hljs-keyword">readonly</span> { name: <span class="hljs-built_in">string</span>; price?: <span class="hljs-built_in">number</span> }[] = [
+  { name: <span class="hljs-string">'Tomato'</span>, price: <span class="hljs-number">2</span> },
+  { name: <span class="hljs-string">'Potato'</span>, price: <span class="hljs-number">1</span> },
+  { name: <span class="hljs-string">'Carrot'</span> },
+];
+</code></pre>
+<p>This prevents operations that modify the array itself, such as <code>push</code>, <code>pop</code>, or <code>splice</code>:</p>
+<pre><code class="lang-typescript">vegetables.push({ name: <span class="hljs-string">'Onion'</span>, price: <span class="hljs-number">3</span> }); <span class="hljs-comment">// Error: Property 'push' does not exist on type 'readonly { name: string; price?: number; }[]'.</span>
+vegetables.pop(); <span class="hljs-comment">// Error: Property 'pop' does not exist on type 'readonly { name: string; price?: number; }[]'.</span>
+</code></pre>
+<h3 id="heading-when-to-use-readonly"><strong>When to Use</strong> <code>readonly</code></h3>
+<ol>
+<li><p><strong>Immutable data</strong>: Use <code>readonly</code> when you want to enforce immutability for objects or arrays, especially in contexts where data should remain constant (e.g., configurations, initial states, constants).</p>
+</li>
+<li><p><strong>Prevent bugs</strong>: Protect your data from accidental changes caused by other parts of the code.</p>
+</li>
+</ol>
+<h3 id="heading-complete-example"><strong>Complete Example</strong></h3>
+<p>Here’s an updated example with <code>readonly</code> in action:</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">let</span> vegetables: <span class="hljs-keyword">readonly</span> { <span class="hljs-keyword">readonly</span> name: <span class="hljs-built_in">string</span>; <span class="hljs-keyword">readonly</span> price?: <span class="hljs-built_in">number</span> }[] = [
+  { name: <span class="hljs-string">'Tomato'</span>, price: <span class="hljs-number">2</span> },
+  { name: <span class="hljs-string">'Potato'</span>, price: <span class="hljs-number">1</span> },
+  { name: <span class="hljs-string">'Carrot'</span> },
+];
+
+<span class="hljs-comment">// Attempting to modify data</span>
+vegetables[<span class="hljs-number">0</span>].name = <span class="hljs-string">'Cucumber'</span>; <span class="hljs-comment">// Error: Cannot assign to 'name' because it is a read-only property.</span>
+vegetables.pop(); <span class="hljs-comment">// Error: Property 'pop' does not exist on type 'readonly { readonly name: string; readonly price?: number; }[]'.</span>
+
+<span class="hljs-built_in">console</span>.log(vegetables);
+</code></pre>
+<p>Here’s what you should know about readonly, summarized:</p>
+<ul>
+<li><p><code>readonly</code> on properties ensures individual fields of objects cannot be changed.</p>
+</li>
+<li><p><code>readonly</code> on arrays makes the array itself immutable, preventing operations like <code>push</code> and <code>pop</code>.</p>
+</li>
+<li><p>Combining both provides full immutability for objects within an array.</p>
+</li>
+</ul>
+<p>By using <code>readonly</code>, you create safer, more predictable code, reducing bugs caused by unintended mutations.</p>
+<h2 id="heading-function-params-and-function-returns">Function Params and Function Returns</h2>
+<p>Functions in TypeScript allow you to define both the <strong>parameters</strong> and the <strong>return types</strong> explicitly. This ensures that the function behaves as expected and avoids runtime errors. Let's break this down with a simple example.</p>
+<h3 id="heading-inferred-return-type"><strong>Inferred Return Type</strong></h3>
+<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">arithmeticOp</span>(<span class="hljs-params">price: <span class="hljs-built_in">number</span></span>) </span>{
+  <span class="hljs-keyword">return</span> price * <span class="hljs-number">9</span>;
+}
+
+<span class="hljs-keyword">const</span> FP = arithmeticOp(<span class="hljs-number">2</span>); <span class="hljs-comment">// The result is 18.</span>
+</code></pre>
+<ol>
+<li><p>The parameter <code>price</code> is explicitly defined as a <code>number</code>.</p>
+</li>
+<li><p>The return type is not explicitly stated, but TypeScript <strong>infers</strong> it to be a <code>number</code> because the function returns <code>price * 9</code>, which is a numeric operation.</p>
+</li>
+</ol>
+<p>TypeScript is smart enough to infer the return type of the function based on the return statement. In this case, it correctly infers that <code>arithmeticOp</code> returns a <code>number</code>.</p>
+<h3 id="heading-explicit-return-type"><strong>Explicit Return Type</strong></h3>
+<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">arithmeticOp</span>(<span class="hljs-params">price: <span class="hljs-built_in">number</span></span>): <span class="hljs-title">number</span> </span>{
+  <span class="hljs-keyword">return</span> price * <span class="hljs-number">9</span>;
+}
+
+<span class="hljs-keyword">const</span> FP = arithmeticOp(<span class="hljs-number">2</span>); <span class="hljs-comment">// The result is still 18.</span>
+</code></pre>
+<ol>
+<li><p>The function explicitly declares the return type as <code>number</code> using the syntax <code>functionName(parameters): returnType</code>.</p>
+</li>
+<li><p>This doesn’t change the result but makes the function declaration clearer.</p>
+</li>
+</ol>
+<p>So why should you use explicit return types? Well, first of all it improves code readability and ensures that future changes don’t accidentally alter the return type. And second, it serves as documentation for other developers.</p>
+<h3 id="heading-return-type-mismatch"><strong>Return Type Mismatch</strong></h3>
+<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">arithmeticOp</span>(<span class="hljs-params">price: <span class="hljs-built_in">number</span></span>): <span class="hljs-title">number</span> </span>{
+  <span class="hljs-keyword">if</span> (hasDiscount) {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'discount'</span>; <span class="hljs-comment">// Error here!</span>
+  }
+  <span class="hljs-keyword">return</span> price * <span class="hljs-number">9</span>;
+}
+
+<span class="hljs-keyword">const</span> FP = arithmeticOp(<span class="hljs-number">2</span>);
+</code></pre>
+<p>In the code above, the return type is explicitly declared as <code>number</code>. But the function attempts to return a <code>string</code> (<code>'discount'</code>) in certain cases. This causes TypeScript to throw an error:</p>
+<blockquote>
+<p>Type 'string' is not assignable to type 'number'.</p>
+</blockquote>
+<p>This happens because TypeScript enforces the declared return type. If you say a function returns a <code>number</code>, it <strong>must always</strong> return a <code>number</code>, regardless of the logic inside the function.</p>
+<p>If you want the function to return multiple types (for example, <code>number</code> or <code>string</code>), use a <strong>union type</strong>:</p>
+<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">arithmeticOp</span>(<span class="hljs-params">price: <span class="hljs-built_in">number</span></span>): <span class="hljs-title">number</span> | <span class="hljs-title">string</span> </span>{
+  <span class="hljs-keyword">if</span> (hasDiscount) {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'discount'</span>; <span class="hljs-comment">// Now valid!</span>
+  }
+  <span class="hljs-keyword">return</span> price * <span class="hljs-number">9</span>;
+}
+
+<span class="hljs-keyword">const</span> FP = arithmeticOp(<span class="hljs-number">2</span>);
+</code></pre>
+<p>The return type <code>number | string</code> tells TypeScript that the function can return either a <code>number</code> or a <code>string</code>. This resolves the type mismatch error.</p>
+<h4 id="heading-key-takeaways-1">Key Takeaways:</h4>
+<ol>
+<li><p>TypeScript <strong>infers</strong> return types when they are not explicitly defined but encourages explicit return types for clarity and maintainability.</p>
+</li>
+<li><p>The declared return type ensures the function only returns values of the specified type.</p>
+</li>
+<li><p>Type mismatches, like returning a <code>string</code> from a function expected to return a <code>number</code>, result in TypeScript errors.</p>
+</li>
+<li><p>Union types (<code>type1 | type2</code>) allow functions to return multiple types when needed.</p>
+</li>
+</ol>
+<h3 id="heading-handling-optional-default-in-typescript"><strong>Handling Optional, Default in TypeScript</strong></h3>
+<p>When working with TypeScript functions, specifying parameter behavior is crucial for flexibility and preventing runtime errors. Let's explore how to handle optional and default parameters effectively with practical examples.</p>
+<h3 id="heading-example-1-understanding-the-problem-with-missing-arguments">Example 1: Understanding the Problem with Missing Arguments</h3>
+<p>Consider the following function:</p>
+<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">calculateFinalScore</span>(<span class="hljs-params">baseScore: <span class="hljs-built_in">number</span>, deductions: <span class="hljs-built_in">number</span></span>): <span class="hljs-title">number</span> </span>{
+  <span class="hljs-keyword">return</span> baseScore - deductions;
+}
+
+<span class="hljs-keyword">let</span> scoreWithDeductions = calculateFinalScore(<span class="hljs-number">50</span>, <span class="hljs-number">10</span>);
+<span class="hljs-keyword">let</span> scoreWithoutDeductions = calculateFinalScore(<span class="hljs-number">50</span>); <span class="hljs-comment">// Error</span>
+</code></pre>
+<p>The first call to <code>calculateFinalScore</code> works perfectly. But the second call throws a TypeScript error:</p>
+<pre><code class="lang-typescript">⚠ <span class="hljs-built_in">Error</span> (TS2554) | Expected <span class="hljs-number">2</span> <span class="hljs-built_in">arguments</span>, but got <span class="hljs-number">1.</span>
+Tutorial.ts(<span class="hljs-number">7</span>, <span class="hljs-number">47</span>): An argument <span class="hljs-keyword">for</span> <span class="hljs-string">'deductions'</span> was not provided.
+</code></pre>
+<p>This happens because TypeScript expects both <code>baseScore</code> and <code>deductions</code> to be provided, as they are both required parameters. If the <code>deductions</code> value is omitted, TypeScript will not allow the function call.</p>
+<h3 id="heading-example-2-fixing-the-issue-with-default-parameters">Example 2: Fixing the Issue with Default Parameters</h3>
+<p>To resolve this issue, we can define a default value for the <code>deductions</code> parameter. Default parameters provide a fallback value if no argument is passed.</p>
+<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">calculateFinalScore</span>(<span class="hljs-params">baseScore: <span class="hljs-built_in">number</span>, deductions: <span class="hljs-built_in">number</span> = 0</span>): <span class="hljs-title">number</span> </span>{
+  <span class="hljs-keyword">return</span> baseScore - deductions;
+}
+
+<span class="hljs-keyword">let</span> scoreWithDeductions = calculateFinalScore(<span class="hljs-number">50</span>, <span class="hljs-number">10</span>); <span class="hljs-comment">// 40</span>
+<span class="hljs-keyword">let</span> scoreWithoutDeductions = calculateFinalScore(<span class="hljs-number">50</span>);  <span class="hljs-comment">// 50</span>
+</code></pre>
+<p>In this updated example:</p>
+<ul>
+<li><p>The <code>deductions</code> parameter defaults to <code>0</code> if it is not explicitly provided.</p>
+</li>
+<li><p>Both calls now work without errors.</p>
+</li>
+</ul>
+<h3 id="heading-why-this-solution-works">Why This Solution Works</h3>
+<p>By defining <code>deductions</code> as a default parameter, TypeScript ensures that the function has all the arguments it needs to execute, even if some are omitted in the call. This approach increases the flexibility of the function while maintaining type safety.</p>
+<p>Use default parameters when a value is required for the function to work but can safely have a fallback value if omitted. This approach improves code clarity and reduces the likelihood of runtime errors.</p>
+<h2 id="heading-rest-parameters">Rest Parameters</h2>
+<p>Rest parameters in TypeScript let you handle multiple arguments without knowing how many you’ll get in advance. You can pass as many arguments as you want—TypeScript will handle them. They’re perfect for situations where the number of inputs isn’t fixed.</p>
+<p>To use rest parameters, you write three dots (<code>...</code>) before the parameter name, which gathers all the extra arguments into an array.</p>
+<p>Let’s say you want to combine multiple words into a single sentence:</p>
+<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">joinWords</span>(<span class="hljs-params">...words: <span class="hljs-built_in">string</span>[]</span>): <span class="hljs-title">string</span> </span>{
+  <span class="hljs-keyword">return</span> words.join(<span class="hljs-string">" "</span>);
+}
+
+<span class="hljs-keyword">let</span> sentence = joinWords(<span class="hljs-string">"TypeScript"</span>, <span class="hljs-string">"makes"</span>, <span class="hljs-string">"coding"</span>, <span class="hljs-string">"fun"</span>);
+<span class="hljs-built_in">console</span>.log(sentence); <span class="hljs-comment">// "TypeScript makes coding fun"</span>
+</code></pre>
+<ul>
+<li><p><code>...words</code> collects all the arguments into an array (<code>["TypeScript", "makes", "coding", "fun"]</code>).</p>
+</li>
+<li><p>The <code>join</code> method combines them into a single string, separated by spaces.</p>
+</li>
+</ul>
+<h3 id="heading-rest-parameters-with-numbers">Rest Parameters with Numbers</h3>
+<p>Now, suppose you want to add multiple numbers:</p>
+<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sumNumbers</span>(<span class="hljs-params">...numbers: <span class="hljs-built_in">number</span>[]</span>): <span class="hljs-title">number</span> </span>{
+  <span class="hljs-keyword">return</span> numbers.reduce(<span class="hljs-function">(<span class="hljs-params">total, num</span>) =&gt;</span> total + num, <span class="hljs-number">0</span>);
+}
+
+<span class="hljs-keyword">let</span> total = sumNumbers(<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>);
+<span class="hljs-built_in">console</span>.log(total); <span class="hljs-comment">// 60</span>
+</code></pre>
+<ul>
+<li><p><code>...numbers</code> gathers all the numbers into an array (<code>[10, 20, 30]</code>).</p>
+</li>
+<li><p>The <code>reduce</code> method adds them together to get the total.</p>
+</li>
+</ul>
+<p>We can also use rest parameters to merge multiple arrays into one:</p>
+<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mergeArrays</span>(<span class="hljs-params">...arrays: <span class="hljs-built_in">number</span>[][]</span>): <span class="hljs-title">number</span>[] </span>{
+  <span class="hljs-keyword">return</span> arrays.flat();
+}
+
+<span class="hljs-keyword">let</span> combined = mergeArrays([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>], [<span class="hljs-number">5</span>, <span class="hljs-number">6</span>]);
+<span class="hljs-built_in">console</span>.log(combined); <span class="hljs-comment">// [1, 2, 3, 4, 5, 6]</span>
+</code></pre>
+<ul>
+<li><p><code>...arrays</code> collects each argument as an array into an array of arrays (<code>[[1, 2], [3, 4], [5, 6]]</code>).</p>
+</li>
+<li><p>The <code>flat</code> method combines them into one array.</p>
+</li>
+</ul>
+<p>Rest parameters must always come last in the parameter list. For example:</p>
+<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">example</span>(<span class="hljs-params">a: <span class="hljs-built_in">string</span>, ...others: <span class="hljs-built_in">number</span>[]</span>): <span class="hljs-title">void</span> </span>{
+  <span class="hljs-built_in">console</span>.log(a, others);
+}
+</code></pre>
+<p>This ensures all remaining arguments go into the rest parameter.</p>
+<h2 id="heading-objects-as-parameters-in-typescript">Objects as Parameters in TypeScript</h2>
+<p>In TypeScript, functions can accept objects as parameters. This is particularly useful when dealing with multiple related values.</p>
+<h3 id="heading-using-objects-with-specific-properties">Using Objects with Specific Properties</h3>
+<p>Here's a function that takes an object with an <code>id</code> property and returns a new object:</p>
+<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createEmployee</span>(<span class="hljs-params">{ id }: { id: <span class="hljs-built_in">number</span> }</span>): </span>{ id: <span class="hljs-built_in">number</span>; isActive: <span class="hljs-built_in">boolean</span> } {
+  <span class="hljs-keyword">return</span> { id, isActive: id % <span class="hljs-number">2</span> === <span class="hljs-number">0</span> };
+}
+
+<span class="hljs-keyword">const</span> firstEmployee = createEmployee({ id: <span class="hljs-number">1</span> });
+<span class="hljs-built_in">console</span>.log(firstEmployee); <span class="hljs-comment">// { id: 1, isActive: false }</span>
+
+<span class="hljs-keyword">const</span> secondEmployee = createEmployee({ id: <span class="hljs-number">2</span> });
+<span class="hljs-built_in">console</span>.log(secondEmployee); <span class="hljs-comment">// { id: 2, isActive: true }</span>
+</code></pre>
+<p>The function <code>createEmployee</code>:</p>
+<ul>
+<li><p>Takes an object with a single property, <code>id</code>, as a parameter.</p>
+</li>
+<li><p>Returns a new object with two properties: <code>id</code> and <code>isActive</code>.</p>
+</li>
+</ul>
+<p>The <code>isActive</code> property is determined by checking if the <code>id</code> is even (<code>id % 2 === 0</code>).</p>
+<p><strong>Destructuring</strong> is used in the parameter:</p>
+<ul>
+<li><code>{ id }</code> extracts the <code>id</code> property from the input object directly.</li>
+</ul>
+<h3 id="heading-accepting-more-complex-objects">Accepting More Complex Objects</h3>
+<p>Now, let’s look at a function that takes an object with multiple properties:</p>
+<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createStudent</span>(<span class="hljs-params">student: { id: <span class="hljs-built_in">number</span>; name: <span class="hljs-built_in">string</span> }</span>): <span class="hljs-title">void</span> </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Welcome to the course, <span class="hljs-subst">${student.name}</span>!`</span>);
+}
+
+<span class="hljs-keyword">const</span> newStudent = { id: <span class="hljs-number">1</span>, name: <span class="hljs-string">"John"</span> };
+createStudent(newStudent); <span class="hljs-comment">// "Welcome to the course, John!"</span>
+</code></pre>
+<p>The function <code>createStudent</code>:</p>
+<ul>
+<li><p>Accepts an object with two properties: <code>id</code> and <code>name</code>.</p>
+</li>
+<li><p>Logs a welcome message using the <code>name</code> property.</p>
+</li>
+</ul>
+<p>The <code>newStudent</code> object matches the structure expected by the function, so it’s passed directly.</p>
+<h3 id="heading-why-use-objects-as-parameters">Why Use Objects as Parameters?</h3>
+<p>First of all, functions with objects as parameters are easier to read, especially when dealing with multiple related values. Also, using destructuring you can extract only the needed properties from an object, making the code more concise. And finally, objects can be reused across functions without creating new ones every time.</p>
+<h3 id="heading-excess-property-checks-in-typescript">Excess Property Checks in TypeScript</h3>
+<p>In TypeScript, excess property checks help ensure that objects passed to functions only contain properties defined in the function’s parameter type. If there are extra properties, TypeScript will raise an error. Let's see how this works with simple examples.</p>
+<h4 id="heading-1-extra-property-error">1. Extra Property Error</h4>
+<p>Here’s a function that accepts an object with <code>id</code> and <code>name</code>, but no extra properties:</p>
+<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createStudent</span>(<span class="hljs-params">student: { id: <span class="hljs-built_in">number</span>; name: <span class="hljs-built_in">string</span> }</span>): <span class="hljs-title">void</span> </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Welcome, <span class="hljs-subst">${student.name}</span>!`</span>);
+}
+
+<span class="hljs-keyword">const</span> newStudent = { id: <span class="hljs-number">1</span>, name: <span class="hljs-string">"John"</span>, age: <span class="hljs-number">20</span> }; <span class="hljs-comment">// Extra property 'age'</span>
+
+createStudent(newStudent); <span class="hljs-comment">// Error: 'age' is not expected</span>
+</code></pre>
+<p>TypeScript gives an error because the <code>age</code> property is not part of the expected object structure.</p>
+<h4 id="heading-2-fixing-the-error">2. Fixing the Error</h4>
+<p>To avoid the error, just remove any extra properties:</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">const</span> validStudent = { id: <span class="hljs-number">1</span>, name: <span class="hljs-string">"John"</span> };
+createStudent(validStudent); <span class="hljs-comment">// This works fine</span>
+</code></pre>
+<p>This works because the object only has the expected properties: <code>id</code> and <code>name</code>.</p>
+<h4 id="heading-3-using-type-assertion-not-recommended">3. Using Type Assertion (Not Recommended)</h4>
+<p>If you really need to pass an object with extra properties, you can use <strong>type assertion</strong> to tell TypeScript to ignore the extra properties:</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">const</span> studentWithExtras = { id: <span class="hljs-number">1</span>, name: <span class="hljs-string">"John"</span>, age: <span class="hljs-number">20</span> };
+createStudent(studentWithExtras <span class="hljs-keyword">as</span> { id: <span class="hljs-built_in">number</span>; name: <span class="hljs-built_in">string</span> }); <span class="hljs-comment">// Bypasses the error</span>
+</code></pre>
+<p>While this works, it’s better to match the expected structure instead of using type assertion.</p>
+<ul>
+<li><p>TypeScript expects objects to match the exact shape of the parameter type.</p>
+</li>
+<li><p>Excess properties cause errors to ensure the structure is correct.</p>
+</li>
+<li><p>Fix the object or use type assertion (carefully) if you need extra properties.</p>
+</li>
+</ul>
+<p>Excess property checks help keep your code safe and ensure only the right data is passed to functions.</p>
+<h2 id="heading-type-aliases-in-typescript">Type Aliases in TypeScript</h2>
+<p>A <strong>type alias</strong> in TypeScript is essentially a <strong>short name</strong> or an <strong>alternative name</strong> for an existing type. It allows you to define a simpler or more readable name for a type that may be complex or used repeatedly in your code.</p>
+<p>This doesn't create a new type, but instead gives an existing type a new identifier. The functionality of the code doesn't change when using a type alias – it simply makes your code more readable and reusable.</p>
+<p>Here’s an example before using a type alias:</p>
+<pre><code class="lang-typescript"><span class="hljs-comment">// Without type alias</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getUserInfo</span>(<span class="hljs-params">user: UserInfo</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`User Info: 
+    Name: <span class="hljs-subst">${user.name}</span>, 
+    Age: <span class="hljs-subst">${user.age}</span>, 
+    Address: <span class="hljs-subst">${user.address}</span>`</span>);
+}
+
+<span class="hljs-keyword">const</span> user: UserInfo = { name: <span class="hljs-string">'Alice'</span>, age: <span class="hljs-number">30</span>, address: <span class="hljs-string">'123 Main St'</span> };
+
+getUserInfo(user);
+</code></pre>
+<p>Now, let’s use a type alias for the function parameters to make the code more readable:</p>
+<pre><code class="lang-typescript"><span class="hljs-comment">// Using type alias</span>
+<span class="hljs-keyword">type</span> UserInfo = { name: <span class="hljs-built_in">string</span>, age: <span class="hljs-built_in">number</span>, address: <span class="hljs-built_in">string</span> };
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getUserInfo</span>(<span class="hljs-params">user: UserInfo</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`User Info: 
+    Name: <span class="hljs-subst">${user.name}</span>, 
+    Age: <span class="hljs-subst">${user.age}</span>, 
+    Address: <span class="hljs-subst">${user.address}</span>`</span>);
+}
+
+<span class="hljs-keyword">const</span> user: UserInfo = { name: <span class="hljs-string">'Alice'</span>, age: <span class="hljs-number">30</span>, address: <span class="hljs-string">'123 Main St'</span> };
+
+getUserInfo(user);
+</code></pre>
+<p>In the example above:</p>
+<ul>
+<li><p>Before the type alias, we define the parameters separately within the function.</p>
+</li>
+<li><p>After defining a type alias (<code>UserInfo</code>), we use it in the function parameter to make the function signature simpler and more readable.</p>
+</li>
+</ul>
+<p>This <strong>doesn’t change the functionality</strong> of the code. It just makes it easier to work with by using the alias. The alias acts as a reusable reference to a complex type, and if the shape of the <code>UserInfo</code> changes, we only need to update it in one place, making the code easier to maintain.</p>
+<h3 id="heading-how-to-use-type-aliases">How to Use Type Aliases</h3>
+<p>A type alias allows you to define a new name for a type. This new name can represent a primitive type, an object structure, or even a union of types. The main benefit is to make your code more readable, reusable, and prevent mistakes.</p>
+<p>You define a type alias using the <code>type</code> keyword followed by a name and the structure of the type.</p>
+<pre><code class="lang-typescript">ttype TypeName = TypeStructure;
+</code></pre>
+<p>For example, let’s create a type alias for a User object:</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">type</span> User = {
+  name: <span class="hljs-built_in">string</span>;
+  age: <span class="hljs-built_in">number</span>;
+</code></pre>
+<p>This means <code>User</code> is a type that expects an object with two properties:</p>
+<ul>
+<li><p><code>name</code> should be a string.</p>
+</li>
+<li><p><code>age</code> should be a number.</p>
+</li>
+</ul>
+<h3 id="heading-why-use-type-aliases">Why Use Type Aliases?</h3>
+<p>There are several reasons to use type aliases in your code. First of all, a type alias explicitly defines the structure of an object, so anyone reading the code knows exactly what to expect. Second, you can reuse the <code>User</code> type anywhere in your code without repeating the structure. And finally, TypeScript will check that any object assigned to the <code>User</code> type has the required properties with the correct types.</p>
+<h4 id="heading-with-type-alias">with Type Alias:</h4>
+<pre><code class="lang-typescript"><span class="hljs-keyword">type</span> User = {
+  name: <span class="hljs-built_in">string</span>;
+  age: <span class="hljs-built_in">number</span>;
+};
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getUserDetails</span>(<span class="hljs-params">user: User</span>): <span class="hljs-title">string</span> </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${user.name}</span> (<span class="hljs-subst">${user.age}</span> years old)`</span>;
+}
+
+<span class="hljs-keyword">const</span> user: User = { name: <span class="hljs-string">"Alice"</span>, age: <span class="hljs-number">30</span> };
+<span class="hljs-built_in">console</span>.log(getUserDetails(user)); <span class="hljs-comment">// "Alice (30 years old)"</span>
+</code></pre>
+<p>In this example, we defined the <code>User</code> type alias to specify that <code>user</code> objects must have a <code>name</code> of type <code>string</code> and <code>age</code> of type <code>number</code>.</p>
+<p>TypeScript will catch errors if you attempt to assign an object that does not match this structure, like this:</p>
+<pre><code class="lang-typescript"><span class="hljs-comment">// This will result in a TypeScript error:</span>
+<span class="hljs-keyword">const</span> invalidUser: User = { name: <span class="hljs-string">"Alice"</span> }; <span class="hljs-comment">// Missing 'age' property</span>
+</code></pre>
+<h3 id="heading-what-is-an-intersection-type-in-typescript">What is an <strong>Intersection Type</strong> in TypeScript?</h3>
+<p>An <strong>Intersection Type</strong> is a powerful feature in TypeScript that allows you to combine multiple types into one. When you create an intersection, the resulting type must have <strong>all the properties</strong> from each of the types you intersect.</p>
+<p>You can combine any number of types, and the resulting type must satisfy every condition of all the original types.</p>
+<h4 id="heading-syntax-of-intersection-type">Syntax of Intersection Type</h4>
+<p>To define an intersection type, you use the <code>&amp;</code> operator to combine two or more types.</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">type</span> TypeA &amp; TypeB;
+</code></pre>
+<h4 id="heading-example-of-an-intersection-type">Example of an Intersection Type</h4>
+<p>Imagine you want to extend the <code>User</code> type to include the user’s address. Instead of modifying the original <code>User</code> type, you can use an <strong>intersection type</strong> to combine <code>User</code> and <code>Address</code>.</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">type</span> Address = {
+  city: <span class="hljs-built_in">string</span>;
+  country: <span class="hljs-built_in">string</span>;
+};
+
+<span class="hljs-keyword">type</span> UserWithAddress = User &amp; Address; <span class="hljs-comment">// Intersection of User and Address</span>
+</code></pre>
+<p>Now, <code>UserWithAddress</code> will require both the properties from <code>User</code> and the properties from <code>Address</code>.</p>
+<h4 id="heading-example-with-a-function">Example with a Function</h4>
+<p>Here’s how you can use this in a function:</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">type</span> User = {
+  name: <span class="hljs-built_in">string</span>;
+  age: <span class="hljs-built_in">number</span>;
+};
+
+<span class="hljs-keyword">type</span> Address = {
+  city: <span class="hljs-built_in">string</span>;
+  country: <span class="hljs-built_in">string</span>;
+};
+
+<span class="hljs-keyword">type</span> UserWithAddress = User &amp; Address;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getUserDetails</span>(<span class="hljs-params">user: UserWithAddress</span>): <span class="hljs-title">string</span> </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${user.name}</span> (<span class="hljs-subst">${user.age}</span> years old), lives in <span class="hljs-subst">${user.city}</span>, <span class="hljs-subst">${user.country}</span>`</span>;
+}
+
+<span class="hljs-keyword">const</span> user: UserWithAddress = {
+  name: <span class="hljs-string">"Alice"</span>,
+  age: <span class="hljs-number">30</span>,
+  city: <span class="hljs-string">"New York"</span>,
+  country: <span class="hljs-string">"USA"</span>
+};
+
+<span class="hljs-built_in">console</span>.log(getUserDetails(user));
+<span class="hljs-comment">// Output: "Alice (30 years old), lives in New York, USA"</span>
+</code></pre>
+<p>In this case:</p>
+<ul>
+<li><p><code>UserWithAddress</code> is an intersection type, which means the <code>user</code> object must have both the properties of <code>User</code> and <code>Address</code>.</p>
+</li>
+<li><p>TypeScript checks that both <code>name</code> and <code>age</code> (from <code>User</code>), as well as <code>city</code> and <code>country</code> (from <code>Address</code>), are present in the object.</p>
+</li>
+</ul>
+<p>If we missed any of these properties, TypeScript would show an error.</p>
+<pre><code class="lang-typescript"><span class="hljs-comment">// This will result in a TypeScript error:</span>
+<span class="hljs-keyword">const</span> incompleteUser: UserWithAddress = {
+  name: <span class="hljs-string">"Alice"</span>,
+  age: <span class="hljs-number">30</span>,
+  city: <span class="hljs-string">"New York"</span>
+}; <span class="hljs-comment">// Missing 'country'</span>
+</code></pre>
+<h3 id="heading-why-use-intersection-types">Why Use <strong>Intersection Types</strong>?</h3>
+<p>Intersection types are useful in several scenarios. First, they let you extend existing types without modifying them, making the code more modular and flexible. They’re also useful when you need to merge multiple different structures into one, such as combining a <code>User</code> with an <code>Address</code> or <code>OrderDetails</code>. And you can easily see all the required properties that an object must have when you use intersection types.</p>
+<h3 id="heading-type-aliases-vs-intersection-types">Type Aliases vs Intersection Types:</h3>
+<div class="hn-table">
+<table>
+<thead>
+<tr>
+<td>Feature</td><td>Type Alias</td><td>Intersection Type</td></tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Definition</strong></td><td>Defines a single type.</td><td>Combines multiple types into one.</td></tr>
+<tr>
+<td><strong>Use case</strong></td><td>Create reusable types for objects or primitives.</td><td>Combine multiple types, requiring all properties.</td></tr>
+<tr>
+<td><strong>Combining Types</strong></td><td>Not used for combining types.</td><td>Used to combine multiple types.</td></tr>
+<tr>
+<td><strong>Example</strong></td><td><code>type User = { name: string, age: number };</code></td><td><code>type UserWithAddress = User &amp; Address;</code></td></tr>
+</tbody>
+</table>
+</div><h3 id="heading-when-to-use-each-one">When to Use Each One</h3>
+<ul>
+<li><p>Use type aliases when you want to define a <strong>single type</strong> for an object, function, or other data structure. They help with clarity, reuse, and type safety.</p>
+</li>
+<li><p>Use intersection types when you want to <strong>combine multiple types</strong> into one. It’s ideal for scenarios where an object needs to fulfill multiple contracts at once, such as when combining different types or extending the functionality of an existing type.</p>
+</li>
+</ul>
+<p>By leveraging Type Alias and Intersection Types in TypeScript, your code becomes easier to understand, safer, and more maintainable. These features provide structure to your data, helping to catch bugs earlier.</p>
+<h2 id="heading-interfaces-in-typescript">Interfaces in TypeScript</h2>
+<p>In TypeScript, an <strong>interface</strong> is a way to define the structure of an object, describing its properties and their types. Interfaces are used to enforce type-checking in your code, ensuring that objects adhere to a specific structure. Similar to type aliases, interfaces make your code more readable, reusable, and maintainable.</p>
+<h3 id="heading-what-is-an-interface">What is an Interface?</h3>
+<p>An interface is a blueprint for an object, defining what properties and methods it should have. Interfaces can be used to define custom types for objects, functions, or classes.</p>
+<p>Here’s a basic example:</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">interface</span> User {
+  name: <span class="hljs-built_in">string</span>;
+  age: <span class="hljs-built_in">number</span>;
+  address: <span class="hljs-built_in">string</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getUserInfo</span>(<span class="hljs-params">user: User</span>): <span class="hljs-title">string</span> </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${user.name}</span> (<span class="hljs-subst">${user.age}</span> years old) lives at <span class="hljs-subst">${user.address}</span>`</span>;
+}
+
+<span class="hljs-keyword">const</span> user: User = {
+  name: <span class="hljs-string">"Alice"</span>,
+  age: <span class="hljs-number">30</span>,
+  address: <span class="hljs-string">"123 Main St"</span>,
+};
+
+<span class="hljs-built_in">console</span>.log(getUserInfo(user)); <span class="hljs-comment">// Output: Alice (30 years old) lives at 123 Main St</span>
+</code></pre>
+<p>In this example:</p>
+<ul>
+<li><p>The <code>User</code> interface defines the shape of the object.</p>
+</li>
+<li><p>Any object of type <code>User</code> must have <code>name</code>, <code>age</code>, and <code>address</code> properties with the specified types.</p>
+</li>
+<li><p>The <code>getUserInfo</code> function ensures the <code>user</code> parameter adheres to the <code>User</code> interface.</p>
+</li>
+</ul>
+<h3 id="heading-similarities-between-interfaces-and-type-aliases">Similarities Between Interfaces and Type Aliases</h3>
+<ul>
+<li><p>Both interfaces and type aliases can define the structure of objects.</p>
+</li>
+<li><p>Both can be extended, though the syntax differs.</p>
+</li>
+<li><p>Both improve code readability and reusability.</p>
+</li>
+<li><p>In most cases, you can use interfaces or type aliases interchangeably to define object types.</p>
+</li>
+</ul>
+<p>Example with a type alias:</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">type</span> User = {
+  name: <span class="hljs-built_in">string</span>;
+  age: <span class="hljs-built_in">number</span>;
+  address: <span class="hljs-built_in">string</span>;
+};
+
+<span class="hljs-keyword">const</span> user: User = {
+  name: <span class="hljs-string">"Bob"</span>,
+  age: <span class="hljs-number">25</span>,
+  address: <span class="hljs-string">"456 Elm St"</span>,
+};
+</code></pre>
+<p>Both the <code>type</code> and <code>interface</code> achieve the same result in this scenario.</p>
+<h3 id="heading-differences-between-interfaces-and-type-aliases">Differences Between Interfaces and Type Aliases</h3>
+<p>Let’s also summarize their key differences:</p>
+<div class="hn-table">
+<table>
+<thead>
+<tr>
+<td>Feature</td><td>Interface</td><td>Type Alias</td></tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Syntax</strong></td><td>Uses <code>interface</code> keyword.</td><td>Uses <code>type</code> keyword.</td></tr>
+<tr>
+<td><strong>Extensibility</strong></td><td>Can be extended using <code>extends</code>.</td><td>Can be extended using intersection (<code>&amp;</code>).</td></tr>
+<tr>
+<td><strong>Declaration Merging</strong></td><td>Supports merging across multiple declarations.</td><td>Does not support declaration merging.</td></tr>
+<tr>
+<td><strong>Union Types</strong></td><td>Cannot define union types.</td><td>Can define union types.</td></tr>
+</tbody>
+</table>
+</div><h3 id="heading-extending-with-interfaces-and-type-aliases">Extending with Interfaces and Type Aliases</h3>
+<p><strong>Extending Interfaces:</strong></p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">interface</span> Address {
+  city: <span class="hljs-built_in">string</span>;
+  country: <span class="hljs-built_in">string</span>;
+}
+
+<span class="hljs-keyword">interface</span> User <span class="hljs-keyword">extends</span> Address {
+  name: <span class="hljs-built_in">string</span>;
+  age: <span class="hljs-built_in">number</span>;
+}
+
+<span class="hljs-keyword">const</span> user: User = {
+  name: <span class="hljs-string">"Alice"</span>,
+  age: <span class="hljs-number">30</span>,
+  city: <span class="hljs-string">"New York"</span>,
+  country: <span class="hljs-string">"USA"</span>,
+};
+</code></pre>
+<p><strong>Using Type Alias for Intersection:</strong></p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">type</span> Address = {
+  city: <span class="hljs-built_in">string</span>;
+  country: <span class="hljs-built_in">string</span>;
+};
+
+<span class="hljs-keyword">type</span> User = {
+  name: <span class="hljs-built_in">string</span>;
+  age: <span class="hljs-built_in">number</span>;
+} &amp; Address;
+
+<span class="hljs-keyword">const</span> user: User = {
+  name: <span class="hljs-string">"Alice"</span>,
+  age: <span class="hljs-number">30</span>,
+  city: <span class="hljs-string">"New York"</span>,
+  country: <span class="hljs-string">"USA"</span>,
+};
+</code></pre>
+<p>Both approaches result in the same outcome, but the syntax is different.</p>
+<h3 id="heading-advanced-concepts-with-interfaces">Advanced Concepts with Interfaces</h3>
+<p><strong>1. Optional Properties:</strong></p>
+<p>Interfaces can define properties as optional using the <code>?</code> symbol:</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">interface</span> User {
+  name: <span class="hljs-built_in">string</span>;
+  age?: <span class="hljs-built_in">number</span>; <span class="hljs-comment">// Optional</span>
+}
+
+<span class="hljs-keyword">const</span> user1: User = { name: <span class="hljs-string">"Alice"</span> };
+<span class="hljs-keyword">const</span> user2: User = { name: <span class="hljs-string">"Bob"</span>, age: <span class="hljs-number">25</span> };
+</code></pre>
+<p><strong>2. Readonly Properties:</strong></p>
+<p>Use the <code>readonly</code> modifier to make properties immutable:</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">interface</span> User {
+  <span class="hljs-keyword">readonly</span> id: <span class="hljs-built_in">number</span>;
+  name: <span class="hljs-built_in">string</span>;
+}
+
+<span class="hljs-keyword">const</span> user: User = { id: <span class="hljs-number">1</span>, name: <span class="hljs-string">"Alice"</span> };
+<span class="hljs-comment">// user.id = 2; // Error: Cannot assign to 'id' because it is a read-only property.</span>
+</code></pre>
+<p><strong>3. Function Types:</strong></p>
+<p>Interfaces can define function signatures:</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">interface</span> Add {
+  (a: <span class="hljs-built_in">number</span>, b: <span class="hljs-built_in">number</span>): <span class="hljs-built_in">number</span>;
+}
+
+<span class="hljs-keyword">const</span> add: Add = <span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a + b;
+<span class="hljs-built_in">console</span>.log(add(<span class="hljs-number">5</span>, <span class="hljs-number">3</span>)); <span class="hljs-comment">// Output: 8</span>
+</code></pre>
+<p><strong>4. Index Signatures:</strong></p>
+<p>Interfaces can define dynamic property names:</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">interface</span> StringDictionary {
+  [key: <span class="hljs-built_in">string</span>]: <span class="hljs-built_in">string</span>;
+}
+
+<span class="hljs-keyword">const</span> dictionary: StringDictionary = {
+  hello: <span class="hljs-string">"world"</span>,
+  name: <span class="hljs-string">"Alice"</span>,
+};
+</code></pre>
+<p><strong>5. Extending Multiple Interfaces:</strong></p>
+<p>An interface can extend multiple interfaces:</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">interface</span> A {
+  propA: <span class="hljs-built_in">string</span>;
+}
+
+<span class="hljs-keyword">interface</span> B {
+  propB: <span class="hljs-built_in">number</span>;
+}
+
+<span class="hljs-keyword">interface</span> C <span class="hljs-keyword">extends</span> A, B {
+  propC: <span class="hljs-built_in">boolean</span>;
+}
+
+<span class="hljs-keyword">const</span> obj: C = {
+  propA: <span class="hljs-string">"Hello"</span>,
+  propB: <span class="hljs-number">42</span>,
+  propC: <span class="hljs-literal">true</span>,
+};
+</code></pre>
+<h3 id="heading-when-to-use-interfaces-vs-type-aliases">When to Use Interfaces vs. Type Aliases</h3>
+<ul>
+<li><p>Use <strong>interfaces</strong> when you need to define object shapes, especially if you plan to extend them. Also use interfaces if you need declaration merging, as type aliases don’t support it.</p>
+</li>
+<li><p>Use <strong>type aliases</strong> for more complex types, such as unions or intersections</p>
+</li>
+</ul>
+<h2 id="heading-tuples-and-enums">Tuples and Enums</h2>
+<p>A <strong>tuple</strong> in TypeScript is a special type of array that has a fixed number of elements, where each element can have a different type. Tuples ensure that the order and types of values remain consistent.</p>
+<pre><code class="lang-typescript"><span class="hljs-comment">// A tuple with a string and a number</span>
+<span class="hljs-keyword">let</span> user: [<span class="hljs-built_in">string</span>, <span class="hljs-built_in">number</span>] = [<span class="hljs-string">"Alice"</span>, <span class="hljs-number">25</span>];
+
+<span class="hljs-built_in">console</span>.log(user[<span class="hljs-number">0</span>]); <span class="hljs-comment">// Output: Alice</span>
+<span class="hljs-built_in">console</span>.log(user[<span class="hljs-number">1</span>]); <span class="hljs-comment">// Output: 25</span>
+</code></pre>
+<p>In this example, the tuple <code>user</code> contains a string (name) and a number (age). The order and types must be followed as defined.</p>
+<h4 id="heading-tuple-with-optional-elements"><strong>Tuple with Optional Elements:</strong></h4>
+<pre><code class="lang-typescript"><span class="hljs-keyword">let</span> person: [<span class="hljs-built_in">string</span>, <span class="hljs-built_in">number</span>, <span class="hljs-built_in">boolean</span>?] = [<span class="hljs-string">"Bob"</span>, <span class="hljs-number">30</span>];
+
+<span class="hljs-built_in">console</span>.log(person); <span class="hljs-comment">// Output: ["Bob", 30]</span>
+</code></pre>
+<p>Here, the third element (boolean) is optional.</p>
+<h4 id="heading-tuple-with-read-only-property"><strong>Tuple with Read-Only Property:</strong></h4>
+<pre><code class="lang-typescript"><span class="hljs-keyword">const</span> coordinates: <span class="hljs-keyword">readonly</span> [<span class="hljs-built_in">number</span>, <span class="hljs-built_in">number</span>] = [<span class="hljs-number">10</span>, <span class="hljs-number">20</span>];
+
+<span class="hljs-comment">// coordinates[0] = 50; // Error: Cannot assign to '0' because it is a read-only tuple</span>
+</code></pre>
+<p>The <code>readonly</code> keyword prevents modifying tuple values.</p>
+<h3 id="heading-enums"><strong>Enums</strong></h3>
+<p>An <strong>enum</strong> in TypeScript is a way to define a set of named constants. Enums make code more readable and help manage a fixed set of values.</p>
+<h4 id="heading-numeric-enums-default"><strong>Numeric Enums (Default):</strong></h4>
+<pre><code class="lang-typescript"><span class="hljs-built_in">enum</span> Status {
+  Pending,   <span class="hljs-comment">// 0</span>
+  InProgress, <span class="hljs-comment">// 1</span>
+  Completed,  <span class="hljs-comment">// 2</span>
+}
+
+<span class="hljs-built_in">console</span>.log(Status.Pending);   <span class="hljs-comment">// Output: 0</span>
+<span class="hljs-built_in">console</span>.log(Status.Completed); <span class="hljs-comment">// Output: 2</span>
+</code></pre>
+<p>By default, TypeScript assigns numeric values starting from <code>0</code>.</p>
+<h4 id="heading-custom-number-values-in-enums"><strong>Custom Number Values in Enums:</strong></h4>
+<pre><code class="lang-typescript"><span class="hljs-built_in">enum</span> OrderStatus {
+  Pending = <span class="hljs-number">1</span>,
+  Shipped = <span class="hljs-number">5</span>,
+  Delivered = <span class="hljs-number">10</span>,
+}
+
+<span class="hljs-built_in">console</span>.log(OrderStatus.Shipped); <span class="hljs-comment">// Output: 5</span>
+</code></pre>
+<p>Here, custom values are assigned to each status.</p>
+<h4 id="heading-string-enums"><strong>String Enums:</strong></h4>
+<pre><code class="lang-typescript"><span class="hljs-built_in">enum</span> Direction {
+  Up = <span class="hljs-string">"UP"</span>,
+  Down = <span class="hljs-string">"DOWN"</span>,
+  Left = <span class="hljs-string">"LEFT"</span>,
+  Right = <span class="hljs-string">"RIGHT"</span>,
+}
+
+<span class="hljs-built_in">console</span>.log(Direction.Up); <span class="hljs-comment">// Output: "UP"</span>
+</code></pre>
+<p>String enums store fixed text values instead of numbers.</p>
+<h4 id="heading-using-enums-in-a-function"><strong>Using Enums in a Function:</strong></h4>
+<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getStatusText</span>(<span class="hljs-params">status: Status</span>): <span class="hljs-title">string</span> </span>{
+  <span class="hljs-keyword">switch</span> (status) {
+    <span class="hljs-keyword">case</span> Status.Pending:
+      <span class="hljs-keyword">return</span> <span class="hljs-string">"Order is pending."</span>;
+    <span class="hljs-keyword">case</span> Status.InProgress:
+      <span class="hljs-keyword">return</span> <span class="hljs-string">"Order is in progress."</span>;
+    <span class="hljs-keyword">case</span> Status.Completed:
+      <span class="hljs-keyword">return</span> <span class="hljs-string">"Order is completed."</span>;
+    <span class="hljs-keyword">default</span>:
+      <span class="hljs-keyword">return</span> <span class="hljs-string">"Unknown status."</span>;
+  }
+}
+
+<span class="hljs-built_in">console</span>.log(getStatusText(Status.InProgress)); <span class="hljs-comment">// Output: "Order is in progress."</span>
+</code></pre>
+<p>This function takes an enum value and returns a message based on the status.</p>
+<p>Tuples define fixed-length arrays with different data types, while enums provide named constants for better readability, making your code more structured and type-safe.</p>
+<h2 id="heading-type-assertion-type-unknown-and-type-never-in-typescript"><strong>Type Assertion, Type Unknown, and Type Never in TypeScript</strong></h2>
+<h3 id="heading-type-assertion"><strong>Type Assertion</strong></h3>
+<p>Type assertion tells TypeScript to treat a value as a specific type. It does not change the value but helps the compiler understand the type.</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">let</span> value: unknown = <span class="hljs-string">"Hello, TypeScript!"</span>;
+
+<span class="hljs-comment">// Using type assertion to treat 'value' as a string</span>
+<span class="hljs-keyword">let</span> strLength: <span class="hljs-built_in">number</span> = (value <span class="hljs-keyword">as</span> <span class="hljs-built_in">string</span>).length;
+
+<span class="hljs-built_in">console</span>.log(strLength); <span class="hljs-comment">// Output: 18</span>
+</code></pre>
+<p>Here, <code>value</code> is initially <code>unknown</code>, but type assertion (<code>as string</code>) allows treating it as a string.</p>
+<p>And here’s an alternative way to write type assertion:</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">let</span> num = &lt;<span class="hljs-built_in">number</span>&gt;(<span class="hljs-number">10</span>);
+<span class="hljs-built_in">console</span>.log(num); <span class="hljs-comment">// Output: 10</span>
+</code></pre>
+<p>The <code>&lt;number&gt;</code> syntax also performs type assertion.</p>
+<h3 id="heading-type-unknown"><strong>Type Unknown</strong></h3>
+<p>Let’s briefly revisit the <code>unknown</code> type now. Remember that it’s a safer alternative to <code>any</code> and can hold any value – but TypeScript requires type checking before using it.</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">let</span> data: unknown;
+
+data = <span class="hljs-string">"Hello"</span>;
+data = <span class="hljs-number">42</span>;
+data = <span class="hljs-literal">true</span>;
+
+<span class="hljs-comment">// Type checking before using the value</span>
+<span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> data === <span class="hljs-string">"string"</span>) {
+  <span class="hljs-built_in">console</span>.log(data.toUpperCase()); <span class="hljs-comment">// Works only if data is a string</span>
+}
+</code></pre>
+<p>Since <code>data</code> is <code>unknown</code>, TypeScript does not allow direct operations without checking its type first.</p>
+<h3 id="heading-type-never"><strong>Type Never</strong></h3>
+<p>The <code>never</code> type represents values that never occur. It is often used for functions that never return or always throw an error.</p>
+<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">throwError</span>(<span class="hljs-params">message: <span class="hljs-built_in">string</span></span>): <span class="hljs-title">never</span> </span>{
+  <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(message);
+}
+
+<span class="hljs-comment">// throwError("Something went wrong!"); // This function never returns</span>
+</code></pre>
+<p>Here, <code>throwError</code> does not return anything because it always throws an error.</p>
+<h4 id="heading-example-of-type-never-in-a-switch-case"><strong>Example of Type Never in a Switch Case:</strong></h4>
+<pre><code class="lang-typescript"><span class="hljs-keyword">type</span> Status = <span class="hljs-string">"success"</span> | <span class="hljs-string">"failure"</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">checkStatus</span>(<span class="hljs-params">status: Status</span>): <span class="hljs-title">void</span> </span>{
+  <span class="hljs-keyword">switch</span> (status) {
+    <span class="hljs-keyword">case</span> <span class="hljs-string">"success"</span>:
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Operation was successful."</span>);
+      <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> <span class="hljs-string">"failure"</span>:
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Operation failed."</span>);
+      <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">default</span>:
+      <span class="hljs-keyword">const</span> unexpected: <span class="hljs-built_in">never</span> = status; <span class="hljs-comment">// Ensures all cases are handled</span>
+  }
+}
+</code></pre>
+<p>This ensures that all possible values of <code>Status</code> are handled, preventing unexpected behavior.</p>
+<p>Here’s a quick comparison of these different approaches:</p>
+<div class="hn-table">
+<table>
+<thead>
+<tr>
+<td><strong>Feature</strong></td><td><strong>Description</strong></td></tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Type Assertion</strong></td><td>Tells TypeScript to treat a value as a specific type.</td></tr>
+<tr>
+<td><strong>Unknown Type</strong></td><td>Allows storing any value but requires type checking before use.</td></tr>
+<tr>
+<td><strong>Never Type</strong></td><td>Represents values that never occur, used for functions that never return.</td></tr>
+</tbody>
+</table>
+</div><h2 id="heading-generics-in-typescript">Generics in TypeScript</h2>
+<p>Generics allow writing flexible, reusable, and type-safe code. Instead of specifying a fixed type, generics let a function, class, or interface work with multiple types while maintaining type safety.</p>
+<h3 id="heading-basic-generics"><strong>Basic Generics</strong></h3>
+<p>A generic function works with any type while keeping type safety.</p>
+<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">identity</span>&lt;<span class="hljs-title">T</span>&gt;(<span class="hljs-params">value: T</span>): <span class="hljs-title">T</span> </span>{
+  <span class="hljs-keyword">return</span> value;
+}
+
+<span class="hljs-built_in">console</span>.log(identity&lt;<span class="hljs-built_in">string</span>&gt;(<span class="hljs-string">"Hello"</span>)); <span class="hljs-comment">// Output: "Hello"</span>
+<span class="hljs-built_in">console</span>.log(identity&lt;<span class="hljs-built_in">number</span>&gt;(<span class="hljs-number">42</span>));      <span class="hljs-comment">// Output: 42</span>
+</code></pre>
+<p>Here, <code>&lt;T&gt;</code> is a <strong>generic type parameter</strong>, allowing <code>identity</code> to work with any type.</p>
+<h3 id="heading-generics-with-arrays"><strong>Generics with Arrays</strong></h3>
+<p>Generics help enforce type safety in arrays.</p>
+<p>Here’s an example of reversing an array with generics:</p>
+<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">reverseArray</span>&lt;<span class="hljs-title">T</span>&gt;(<span class="hljs-params">arr: T[]</span>): <span class="hljs-title">T</span>[] </span>{
+  <span class="hljs-keyword">return</span> arr.reverse();
+}
+
+<span class="hljs-built_in">console</span>.log(reverseArray&lt;<span class="hljs-built_in">number</span>&gt;([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]));  <span class="hljs-comment">// Output: [3, 2, 1]</span>
+<span class="hljs-built_in">console</span>.log(reverseArray&lt;<span class="hljs-built_in">string</span>&gt;([<span class="hljs-string">"A"</span>, <span class="hljs-string">"B"</span>, <span class="hljs-string">"C"</span>])); <span class="hljs-comment">// Output: ["C", "B", "A"]</span>
+</code></pre>
+<p>This ensures that the function always returns the same type of array it receives.</p>
+<h3 id="heading-generics-with-interfaces"><strong>Generics with Interfaces</strong></h3>
+<p>Generics can be used in interfaces to define flexible object structures.</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">interface</span> StorageBox&lt;T&gt; {
+  content: T;
+}
+
+<span class="hljs-keyword">let</span> numberBox: StorageBox&lt;<span class="hljs-built_in">number</span>&gt; = { content: <span class="hljs-number">100</span> };
+<span class="hljs-keyword">let</span> stringBox: StorageBox&lt;<span class="hljs-built_in">string</span>&gt; = { content: <span class="hljs-string">"TypeScript"</span> };
+
+<span class="hljs-built_in">console</span>.log(numberBox.content); <span class="hljs-comment">// Output: 100</span>
+<span class="hljs-built_in">console</span>.log(stringBox.content); <span class="hljs-comment">// Output: "TypeScript"</span>
+</code></pre>
+<p>Here, <code>StorageBox&lt;T&gt;</code> allows storing different types while ensuring consistency.</p>
+<h3 id="heading-generics-with-classes"><strong>Generics with Classes</strong></h3>
+<p>Generics also work in classes, making them more reusable.</p>
+<p>Here’s an example of a generic queue class:</p>
+<pre><code class="lang-typescript">lass Queue&lt;T&gt; {
+  <span class="hljs-keyword">private</span> items: T[] = [];
+
+  enqueue(item: T): <span class="hljs-built_in">void</span> {
+    <span class="hljs-built_in">this</span>.items.push(item);
+  }
+
+  dequeue(): T | <span class="hljs-literal">undefined</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.items.shift();
+  }
+}
+
+<span class="hljs-keyword">let</span> numberQueue = <span class="hljs-keyword">new</span> Queue&lt;<span class="hljs-built_in">number</span>&gt;();
+numberQueue.enqueue(<span class="hljs-number">10</span>);
+numberQueue.enqueue(<span class="hljs-number">20</span>);
+<span class="hljs-built_in">console</span>.log(numberQueue.dequeue()); <span class="hljs-comment">// Output: 10</span>
+
+<span class="hljs-keyword">let</span> stringQueue = <span class="hljs-keyword">new</span> Queue&lt;<span class="hljs-built_in">string</span>&gt;();
+stringQueue.enqueue(<span class="hljs-string">"Hello"</span>);
+stringQueue.enqueue(<span class="hljs-string">"World"</span>);
+<span class="hljs-built_in">console</span>.log(stringQueue.dequeue()); <span class="hljs-comment">// Output: "Hello"</span>
+</code></pre>
+<p>This class works with any type while maintaining type safety.</p>
+<h3 id="heading-generics-with-multiple-type-parameters"><strong>Generics with Multiple Type Parameters</strong></h3>
+<p>A function or class can accept more than one generic type.</p>
+<p>Here’s an example of a function that swaps two values:</p>
+<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">swap</span>&lt;<span class="hljs-title">T</span>, <span class="hljs-title">U</span>&gt;(<span class="hljs-params">first: T, second: U</span>): [<span class="hljs-title">U</span>, <span class="hljs-title">T</span>] </span>{
+  <span class="hljs-keyword">return</span> [second, first];
+}
+
+<span class="hljs-built_in">console</span>.log(swap&lt;<span class="hljs-built_in">string</span>, <span class="hljs-built_in">number</span>&gt;(<span class="hljs-string">"Age"</span>, <span class="hljs-number">25</span>)); <span class="hljs-comment">// Output: [25, "Age"]</span>
+<span class="hljs-built_in">console</span>.log(swap&lt;<span class="hljs-built_in">boolean</span>, <span class="hljs-built_in">string</span>&gt;(<span class="hljs-literal">true</span>, <span class="hljs-string">"Yes"</span>)); <span class="hljs-comment">// Output: ["Yes", true]</span>
+</code></pre>
+<p>Here, <code>&lt;T, U&gt;</code> allows the function to work with different types at the same time.</p>
+<h3 id="heading-generics-with-constraints"><strong>Generics with Constraints</strong></h3>
+<p>Sometimes, a generic type should follow certain rules. <strong>Constraints</strong> ensure that a type has specific properties.</p>
+<p>Here’s an example of ensuring that a type has a <code>length</code> property:</p>
+<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getLength</span>&lt;<span class="hljs-title">T</span> <span class="hljs-title">extends</span> </span>{ length: <span class="hljs-built_in">number</span> }&gt;(item: T): <span class="hljs-built_in">number</span> {
+  <span class="hljs-keyword">return</span> item.length;
+}
+
+<span class="hljs-built_in">console</span>.log(getLength(<span class="hljs-string">"Hello"</span>));   <span class="hljs-comment">// Output: 5</span>
+<span class="hljs-built_in">console</span>.log(getLength([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])); <span class="hljs-comment">// Output: 3</span>
+</code></pre>
+<p>Here, <code>T extends { length: number }</code> ensures that <code>T</code> has a <code>length</code> property.</p>
+<h3 id="heading-advanced-generics-with-the-keyof-operator"><strong>Advanced: Generics with the</strong> <code>keyof</code> <strong>Operator</strong></h3>
+<p>The <code>keyof</code> operator can be used to ensure valid property names.</p>
+<p>Here’s an example of getting a property value by name:</p>
+<pre><code class="lang-typescript">typescriptCopyEditfunction getProperty&lt;T, K <span class="hljs-keyword">extends</span> keyof T&gt;(obj: T, key: K): T[K] {
+  <span class="hljs-keyword">return</span> obj[key];
+}
+
+<span class="hljs-keyword">let</span> user = { name: <span class="hljs-string">"Alice"</span>, age: <span class="hljs-number">30</span> };
+
+<span class="hljs-built_in">console</span>.log(getProperty(user, <span class="hljs-string">"name"</span>)); <span class="hljs-comment">// Output: "Alice"</span>
+<span class="hljs-built_in">console</span>.log(getProperty(user, <span class="hljs-string">"age"</span>));  <span class="hljs-comment">// Output: 30</span>
+</code></pre>
+<p>Here, <code>K extends keyof T</code> ensures that <code>key</code> is a valid property of <code>T</code>.</p>
+<h2 id="heading-conclusion">Conclusion</h2>
+<p>In this handbook, you got an in-depth overview of how you can use TypeScript basics in React. We discussed important concepts like type annotations, type inference, and managing objects and arrays, showing how TypeScript improves code stability and maintenance.</p>
+<p>We also covered some advanced topics such as union and any types, readonly properties, and the use of generics, type aliases, and interfaces. I hope the examples helped you understand how TypeScript can enhance your JavaScript development, making TS a valuable tool for building robust, large-scale applications.</p>
+
+
+                        </section>
+                        
+                            <div class="sidebar">
+                                
+                                    
+                                    <script>var localizedAdText = "ADVERTISEMENT";</script>
+                                
+                            </div>
+                        
+                    </div>
+                    <hr>
+                    
+                        <div class="post-full-author-header" data-test-label="author-header-with-bio">
+                            
+                                
+    
+    
+    
+
+    <section class="author-card" data-test-label="author-card">
+        
+            
+    <img srcset="https://cdn.hashnode.com/res/hashnode/image/upload/v1727463386839/6ab61fcc-7aa2-43eb-929f-70ef79536447.jpeg?w=500&h=500&fit=crop&crop=entropy&auto=compress,format&format=webp 60w" sizes="60px" src="https://cdn.hashnode.com/res/hashnode/image/upload/v1727463386839/6ab61fcc-7aa2-43eb-929f-70ef79536447.jpeg?w=500&h=500&fit=crop&crop=entropy&auto=compress,format&format=webp" class="author-profile-image" alt="oghenekparobo Stephen" width="1828" height="2560" onerror="this.style.display='none'" loading="lazy" data-test-label="profile-image">
+  
+        
+
+        <section class="author-card-content ">
+            <span class="author-card-name">
+                <a href="/news/author/Xtephen/" data-test-label="profile-link">
+                    
+                        oghenekparobo Stephen
+                    
+                </a>
+            </span>
+            
+                
+                    <p data-test-label="author-bio">Software developer
+</p>
+                
+            
+        </section>
+    </section>
+
+                            
+                        </div>
+                        <hr>
+                    
+
+                    
+                    
+                        
+    
+
+
+<p data-test-label="social-row-cta" class="social-row">
+    If you read this far, thank the author to show them you care. <button id="tweet-btn" class="cta-button" data-test-label="tweet-button">Say Thanks</button>
+</p>
+
+
+    
+    <script>document.addEventListener("DOMContentLoaded",()=>{const t=document.getElementById("tweet-btn"),e=window.location,n="Learn%20TypeScript%20%E2%80%93%20A%20Handbook%20for%20Developers".replace(/&#39;/g,"%27"),o="",r="@stephenjyd",i=Boolean("");let s;if(i&&(o||r)){const t={originalPostAuthor:"",currentPostAuthor:"oghenekparobo Stephen"};s=encodeURIComponent(`Thank you ${o||t.originalPostAuthor} for writing this helpful article, and ${r||t.currentPostAuthor} for translating it.`)}else!i&&r&&(s=encodeURIComponent(`Thank you ${r} for writing this helpful article.`));const a=`window.open(\n    '${s?`https://x.com/intent/post?text=${s}%0A%0A${n}%0A%0A${e}`:`https://x.com/intent/post?text=${n}%0A%0A${e}`}',\n    'share-twitter',\n    'width=550, height=235'\n  ); return false;`;t.setAttribute("onclick",a)});</script>
+
+
+                        
+
+<div class="learn-cta-row" data-test-label="learn-cta-row">
+    <p>
+        Learn to code for free. freeCodeCamp's open source curriculum has helped more than 40,000 people get jobs as developers. <a href="https://www.freecodecamp.org/learn/" class="cta-button" id="learn-to-code-cta" rel="noopener noreferrer" target="_blank">Get started</a>
+    </p>
+</div>
+
+                    
+                </section>
+                
+                    <div class="banner-ad-bottom">
+                        
+                            
+
+<div class="ad-text" data-test-label="ad-text">ADVERTISEMENT</div>
+<div style="display: block; height: auto" id="gam-ad-bottom">
+</div>
+
+                        
+                    </div>
+                
+            </article>
+        </div>
+    </main>
+
+
+            
+
+
+<footer class="site-footer">
+    <div class="footer-top">
+        <div class="footer-desc-col">
+            <p data-test-label="tax-exempt-status">freeCodeCamp is a donor-supported tax-exempt 501(c)(3) charity organization (United States Federal Tax Identification Number: 82-0779546)</p>
+            <p data-test-label="mission-statement">Our mission: to help people learn to code for free. We accomplish this by creating thousands of videos, articles, and interactive coding lessons - all freely available to the public.</p>
+            <p data-test-label="donation-initiatives">Donations to freeCodeCamp go toward our education initiatives, and help pay for servers, services, and staff.</p>
+            <p class="footer-donation" data-test-label="donate-text">
+                You can <a href="https://www.freecodecamp.org/donate/" class="inline" rel="noopener noreferrer" target="_blank">make a tax-deductible donation here</a>.
+            </p>
+        </div>
+        <div class="trending-guides" data-test-label="trending-guides">
+            <h2 id="trending-guides" class="col-header">Trending Books and Handbooks</h2>
+            <ul class="trending-guides-articles" aria-labelledby="trending-guides">
+                <li>
+                    <a href="https://www.freecodecamp.org/news/build-consume-and-document-a-rest-api/" rel="noopener noreferrer" target="_blank">REST APIs
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/how-to-write-clean-code/" rel="noopener noreferrer" target="_blank">Clean Code
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/learn-typescript-with-react-handbook/" rel="noopener noreferrer" target="_blank">TypeScript
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/learn-javascript-for-beginners/" rel="noopener noreferrer" target="_blank">JavaScript
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/how-to-build-an-ai-chatbot-with-redis-python-and-gpt/" rel="noopener noreferrer" target="_blank">AI Chatbots
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/command-line-for-beginners/" rel="noopener noreferrer" target="_blank">Command Line
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/building-consuming-and-documenting-a-graphql-api/" rel="noopener noreferrer" target="_blank">GraphQL APIs
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/complete-guide-to-css-transform-functions-and-properties/" rel="noopener noreferrer" target="_blank">CSS Transforms
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/how-to-build-scalable-access-control-for-your-web-app/" rel="noopener noreferrer" target="_blank">Access Control
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/rest-api-design-best-practices-build-a-rest-api/" rel="noopener noreferrer" target="_blank">REST API Design
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/the-php-handbook/" rel="noopener noreferrer" target="_blank">PHP
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/the-java-handbook/" rel="noopener noreferrer" target="_blank">Java
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/learn-linux-for-beginners-book-basic-to-advanced/" rel="noopener noreferrer" target="_blank">Linux
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/react-for-beginners-handbook/" rel="noopener noreferrer" target="_blank">React
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/learn-continuous-integration-delivery-and-deployment/" rel="noopener noreferrer" target="_blank">CI/CD
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/the-docker-handbook/" rel="noopener noreferrer" target="_blank">Docker
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/learn-golang-handbook/" rel="noopener noreferrer" target="_blank">Golang
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/the-python-handbook/" rel="noopener noreferrer" target="_blank">Python
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/get-started-with-nodejs/" rel="noopener noreferrer" target="_blank">Node.js
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/build-crud-operations-with-dotnet-core-handbook/" rel="noopener noreferrer" target="_blank">Todo APIs
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/how-to-use-classes-in-javascript-handbook/" rel="noopener noreferrer" target="_blank">JavaScript Classes
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/front-end-javascript-development-react-angular-vue-compared/" rel="noopener noreferrer" target="_blank">Front-End Libraries
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/the-express-handbook/" rel="noopener noreferrer" target="_blank">Express and Node.js
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/python-code-examples-sample-script-coding-tutorial-for-beginners/" rel="noopener noreferrer" target="_blank">Python Code Examples
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/clustering-in-python-a-machine-learning-handbook/" rel="noopener noreferrer" target="_blank">Clustering in Python
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/an-introduction-to-software-architecture-patterns/" rel="noopener noreferrer" target="_blank">Software Architecture
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/what-is-programming-tutorial-for-beginners/" rel="noopener noreferrer" target="_blank">Programming Fundamentals
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/learn-to-code-book/" rel="noopener noreferrer" target="_blank">Coding Career Preparation
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/become-a-full-stack-developer-and-get-a-job/" rel="noopener noreferrer" target="_blank">Full-Stack Developer Guide
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/learn-python-for-javascript-developers-handbook/" rel="noopener noreferrer" target="_blank">Python for JavaScript Devs
+                    </a>
+                </li>
+            </ul>
+            <div class="spacer" style="padding: 15px 0;"></div>
+            <div>
+                <h2 id="mobile-app" class="col-header">
+                    Mobile App
+                </h2>
+                <div class="min-h-[1px] px-[15px] md:w-2/3 md:ml-[16.6%]">
+                    <ul aria-labelledby="mobile-app" class="mobile-app-container">
+                        <li>
+                            <a href="https://apps.apple.com/us/app/freecodecamp/id6446908151?itsct=apps_box_link&itscg=30200" rel="noopener noreferrer" target="_blank">
+                                <img src="https://cdn.freecodecamp.org/platform/universal/apple-store-badge.svg" lang="en" alt="Download on the App Store">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://play.google.com/store/apps/details?id=org.freecodecamp" rel="noopener noreferrer" target="_blank">
+                                <img src="https://cdn.freecodecamp.org/platform/universal/google-play-badge.svg" lang="en" alt="Get it on Google Play">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <h2 class="col-header" data-test-label="our-nonprofit">Our Charity</h2>
+        <div class="our-nonprofit">
+             
+                <span data-test-label="powered-by">
+                    Publication powered by Hashnode
+                </span>
+            
+            <a href="https://www.freecodecamp.org/news/about/" rel="noopener noreferrer" target="_blank" data-test-label="about">
+                About
+            </a>
+            <a href="https://www.linkedin.com/school/free-code-camp/people/" rel="noopener noreferrer" target="_blank" data-test-label="alumni">
+                Alumni Network
+            </a>
+            <a href="https://github.com/freeCodeCamp/" rel="noopener noreferrer" target="_blank" data-test-label="open-source">
+                Open Source
+            </a>
+            <a href="https://www.freecodecamp.org/news/shop/" rel="noopener noreferrer" target="_blank" data-test-label="shop">
+                Shop
+            </a>
+            <a href="https://www.freecodecamp.org/news/support/" rel="noopener noreferrer" target="_blank" data-test-label="support">
+                Support
+            </a>
+            <a href="https://www.freecodecamp.org/news/sponsors/" rel="noopener noreferrer" target="_blank" data-test-label="sponsors">
+                Sponsors
+            </a>
+            <a href="https://www.freecodecamp.org/news/academic-honesty-policy/" rel="noopener noreferrer" target="_blank" data-test-label="honesty">
+                Academic Honesty
+            </a>
+            <a href="https://www.freecodecamp.org/news/code-of-conduct/" rel="noopener noreferrer" target="_blank" data-test-label="coc">
+                Code of Conduct
+            </a>
+            <a href="https://www.freecodecamp.org/news/privacy-policy/" rel="noopener noreferrer" target="_blank" data-test-label="privacy">
+                Privacy Policy
+            </a>
+            <a href="https://www.freecodecamp.org/news/terms-of-service/" rel="noopener noreferrer" target="_blank" data-test-label="tos">
+                Terms of Service
+            </a>
+            <a href="https://www.freecodecamp.org/news/copyright-policy/" rel="noopener noreferrer" target="_blank" data-test-label="copyright">
+                Copyright Policy
+            </a>
+        </div>
+    </div>
+</footer>
+
+        </div>
+
+        
+        
+        
+
+        
+        
+    </body>
+</html>

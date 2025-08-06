@@ -1,0 +1,6 @@
+
+.theme-light .callout, .theme-dark .callout { box-shadow: 8px 8px 0 0 rgb(var(--callout-color)); border-radius: var(--radius-sm); }
+.callout[data-callout="tip"] { --callout-color: 100,150,250; --callout-icon: lucide-lightbulb; }
+.callout[data-callout="warning"] { --callout-color: 250,100,100; --callout-icon: lucide-alert-circle; }
+.code-block { border-radius: 6px; padding: 8px; }
+table { border: 1px solid var(--background-modifier-border); border-radius: 4px; }
